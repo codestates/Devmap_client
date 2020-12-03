@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
+import todos from './todos/index';
 //여러 개의 리듀서 를 만들 수 있으므로 루트 리듀서를 만들어준다.
 
 const rootReducer = combineReducers({
-    counter
+    counter,
+    todos
 });
 
 export default rootReducer;
