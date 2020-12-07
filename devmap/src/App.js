@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import EccessToLogin from './components/devmap/EccessToLogin';
-import EccessToSignUp from './components/devmap/EccessToSignUp';
-import MyPage from './components/devmap/MyPage';
-
+// import EccessToLogin from './components/devmap/EccessToLogin';
+// import EccessToSignUp from './components/devmap/EccessToSignUp';
+// import MyPage from './components/devmap/MyPage';
+import Top from './components/Top';
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -67,7 +67,11 @@ export default function App() {
 
   return (
     <div>
-      <Route
+     
+      <header>
+        <Top></Top>
+      </header>
+      {/* <Route
         exact path="/"
         render={() => {
           <Redirect to='/main' />
@@ -105,7 +109,7 @@ export default function App() {
             />
           }}
         />
-      </Switch>
+      </Switch> */}
     </div>
   );
 }

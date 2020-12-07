@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
-
+import Button from './Button'
 import Login from './Login';
+
+/* <button
+                className="login-modal-open-close"
+                onClick={handleLoginModal}
+            >Login
+            </button> */
+
 
 function EccessToLogin({ handleLoginStatus, onEmailHandler, onPasswordHandler }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,12 +18,8 @@ function EccessToLogin({ handleLoginStatus, onEmailHandler, onPasswordHandler })
     };
 
     return (
-        <div className="login-modal">
-            <button
-                className="login-modal-open-close"
-                onClick={handleLoginModal}
-            >Login
-            </button>
+        <div className="login-modal">            
+            <Button onClick={handleLoginModal}>login</Button>  
                 {isOpen && (
                     <dialog
                         className="dialog"
