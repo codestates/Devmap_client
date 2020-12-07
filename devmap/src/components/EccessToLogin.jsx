@@ -19,7 +19,7 @@ function EccessToLogin({ handleLoginStatus, onEmailHandler, onPasswordHandler })
 
     return (
         <div className="login-modal">            
-            <Button onClick={handleLoginModal}>login</Button>  
+            <Button onClick={handleLoginModal}>sign in</Button>  
                 {isOpen && (
                     <dialog
                         className="dialog"

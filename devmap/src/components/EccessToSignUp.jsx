@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
+import Button from './Button';
 
 import SignUp from './SignUp';
 
@@ -9,14 +10,10 @@ function EccessToSignUp({ onEmailHandler, onPasswordHandler, onConfirmPasswordHa
     const handleSignUpModal = () => {
         setIsOpen(!isOpen)
     };
-
+//
     return (
         <div className="signup-modal">
-            <button
-                className="signup-modal-open-close"
-                onClick={handleSignUpModal}
-            >Sign Up
-            </button>
+            <Button onClick={handleSignUpModal}>sign up</Button>  
                 {isOpen && (
                     <dialog
                         className="dialog"
