@@ -1,22 +1,26 @@
-import logo from './logo.svg';
-//import './App.css';
 import React, { useState , useEffect} from 'react';
+import { Link, Switch, Route, Redirect } from "react-router-dom";
 import axios from 'axios';
-import { Switch, Route, Redirect } from "react-router-dom";
 import styled from 'styled-components';
+
+//import './App.css';
 import Top from './pages/Top'
-const Circle = styled.div`
-  width: 5rem;
-  height: 5rem;
-  background: black;
-  border-radius: 50%;
-`;
 
 function App() {
+  const [isSignnedIn, setIsSignnedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+
+  componentDidMount(); // 로그인 여부 판단하여 첫 렌더 화면 결정
+
+  handleResponseSuccess = async () => { // 로그인 여부 판단
+
+  }
+
   return (
     <div className="App">
-      <Circle />
-      <Top></Top>
+      <header>
+        <Top isSignnedIn={isSignnedIn} userInfo={userInfo} handleResponseSuccess={handleResponseSuccess}></Top>
+      </header>
     </div>
   );
 }
