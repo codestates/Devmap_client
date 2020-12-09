@@ -14,7 +14,7 @@ function App() {
 
   handleResponseSuccess = async () => { // 로그인 여부 판단
 
-  }
+  };
 
   return (
     <div className="App">
