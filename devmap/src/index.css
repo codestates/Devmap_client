@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* @font-face {
+  font-family: 'Typo_SsangmunDongB';
+  font-style: normal;
+  font-weight: 100;
+  src: url("../../devmap/src/fonts/Typo_SsangmunDongB.ttf") format('truetype')
+} */
