@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import mainImage from '../png/main-image.png';
+import mainImage from '../img/main-image.png';
 
 function Main() {
     const Main_style = styled.div`
