@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { Link, Switch, Route, Redirect } from "react-router-dom";
 import axios from 'axios';
 import styled from 'styled-components';
-
+import Main from './pages/Main';
 import './App.css';
 import Top from './pages/Top'
 
@@ -21,6 +21,7 @@ function App() {
       <header>
         <Top isSignnedIn={isSignnedIn} userInfo={userInfo}></Top>
       </header>
+      <Main></Main>
     </div>
   );
 }
