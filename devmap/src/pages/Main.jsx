@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import mainImage from '../img/main-image.png';
-
+import { darken, lighten } from 'polished';
 function Main() {
     const Main_style = styled.div`
         width: 97%;
@@ -51,6 +51,16 @@ function Main() {
         color: #FED0D3;
         font-size: 25px;
         font-family: Jua;
+
+        &:hover {
+            background: ${lighten(0.004, '#fff4f4')};
+            box-shadow:  0 5px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0008, '#fff4f4')};
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
     `;
 
   return (
