@@ -1,7 +1,9 @@
 import React, { useState , useEffect} from 'react';
 import styled from 'styled-components';
 
-function SignModal({ onEmailHandler, onPasswordHandler }) {
+import SignUp from './SignUp';
+
+export default function SignUpModal({ onEmailHandler, onPasswordHandler }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => {
