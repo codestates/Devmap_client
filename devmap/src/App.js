@@ -21,24 +21,24 @@ function App({ isSignnedIn, onEmailHandler, onPasswordHandler }) {
 
   // componentDidMount(); // 로그인 여부 판단하여 header의 첫 렌더 화면 결정
 
-  const onEmailHandler = (e) => {
-    setEmail(e.target.value);
-  };
-  const onPasswordHandler = (e) => {
-    setPassword(e.target.value);
-  };
+  // const onEmailHandler = (e) => {
+  //   setEmail(e.target.value);
+  // };
+  // const onPasswordHandler = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
-  const Body_style = styled.body`
-    position: relative;
-    top: 140px;
-  `;
+  // const Body_style = styled.body`
+  //   position: relative;
+  //   top: 140px;
+  // `;
 
   return (
     <div className="App">
       <header>
         <Top isSignnedIn={isSignnedIn} />
       </header>
-      <Body_style>
+      {/* <Body_style>
         <Route
           exact path="/"
           render={() => {
@@ -82,11 +82,12 @@ function App({ isSignnedIn, onEmailHandler, onPasswordHandler }) {
               <RoadMapBack />
             }}
           />
-          {/* map은 한 곳에서 경우에 따라 렌더? */}
         </Switch>
-      </Body_style>
+      </Body_style> */}
     </div>
   );
 }
+
+// map은 한 곳에서 경우에 따라 렌더?
 
 export default App;
