@@ -6,10 +6,9 @@ import mainImage from '../img/main-image.png';
 function Main() {
     const Main_style = styled.div`
         width: 97%;
-        height: 85%;
         background-color: #EEFFFE;
         border: 5px solid;
-        border-radius: 3%;
+        border-radius: 15px;
         border-color: #A3DFEA;
         text-align: center;
         margin: 0 auto;
@@ -47,7 +46,7 @@ function Main() {
         height: 160px;
         background-color: #FFF4F4;
         border: 2px solid;
-        border-radius: 10%;
+        border-radius: 10px;
         border-color: #FED0D3;
         color: #FED0D3;
         font-size: 25px;

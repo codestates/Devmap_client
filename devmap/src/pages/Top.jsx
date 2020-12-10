@@ -1,69 +1,91 @@
-
-
 import React, { useState , useEffect} from 'react';
 import { Link, Switch, Route, Redirect } from "react-router-dom";
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-import Logo from '../img/devmap_logo.png';
-
+import logo from '../img/devmap_logo.png';
 
 const TopBox = styled.div`
-  border: 1px solid #fed0d3;
-  border-radius: 4px;
-  
-  cursor: pointer;
-  padding-left: 3rem;
-  padding-right: 1rem;
-  margin-left: 1rem;
-  width: 93%;
-  position: relative;
-  top: 20px;
-
-  background: #fff4f4;
-    
-  .b {
-      float: right;
-      margin: 5px;
-      
-  }
-  .wrraper {
-    list-style:none;
-    
-    float: rigth;
-    display: inline-block;
-
-  }
-`;
-//box-shadow:  inset 0 9px #dedede;
-const Button = styled.button`
-    display: inline-block;
-    padding: 1px 25px;
-    font-size:  24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #a3dfea;
+    width: 97%;
+    top: 18px;
     background-color: #fff4f4;
-    border: 1px solid #fed0d3;
+    border: 5px solid;
     border-radius: 15px;
-    box-shadow:  0 9px #dedede;
-    font-family: Jua;
-    
-    
-    top: -5px;
-    left: 140px;
+    border-color: #fed0d3;
     position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+`;
 
+const Img = styled.img`
+    width: 10%;
+    vertical-aline: middle;
+    margin-left: 30px;
+    padding: 10px;
+`;
+
+const Input = styled.input`
+    top: -25px;
+    left: 45px;
+    width: 38%;
+    height: 40px;
+    background-color: #eefffe;
+    border: 2px solid;
+    border-radius : 10px; 
+    border-color: #a3dfea;
+    font-size:  24px;
+    font-family: Jua;
+    position: relative;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.03);
 
     &:hover {
-        background: ${lighten(0.009, '#fff4f4')};
-      }
-      &:active {
+        background: ${lighten(0, '#eefffe')};
+    }
+    &:active {
+        background: ${darken(0.0008, '#eefffe')};
+    }
+    ::placeholder,
+    ::-webkit-input-placeholder {
+        color: #78b8c4;
+        padding: 10px;
+    }  
+`;
+
+const Button_Ul_style = styled.ul`
+    display: inline-block;
+    list-style:none;
+    padding-left: 270px;
+`;
+
+const Button_Li_style = styled.li`
+    float: right;
+    margin: 5px;
+`;
+
+const Button = styled.button`
+    top: 12px;
+    width: 135px;
+    height: 50px;
+    background-color: #fff4f4;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #fed0d3;
+    font-size:  24px;
+    font-family: Jua;
+    text-align: center;
+    color: #78b8c4;
+    position: relative;
+    cursor: pointer;
+  
+    &:hover {
+        background: ${lighten(0.004, '#fff4f4')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
         background: ${darken(0.0008, '#fff4f4')};
-      }
-     
+    }
 `;
 
 /*
@@ -76,89 +98,53 @@ const Button = styled.button`
   }
 */
 
-const Img = styled.img`
-  vertical-aline: middle;
-  width: 15%;
-  padding: 13px;
-  
-`;
-const Input = styled.input`
-    margin-bottom: 10px;
-    border-radius : 5px; 
-    font-size:  24px;
-    font-family: Jua;
-    width: 32%;
-    height: 35%;
-    margin-left: 15%;
-    top: -25px;
-    left: 30px;
-    position: relative;
-    background-color: #eefffe;
-    border: 1px solid #a3dfea;
-    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
-    &:hover {
-        background: ${lighten(0, '#eefffe')};
-      }
-      &:active {
-        background: ${darken(0.0008, '#eefffe')};
-      }
-      ::placeholder,
-      ::-webkit-input-placeholder {
-        color: #a3dfea;
-      }  
-`;
-function Top ({ isSignnedIn, userInfo }) {
-// 로고
-// 검색
+function Top ({ isSignnedIn }) {
 
-// 로그인, 회원 가입
-// 마이 페이지, 로그아웃
-    
+// 로그아웃 함수 여기에 만들기
+
     if (isSignnedIn === false) {
         return (
             <TopBox>
                 <span>
-                    <a href="http://localhost:3000/">
-                    <Img src={Logo} >
-                    </Img>
+                    <a href="devmap.ml/">
+                        <Img src={logo} />
                     </a>
                 </span>
-                <span className="ser">
-                <Input placeholder="검색" placeholderTextColor = 'red' ></Input>
+                <span>
+                    <Input placeholder="검색" />
                 </span>
-                <ul className="wrraper">
-                    <li className="b">
-                    <Link to="/signup">
-                    <Button>로그인</Button>    
-                    </Link>
-                    </li>
-                    <li className="b">
-                    <Link>
-                    <Button>회원 가입</Button>
-                    </Link>
-                    </li>
-                </ul>
+                <Button_Ul_style>
+                    <Button_Li_style>
+                        <Link to="/signin">
+                            <Button className="button_1">로그인</Button>
+                            {/* onClick 모달 필요 */}
+                        </Link>
+                    </Button_Li_style>
+                    <Button_Li_style>
+                        <Link to="/signup">
+                            <Button className="button_2">회원 가입</Button>
+                            {/* onClick 모달 필요 */}
+                        </Link>
+                    </Button_Li_style>
+                </Button_Ul_style>
             </TopBox>
-                
-            
         );
     } else {
         return (
             <div>
                 <Link to="/mypage">
-                    <button>MyPage</button>
+                    <button>마이 페이지</button>
                 </Link>
                 <Route
                     path="/mypage"
                     render={() => {
-                        return
+                        // return <MyPage />
                     }}
                 />
-                <button></button>
+                {/* <button onClick={handleLogout}>로그아웃</button> */}
             </div>
         );
     }
 }
 
 export default Top;
-
