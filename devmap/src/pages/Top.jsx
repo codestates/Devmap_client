@@ -25,7 +25,7 @@ const Img = styled.img`
 `;
 
 const Input = styled.input`
-    top: -25px;
+    top: 25%;
     left: 45px;
     width: 38%;
     height: 40px;
@@ -45,6 +45,7 @@ const Input = styled.input`
     }
     &:active {
         background: ${darken(0.0008, '#eefffe')};
+    
     }
     ::placeholder,
     ::-webkit-input-placeholder {
@@ -56,7 +57,7 @@ const Input = styled.input`
 const Button_Ul_style = styled.ul`
     display: inline-block;
     list-style:none;
-    padding-left: 270px;
+    padding-left: 40%;
 `;
 
 const Button_Li_style = styled.li`
@@ -85,6 +86,8 @@ const Button = styled.button`
     }
     &:active {
         background: ${darken(0.0008, '#fff4f4')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
     }
 `;
 
