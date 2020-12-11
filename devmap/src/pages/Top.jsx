@@ -17,27 +17,30 @@ const TopBox = styled.div`
     cursor: pointer;
 `;
 
-const Img = styled.img`
-    width: 10%;
+const Img_input = styled.div`
     vertical-aline: middle;
+`;
+
+const Img = styled.img`
+    width: 12%;
+    margin-top: 2px;
     margin-left: 30px;
     padding: 10px;
+    float: left;
 `;
 
 const Input = styled.input`
-    top: 25%;
-    left: 45px;
     width: 38%;
-    height: 40px;
+    height: 60px;
     background-color: #eefffe;
     border: 2px solid;
     border-radius : 10px; 
     border-color: #a3dfea;
     font-size:  24px;
     font-family: Jua;
-    position: relative;
-    margin-left: 15%;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 15.8%;
+    margin-right: auto;
     box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.03);
 
     &:hover {
@@ -55,9 +58,12 @@ const Input = styled.input`
 `;
 
 const Button_Ul_style = styled.ul`
-    display: inline-block;
+    display: table;
     list-style:none;
-    padding-left: 40%;
+    padding-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -3px;
 `;
 
 const Button_Li_style = styled.li`
@@ -66,7 +72,7 @@ const Button_Li_style = styled.li`
 `;
 
 const Button = styled.button`
-    top: 12px;
+    top: -10px;
     width: 135px;
     height: 50px;
     background-color: #fff4f4;
@@ -108,14 +114,12 @@ function Top ({ isSignnedIn }) {
     if (isSignnedIn === false) {
         return (
             <TopBox>
-                <span>
+                <Img_input>
                     <a href="devmap.ml/">
                         <Img src={logo} />
                     </a>
-                </span>
-                <span>
                     <Input placeholder="검색" />
-                </span>
+                </Img_input>
                 <Button_Ul_style>
                     <Button_Li_style>
                         <Link to="/signin">

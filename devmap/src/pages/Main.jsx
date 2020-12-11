@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import mainImage from '../img/main-image.png';
 import { darken, lighten } from 'polished';
+
+import mainImage from '../img/main-image.png';
+
 function Main() {
     const Main_style = styled.div`
         width: 97%;
@@ -12,8 +14,8 @@ function Main() {
         border-color: #A3DFEA;
         text-align: center;
         margin: 0 auto;
-        padding-top: 80px;
-        padding-bottom: 30px;
+        padding-top: 70px;
+        padding-bottom: 10px;
     `;
 
     const Image_style = styled.img`
@@ -21,11 +23,12 @@ function Main() {
         max-width: 40%;
         max-height: 40%;
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 7px;
     `;
 
     const Text_style = styled.p`
         color: #A3DFEA;
+        margin-bottom: 10px;
         font-size: 30px;
         font-family: Gugi;
     `;
@@ -42,10 +45,10 @@ function Main() {
     `;
 
     const Button_style = styled.button`
-        width: 350px;
-        height: 160px;
+        width: 340px;
+        height: 140px;
         background-color: #FFF4F4;
-        border: 2px solid;
+        border: 3px solid;
         border-radius: 10px;
         border-color: #FED0D3;
         color: #FED0D3;
