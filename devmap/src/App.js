@@ -17,14 +17,21 @@ function App() {
 
   const handleResponseSuccess = async () => { // 로그인 성공
     await axios.get('').then((res) => {
+      let count = 0;
+      count ++;
+      if(count > 1){
         setIsSignnedIn({isSignIn: true, userInfo: res.data}); // userInfo 상태 생성하기?
+      }else{
+        return ;
+      }
+        
         console.log(isSignnedIn.userInfo);
     },);
   };
 
   useEffect(() => { // 로그인 성공시 header의 첫 렌더 화면으로 결정 //componentDidMount() // 상태 바뀔 때에만 작동하도록
     handleResponseSuccess();
-  }, [])
+  }, [isSignnedIn.isSignIn])
   //이걸 실행하면 무조건 상태가 로그인이 된다
 
   // 인증 과정, 토큰을 헤더에 담아 post 보내기 등
