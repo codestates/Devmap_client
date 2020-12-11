@@ -42,7 +42,7 @@ function App() {
 
   const Body_style = styled.body`
     position: relative;
-    top: 35px;
+    top: 30px;
   `;
 
   return (
@@ -52,7 +52,50 @@ function App() {
       </header>
       <Body_style>
         <Main />
-       
+       {/* <Route
+          exact path="/"
+          render={() => {
+            <Redirect to='/main'/>
+          }}
+        />
+        <Switch>
+          <Route
+            path="/main"
+            render={() => {
+              <Main />
+            }}
+          />
+          <Route
+            path="/signin"
+            render={() => {
+              // <SigninModal onEmailHandler={onEmailHandler} onPasswordHandler={onPasswordHandler} />
+            }}
+          />
+          <Route
+            path="/signup"
+            render={() => {
+              // <SignUpModal onEmailHandler={onEmailHandler} onPasswordHandler={onPasswordHandler} />
+            }}
+          />
+          <Route
+            path="/mypage"
+            render={() => {
+              <MyPage />
+            }}
+          />
+          <Route
+            path="/totalMap-front"
+            render={() => {
+              <RoadMapFront />
+            }}
+          />
+          <Route
+            path="/totalMap-back"
+            render={() => {
+              <RoadMapBack />
+            }}
+          />
+        </Switch> */}
       </Body_style>
     </All_style>
   );
