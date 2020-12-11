@@ -2,9 +2,7 @@ import React, { useState} from 'react';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-import SignInModal from './SignUpModal';
-
-export default function SignInModalButton({ isSignned, sign, openSignInModal }) {
+export default function SignInModalButton({ openSignInModal }) {
 const Button = styled.button`
     top: -10px;
     width: 135px;

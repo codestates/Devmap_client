@@ -6,31 +6,31 @@ import SignUp from './SignUp';
 axios.defaults.withCredentials = true;
 
 export default function SignUpModal({ openSignUpModal, isModalOpen }) {
-    const [info, setInfo] = useState({email: '', password: '', confirmPassword: '', nickname: '', check: false, errorMessage: ''})
-    const [signUpOK, setSignUpOk] = useState({message: '입력 내용을 다시 한번 확인해주세요!😭'})
+    const [signUpInfo, setSignUpInfo] = useState({email: '', password: '', confirmPassword: '', username: '', check: false, errorMessage: ''});
+    const [signUpOK, setSignUpOk] = useState({message: '입력 내용을 다시 한번 확인해주세요!😭'});
 
     const onSignUpEmailHandler = (e) => {
-        setInfo({email: e.target.value});
+        setSignUpInfo({email: e.target.value});
     };
     const onSignUpPasswordHandler = (e) => {
-        setInfo({password: e.target.value});
+        setSignUpInfo({password: e.target.value});
     };
     const onConfirmPasswordHandler = (e) => {
-        setInfo({confirmPassword: e.target.value });
-        if (info.confirmPassword === info.password ) {
-            setInfo({errorMessage: '확인되었습니다!🥳', check: true})
+        if (signUpInfo.confirmPassword === signUpInfo.password ) {
+            setSignUpInfo({errorMessage: '확인되었습니다!🥳', check: true});
+            setSignUpInfo({confirmPassword: e.target.value });
         } else {
-            setInfo({errorMessage: '다시 확인해주세요!😰', check: false})
+            setSignUpInfo({errorMessage: '다시 확인해주세요!😰', check: false});
         }
     };
-    const onNickNameHandler = (e) => {
-        setInfo({nickname: e.target.value});
+    const onUserNameHandler = (e) => {
+        setSignUpInfo({username: e.target.value});
     };
 
     const signUpOKHandler = () => {
-        if (info.check === true && info.password.length > 4 && info.nickname.length > 1) {
-            const res = axios.post('', 
-                info
+        if (signUpInfo.check === true && signUpInfo.password.length > 4 && signUpInfo.username.length > 1) {
+            const res = axios.post('52.78.158.147:8000/signup', 
+                signUpInfo
             )
             .then((res) => {
                 if (res.status === 200) {
@@ -39,13 +39,13 @@ export default function SignUpModal({ openSignUpModal, isModalOpen }) {
                 }
             })
         } else {
-            alert(`${signUpOK.message}`)
+            // alert(`${signUpOK.message}`)
         }
     };
 
     return (
         isModalOpen.signup === true ? 
-        <SignUp onSignUpEmailHandler={onSignUpEmailHandler} onSignUpPasswordHandler={onSignUpPasswordHandler} onConfirmPasswordHandler={onConfirmPasswordHandler} onNickNameHandler={onNickNameHandler} signUpOKHandler={signUpOKHandler} errorMessage={info.errorMessage} />
+        <SignUp onSignUpEmailHandler={onSignUpEmailHandler} onSignUpPasswordHandler={onSignUpPasswordHandler} onConfirmPasswordHandler={onConfirmPasswordHandler} onUserNameHandler={onUserNameHandler} signUpOKHandler={signUpOKHandler} errorMessage={signUpInfo.errorMessage} />
         : ''
     )
 }

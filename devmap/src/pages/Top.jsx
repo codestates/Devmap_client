@@ -6,7 +6,7 @@ import { darken, lighten } from 'polished';
 import logo from '../img/devmap_logo.png';
 import SignInModalButton from '../component/SignInModalButton';
 import SignUpModalButton from '../component/SignUpModalButton';
-// import SignInModal from '../component/SigninModal';
+import SignInModal from '../component/SignInModal';
 import SignUpModal from '../component/SignUpModal';
 
 const TopBox = styled.div`
@@ -85,7 +85,7 @@ const Button_Li_style = styled.li`
   }
 */
 
-function Top ({ isSignnedIn }) {
+function Top ({ isSignnedIn, handleResponseSuccess }) {
 
 const [isModalOpen, setIsModalOpen] = useState({signin: false, signup: false});
 
@@ -101,7 +101,7 @@ const openSignUpModal = () => {
 
 // 로그아웃 함수 여기에 만들기
 
-    if (isSignnedIn === false) {
+    // if (isSignnedIn === false) {
         return (
             <div>
             <TopBox>
@@ -125,25 +125,27 @@ const openSignUpModal = () => {
                 </Button_Ul_style>
             </TopBox>
             <SignUpModal openSignUpModal={openSignUpModal} isModalOpen={isModalOpen} />
-            {/* <SignInModal openSignInModal={openSignInModal} isModalOpen={isModalOpen} /> */}
+            <SignInModal openSignInModal={openSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
             </div>
         );
-    } else {
-        return (
-            <div>
-                <Link to="/mypage">
-                    <button>마이 페이지</button>
-                </Link>
-                <Route
-                    path="/mypage"
-                    render={() => {
-                        // return <MyPage />
-                    }}
-                />
-                {/* <button onClick={handleLogout}>로그아웃</button> */}
-            </div>
-        );
-    }
+    // } else if (isSignnedIn === true) {
+    //     return (
+    //         <div>
+    //             <Link to="/mypage">
+    //                 <button>마이 페이지</button>
+    //             </Link>
+    //             <Route
+    //                 path="/mypage"
+    //                 render={() => {
+    //                     // return <MyPage />
+    //                 }}
+    //             />
+    //             {/* <button onClick={handleLogout}>로그아웃</button> */}
+    //         </div>
+    //     );
+    // } else {
+    //     alert('로그인 상태가 true도 false도 아니다....')
+    // }
 }
 
 export default Top;
