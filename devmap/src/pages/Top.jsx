@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
+import SignInModalButton from '../component/SignInModalButton';
+import SignUpModalButton from '../component/SignUpModalButton';
+// import SignInModal from '../component/SigninModal';
+import SignUpModal from '../component/SignUpModal';
 
 const TopBox = styled.div`
     width: 97%;
@@ -71,32 +75,6 @@ const Button_Li_style = styled.li`
     margin: 5px;
 `;
 
-const Button = styled.button`
-    top: -10px;
-    width: 135px;
-    height: 50px;
-    background-color: #fff4f4;
-    border: 3px solid;
-    border-radius: 10px;
-    border-color: #fed0d3;
-    font-size:  24px;
-    font-family: Jua;
-    text-align: center;
-    color: #78b8c4;
-    position: relative;
-    cursor: pointer;
-  
-    &:hover {
-        background: ${lighten(0.004, '#fff4f4')};
-        box-shadow:  0 5px #dedede;
-    }
-    &:active {
-        background: ${darken(0.0008, '#fff4f4')};
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-`;
-
 /*
   polished 사용 하여 색변화 주기
    &:hover {
@@ -109,10 +87,23 @@ const Button = styled.button`
 
 function Top ({ isSignnedIn }) {
 
+const [isModalOpen, setIsModalOpen] = useState({signin: false, signup: false});
+
+const openSignInModal = () => {
+    setIsModalOpen({signin: !isModalOpen.signin, signup: false})
+    console.log(isModalOpen)
+};
+
+const openSignUpModal = () => {
+    setIsModalOpen({signup : !isModalOpen.signup, signin: false})
+    console.log(isModalOpen)
+};
+
 // 로그아웃 함수 여기에 만들기
 
     if (isSignnedIn === false) {
         return (
+            <div>
             <TopBox>
                 <Img_input>
                     <a href="devmap.ml/">
@@ -123,18 +114,19 @@ function Top ({ isSignnedIn }) {
                 <Button_Ul_style>
                     <Button_Li_style>
                         <Link to="/signin">
-                            <Button className="button_1">로그인</Button>
-                            {/* onClick 모달 필요 */}
+                            <SignInModalButton isSignnedIn={isSignnedIn} openSignInModal={openSignInModal} isModalOpen={isModalOpen.signin}/>
                         </Link>
                     </Button_Li_style>
                     <Button_Li_style>
                         <Link to="/signup">
-                            <Button className="button_2">회원 가입</Button>
-                            {/* onClick 모달 필요 */}
+                            <SignUpModalButton isSignnedIn={isSignnedIn} openSignUpModal={openSignUpModal} isModalOpen={isModalOpen.signup}/>
                         </Link>
                     </Button_Li_style>
                 </Button_Ul_style>
             </TopBox>
+            <SignUpModal openSignUpModal={openSignUpModal} isModalOpen={isModalOpen} />
+            {/* <SignInModal openSignInModal={openSignInModal} isModalOpen={isModalOpen} /> */}
+            </div>
         );
     } else {
         return (

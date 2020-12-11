@@ -14,19 +14,12 @@ import RoadMapBack from './pages/RoadMapBack';
 
 function App() {
   const [isSignnedIn, setIsSignnedIn] = useState(false);
-  
+
   // handleResponseSuccess = async () => { // 로그인 여부 판단
     
   // }
 
   // componentDidMount(); // 로그인 여부 판단하여 header의 첫 렌더 화면 결정
-
-  // const onEmailHandler = (e) => {
-  //   setEmail(e.target.value);
-  // };
-  // const onPasswordHandler = (e) => {
-  //   setPassword(e.target.value);
-  // };
 
   const All_style = styled.div`
   ::-webkit-scrollbar {
@@ -63,18 +56,6 @@ function App() {
             path="/main"
             render={() => {
               <Main />
-            }}
-          />
-          <Route
-            path="/signin"
-            render={() => {
-              // <SigninModal onEmailHandler={onEmailHandler} onPasswordHandler={onPasswordHandler} />
-            }}
-          />
-          <Route
-            path="/signup"
-            render={() => {
-              // <SignUpModal onEmailHandler={onEmailHandler} onPasswordHandler={onPasswordHandler} />
             }}
           />
           <Route
