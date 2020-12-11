@@ -22,9 +22,9 @@ function App() {
     });
   };
 
-  // useEffect(() => { // 로그인 성공시 header의 첫 렌더 화면으로 결정 //componentDidMount() // 상태 바뀔 때에만 작동하도록
-  //   handleResponseSuccess();
-  // }, [])
+  useEffect(() => { // 로그인 성공시 header의 첫 렌더 화면으로 결정 //componentDidMount() // 상태 바뀔 때에만 작동하도록
+    handleResponseSuccess();
+  }, [])
   // 이걸 실행하면 무조건 상태가 로그인이 된다
 
   // 인증 과정, 토큰을 헤더에 담아 post 보내기 등
