@@ -1,39 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-export default function SignUp({ onSignUpEmailHandler, onSignUpPasswordHandler, onConfirmPasswordHandler, onNicknameHandler, signUpOKHandler, errorMessage }) {
+// clearForm 구현하기? 어차피 창 꺼지니까 상관없다..?
+
+export default function SignUp({ onSignUpEmailHandler, onSignUpPasswordHandler, onConfirmPasswordHandler, onUserNameHandler, signUpOKHandler, errorMessage }) {
     return (
         <div> 
             <div className="signup">
                 <div className="signup-input-area">
-                    <p className="signup-email">email</p>
+                    <p className="signup-email">이메일</p>
                     <input 
                         className="signup-input-email" 
                         onChange={onSignUpEmailHandler} 
                         type="email"
-                        placeholder="email을 입력해 주세요"
+                        placeholder="이메일을 입력해 주세요"
                     />
-                    <p className="signup-password">password</p>
+                    <p className="signup-password">비밀번호</p>
                     <input
                         className="signup-input-password"
                         onChange={onSignUpPasswordHandler}
                         type="password"
-                        placeholder="password를 입력해 주세요"
+                        placeholder="비밀번호를 입력해 주세요"
                     />
-                    <p className="signup-confirm-password">confirm password</p>
+                    <p className="signup-confirm-password">비밀번호 재입력</p>
                     <input
                         className="signup-input-confirm-password"
                         onChange={onConfirmPasswordHandler}
                         type="password"
-                        placeholder="password를 다시 한번 입력해 주세요"
+                        placeholder="비밀번호를 다시 한번 입력해 주세요"
                     />
                     <div>{errorMessage}</div>
-                    <p className="signup-nickname">nickname</p>
+                    <p className="signup-nickname">닉네임</p>
                     <input
                         className="signup-input-nickname"
-                        onChange={onNicknameHandler}
+                        onChange={onUserNameHandler}
                         type="text"
-                        placeholder="nickname을 입력해 주세요"
+                        placeholder="닉네임을 입력해 주세요"
                     />
                 </div>
                 <div className="signup-button-area">
