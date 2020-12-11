@@ -101,7 +101,7 @@ const openSignUpModal = () => {
 
 // 로그아웃 함수 여기에 만들기
 
-    // if (isSignnedIn === false) {
+    if (isSignnedIn.isSignIn === false) {
         return (
             <div>
             <TopBox>
@@ -128,24 +128,24 @@ const openSignUpModal = () => {
             <SignInModal openSignInModal={openSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
             </div>
         );
-    // } else if (isSignnedIn === true) {
-    //     return (
-    //         <div>
-    //             <Link to="/mypage">
-    //                 <button>마이 페이지</button>
-    //             </Link>
-    //             <Route
-    //                 path="/mypage"
-    //                 render={() => {
-    //                     // return <MyPage />
-    //                 }}
-    //             />
-    //             {/* <button onClick={handleLogout}>로그아웃</button> */}
-    //         </div>
-    //     );
-    // } else {
-    //     alert('로그인 상태가 true도 false도 아니다....')
-    // }
+    } else if (isSignnedIn.isSignIn === true) {
+        return (
+            <div>
+                <Link to="/mypage">
+                    <button>마이 페이지</button>
+                </Link>
+                <Route
+                    path="/mypage"
+                    render={() => {
+                        // return <MyPage />
+                    }}
+                />
+                {/* <button onClick={handleLogout}>로그아웃</button> */}
+            </div>
+        );
+    } else {
+        alert('로그인 상태가 true도 false도 아니다....')
+    }
 }
 
 export default Top;
