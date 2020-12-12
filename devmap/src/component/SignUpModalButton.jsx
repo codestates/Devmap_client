@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-export default function SignUpModalButton({ openSignUpModal }) { 
-// 버튼이기 때문에 나머지 기능들은 필요 없다, 버튼만 만들어 리턴, props 전달해주어야 해서 따로 컴포넌트로 분리해 줌
 const Button = styled.button`
     top: -10px;
     width: 135px;
@@ -30,6 +28,9 @@ const Button = styled.button`
     }
 `;
 
+export default function SignUpModalButton({ openSignUpModal }) { 
+// 버튼이기 때문에 나머지 기능들은 필요 없다, 버튼만 만들어 리턴, props 전달해주어야 해서 따로 컴포넌트로 분리해 줌
+
     return (
         <Button onClick={openSignUpModal}>회원가입</Button>
     );
@@ -40,6 +41,4 @@ const Button = styled.button`
     // 최후의 수단
     // css에서 display: none 또는 block으로 창 자체를 보여주거나 안보여주는 방법
     // (여기서 스테이트 관리할 필요 없음)
-
-
 }

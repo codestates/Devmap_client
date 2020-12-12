@@ -2,7 +2,6 @@ import React, { useState} from 'react';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-export default function SignInModalButton({ openSignInModal }) {
 const Button = styled.button`
     top: -10px;
     width: 135px;
@@ -28,6 +27,8 @@ const Button = styled.button`
         transform: translateY(4px);
     }
 `;
+
+export default function SignInModalButton({ openSignInModal }) {
 
     return (
         <Button onClick={openSignInModal}>로그인</Button>

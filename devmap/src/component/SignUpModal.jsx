@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 
 import SignUp from './SignUp';
 axios.defaults.withCredentials = true;
 
-export default function SignUpModal({ openSignUpModal, isModalOpen }) {
+export default function SignUpModal({ openSignUpModal, closeSignUpModal, isModalOpen }) {
     const [signUpInfo, setSignUpInfo] = useState({email: '', password: '', confirmPassword: '', username: '', check: false, errorMessage: ''});
-    const [signUpOK, setSignUpOk] = useState({message: '입력 내용을 다시 한번 확인해주세요!😭'});
+    const [signUpOK, setSignUpOk] = useState({message: '잠시 후에 다시 시도해 주세요!😭'});
 
     const onSignUpEmailHandler = (e) => {
         setSignUpInfo({email: e.target.value});
@@ -29,23 +28,23 @@ export default function SignUpModal({ openSignUpModal, isModalOpen }) {
 
     const signUpOKHandler = () => {
         if (signUpInfo.check === true && signUpInfo.password.length > 4 && signUpInfo.username.length > 1) {
-            const res = axios.post('52.78.158.147:8000/signup', 
+            const res = axios.post('http://52.78.158.147:8000/signup', 
                 signUpInfo
             )
             .then((res) => {
-                if (res.status === 200) {
+                if (res.status === 200) { // 상태 추가?
                     openSignUpModal();
-                    window.location('devmap.ml')
+                    window.location('http://devmap.ml')
                 }
             })
         } else {
-            // alert(`${signUpOK.message}`)
+            alert(`${signUpOK.message}`)
         }
     };
 
     return (
         isModalOpen.signup === true ? 
-        <SignUp onSignUpEmailHandler={onSignUpEmailHandler} onSignUpPasswordHandler={onSignUpPasswordHandler} onConfirmPasswordHandler={onConfirmPasswordHandler} onUserNameHandler={onUserNameHandler} signUpOKHandler={signUpOKHandler} errorMessage={signUpInfo.errorMessage} />
+            <SignUp closeSignUpModal={closeSignUpModal} onSignUpEmailHandler={onSignUpEmailHandler} onSignUpPasswordHandler={onSignUpPasswordHandler} onConfirmPasswordHandler={onConfirmPasswordHandler} onUserNameHandler={onUserNameHandler} signUpOKHandler={signUpOKHandler} errorMessage={signUpInfo.errorMessage} />
         : ''
     )
 }
