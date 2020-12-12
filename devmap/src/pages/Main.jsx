@@ -70,7 +70,7 @@ function Main() {
     <Main_style>
         <Image_style src={mainImage} alt="oops!" />
         <Text_style>
-            개발 공부를 하기로 마음먹은 당신..<br/>
+            개발 공부를 하기로 마음먹은 당신..!!!<br/>
             무엇부터 공부해야 할지, 이 다음에는 무엇을 해야할 지 막막하시죠?<br/>
             Devmap에서 청사진을 미리 살펴보세요!
         </Text_style>

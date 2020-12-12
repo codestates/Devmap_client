@@ -75,6 +75,29 @@ const Button_Li_style = styled.li`
     margin: 5px;
 `;
 
+//밖을 클릭하기위해 모달 컨테이너
+const Modal_container = styled.div`
+background: rgba(0,0,0,.5);
+display: none;
+
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+
+`;
+
+//로그인 모달창 
+const ModalBox = styled.div`
+    display: block;
+    position: fixed;
+    width: 500px;
+    right: 35%;
+    top: 10%;
+    z-index: 1000;
+    
+`
 /*
   polished 사용 하여 색변화 주기
    &:hover {
@@ -93,6 +116,9 @@ const openSignInModal = () => {
     setIsModalOpen({signin: !isModalOpen.signin, signup: false})
     console.log(isModalOpen)
 };
+const closeSignInModal = () => {
+    setIsModalOpen({signin: false, signup: false});
+}
 
 const openSignUpModal = () => {
     setIsModalOpen({signup : !isModalOpen.signup, signin: false})
@@ -125,7 +151,13 @@ const openSignUpModal = () => {
                 </Button_Ul_style>
             </TopBox>
             <SignUpModal openSignUpModal={openSignUpModal} isModalOpen={isModalOpen} />
-            <SignInModal openSignInModal={openSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
+            
+            <ModalBox>
+                <SignInModal closeSignInModal={closeSignInModal} openSignInModal={openSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
+            </ModalBox>
+            
+            
+            
             </div>
         );
     } else if (isSignnedIn.isSignIn === true) {
