@@ -6,17 +6,14 @@ import { darken, lighten } from 'polished';
 const TextLine = styled.div`
     margin-top: 15%;
     margin-left: 8%;
-
 `;
 const TextLine0 = styled.div`
     margin-top: 3%;
     margin-left: 8%;
-
 `;
 const TextLine1 = styled.div`
     margin-top: 5%;
     margin-left: 38%;
-
 `;
 const TextLine2 = styled.div`
     margin-top: 5%;
@@ -27,7 +24,6 @@ const TextLine2 = styled.div`
 const TextLine3 = styled.div`
     margin-top: 7%;
     margin-left: 17%;
-
 `;
 const Labelemail = styled.label`
     color: #fed0d3;
@@ -35,7 +31,6 @@ const Labelemail = styled.label`
     font-family: Jua;
 
     margin-right: 10%;
-    
 `;
 const Labelpassword = styled.label`
     color: #fed0d3;
@@ -59,7 +54,6 @@ const Input = styled.input`
         padding: 10px;
     }  
 `;
-
  const SignButton = styled.button`
     top: -10px;
     width: 135px;
@@ -84,97 +78,97 @@ const Input = styled.input`
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
-    
-    
  `;
 
   const Oauth = styled.a`
-  top: -10px;
-  width: 135px;
-  height: 50px;
-  background-color: #fff4f4;
-  border: 3px solid;
-  border-radius: 10px;
-  border-color: #fed0d3;
-  font-size:  28px;
-  font-family: Jua;
-  text-align: center;
-  color: #fed0d3;
-  position: relative;
-  cursor: pointer;
-  padding-top: 10px;
-  padding-left: 74px;
-  padding-right: 52px;
-  padding-bottom: 10px;
-  &:hover {
-      background: ${lighten(0.004, '#fff4f4')};
-      box-shadow:  0 5px #dedede;
-  }
-  &:active {
-      background: ${darken(0.0008, '#fff4f4')};
-      box-shadow: 0 5px #666;
-      transform: translateY(4px);
-  }
-  `
+    top: -10px;
+    width: 135px;
+    height: 50px;
+    background-color: #fff4f4;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #fed0d3;
+    font-size:  28px;
+    font-family: Jua;
+    text-align: center;
+    color: #fed0d3;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-left: 74px;
+    padding-right: 52px;
+    padding-bottom: 10px;
+    &:hover {
+        background: ${lighten(0.004, '#fff4f4')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fff4f4')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+  `;
+
   const Oauth1 = styled.a`
-  top: -10px;
-  width: 135px;
-  height: 50px;
-  background-color: #fff4f4;
-  border: 3px solid;
-  border-radius: 10px;
-  border-color: #fed0d3;
-  font-size:  28px;
-  font-family: Jua;
-  text-align: center;
-  color: #fed0d3;
-  position: relative;
-  cursor: pointer;
-  padding-top: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 10px;
-  &:hover {
-      background: ${lighten(0.004, '#fff4f4')};
-      box-shadow:  0 5px #dedede;
-  }
-  &:active {
-      background: ${darken(0.0008, '#fff4f4')};
-      box-shadow: 0 5px #666;
-      transform: translateY(4px);
-  }
-  `
+    top: -10px;
+    width: 135px;
+    height: 50px;
+    background-color: #fff4f4;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #fed0d3;
+    font-size:  28px;
+    font-family: Jua;
+    text-align: center;
+    color: #fed0d3;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    &:hover {
+        background: ${lighten(0.004, '#fff4f4')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fff4f4')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+  `;
 
   const Cover = styled.div`
   
   `;
-  const CloseButton = styled.button`
-  top: 10px;
-  left: 380px;
-  width: 50px;
-  height: 50px;
-  background-color: #fed0d3;
-  border: 3px solid;
-  border-radius: 10px;
-  border-color: #fed0d3;
-  font-size:  24px;
-  font-family: Jua;
-  text-align: center;
-  color: white;
-  position: relative;
-  cursor: pointer;
 
-  &:hover {
-      background: ${lighten(0.004, '#fed0d3')};
-      box-shadow:  0 5px #dedede;
-  }
-  &:active {
-      background: ${darken(0.0008, '#fed0d3')};
-      box-shadow: 0 5px #666;
-      transform: translateY(4px);
-  }
-  
+  const CloseButton = styled.button`
+    top: 10px;
+    left: 380px;
+    width: 50px;
+    height: 50px;
+    background-color: #fed0d3;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #fed0d3;
+    font-size:  24px;
+    font-family: Jua;
+    text-align: center;
+    color: white;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        background: ${lighten(0.004, '#fed0d3')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fed0d3')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
   `;
+
 export default function SignIn({closeSignInModal, onSignInEmailHandler, onSignInPasswordHandler, signInOKHandler}) {
     return (
         <div> 
@@ -216,9 +210,6 @@ export default function SignIn({closeSignInModal, onSignInEmailHandler, onSignIn
                 <TextLine3>
                     <Oauth1>페이스북으로 로그인하기</Oauth1>
                 </TextLine3>
-                    
-                
-
             </div>
         </div>
     )
