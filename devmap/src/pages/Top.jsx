@@ -8,6 +8,7 @@ import SignInModalButton from '../component/SignInModalButton';
 import SignUpModalButton from '../component/SignUpModalButton';
 import SignInModal from '../component/SignInModal';
 import SignUpModal from '../component/SignUpModal';
+import MyPage from '../pages/MyPage';
 
 const TopBox = styled.div`
     width: 97%;
@@ -75,6 +76,58 @@ const Button_Li_style = styled.li`
     margin: 5px;
 `;
 
+const MyPageButton = styled.button`
+    top: -10px;
+    width: 135px;
+    height: 50px;
+    background-color: #fff4f4;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #fed0d3;
+    font-size:  24px;
+    font-family: Jua;
+    text-align: center;
+    color: #78b8c4;
+    position: relative;
+    cursor: pointer;
+  
+    &:hover {
+        background: ${lighten(0.004, '#fff4f4')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fff4f4')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+`;
+
+const WithdrawalButton = styled.button`
+    top: -10px;
+    width: 135px;
+    height: 50px;
+    background-color: #fff4f4;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #fed0d3;
+    font-size:  24px;
+    font-family: Jua;
+    text-align: center;
+    color: #78b8c4;
+    position: relative;
+    cursor: pointer;
+  
+    &:hover {
+        background: ${lighten(0.004, '#fff4f4')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fff4f4')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+`;
+
 //밖을 클릭하기위해 모달 컨테이너
 const Modal_container = styled.div`
     background: rgba(0,0,0,.5);
@@ -128,48 +181,66 @@ const closeSignUpModal = () => {
 
 // 로그아웃 함수 여기에 만들기
 
-    if (isSignnedIn.isSignIn === false) {
+    if (isSignnedIn.isSignIn === true) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
         return (
             <div>
-            <TopBox>
-                <Img_input>
-                    <a href="devmap.ml/">
-                        <Img src={logo} />
-                    </a>
-                    <Input placeholder="검색" />
-                </Img_input>
-                <Button_Ul_style>
-                    <Button_Li_style>
-                        <Link to="/signin">
-                            <SignInModalButton isSignnedIn={isSignnedIn} openSignInModal={openSignInModal} isModalOpen={isModalOpen.signin}/>
-                        </Link>
-                    </Button_Li_style>
-                    <Button_Li_style>
-                        <Link to="/signup">
-                            <SignUpModalButton isSignnedIn={isSignnedIn} openSignUpModal={openSignUpModal} isModalOpen={isModalOpen.signup}/>
-                        </Link>
-                    </Button_Li_style>
-                </Button_Ul_style>
-            </TopBox>
-            <SignUpModal openSignUpModal={openSignUpModal} closeSignUpModal={closeSignUpModal} isModalOpen={isModalOpen}/>
-            <ModalBox>
-                <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
-            </ModalBox>
+                <TopBox>
+                    <Img_input>
+                        <a href="http://devmap.ml">
+                            <Img src={logo} />
+                        </a>
+                        <Input placeholder="검색" />
+                    </Img_input>
+                    <Button_Ul_style>
+                        <Button_Li_style>
+                            <Link to="/users/signin">
+                                <SignInModalButton openSignInModal={openSignInModal} />
+                            </Link>
+                        </Button_Li_style>
+                        <Button_Li_style>
+                            <Link to="/users/signup">
+                                <SignUpModalButton openSignUpModal={openSignUpModal} />
+                            </Link>
+                        </Button_Li_style>
+                    </Button_Ul_style>
+                </TopBox>
+                {/* 어떻게 연결된 것인지 아직 헷갈린다.. */}
+                <SignUpModal openSignUpModal={openSignUpModal} closeSignUpModal={closeSignUpModal} isModalOpen={isModalOpen}/>
+                <ModalBox>
+                    <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
+                </ModalBox>
             </div>
         );
-    } else if (isSignnedIn.isSignIn === true) {
+    } else if (isSignnedIn.isSignIn === false) {
         return (
             <div>
-                <Link to="/mypage">
-                    <button>마이 페이지</button>
-                </Link>
-                <Route
-                    path="/mypage"
-                    render={() => {
-                        // return <MyPage />
-                    }}
-                />
-                {/* <button onClick={handleLogout}>로그아웃</button> */}
+                <TopBox>
+                    <Img_input>
+                        <a href="http://devmap.ml">
+                            <Img src={logo} />
+                        </a>
+                        <Input placeholder="검색" />
+                    </Img_input>
+                    <Button_Ul_style>
+                        <Button_Li_style>
+                            <WithdrawalButton>로그아웃</WithdrawalButton>
+                            {/* onClick={handleLogout} */}
+                        </Button_Li_style>
+                        <Button_Li_style>
+                        {/* <Link to="/users/mypage"> */}
+                            <MyPageButton>마이 페이지</MyPageButton>
+                            {/* onClick 이벤트로 바디 영역에서 Main을 렌더링하도록 설정(라우팅) */}
+                        {/* </Link> */}
+                        {/* <Route
+                            path="/users/mypage"
+                            render={() => {
+                                return <MyPage />
+                                // body 영역에서 띄울 것
+                            }}
+                        /> */}
+                        </Button_Li_style>
+                    </Button_Ul_style>
+                </TopBox>
             </div>
         );
     } else {

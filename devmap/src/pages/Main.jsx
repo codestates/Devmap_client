@@ -8,6 +8,7 @@ import mainImage from '../img/main-image.png';
 function Main() {
     const Main_style = styled.div`
         width: 97%;
+        height: 655px;
         background-color: #EEFFFE;
         border: 5px solid;
         border-radius: 15px;

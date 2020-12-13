@@ -30,7 +30,7 @@ export default function SignInModal({ openSignInModal, closeSignInModal, isModal
 
     const signInOKHandler = () => {
         // if (signInInfo.email.length > 4 && signInInfo.password.length > 4) { length 문제 뜸
-            const res = axios.post('http://devmap.ml/signin', {
+            const res = axios.post('http://devmap.ml/users/signin', {
                 signInInfo
             })
             .then((res) => {
@@ -41,7 +41,7 @@ export default function SignInModal({ openSignInModal, closeSignInModal, isModal
                 }
             })
             .catch((err) => {
-                // if (res.status === 301) { // 계속 301이 뜬다고 한다
+                // if (res.status === 301) { // 계속 301이 뜬다고 한다 // CORS 에러
                     alert(`${signInOK.message}`)
                 // }
             })

@@ -47,6 +47,7 @@ function App() {
   // 받은 토큰을 로그인 완료된 후에 통신할 때마다 헤더에 넣어 보내는 그 정도로만
 
   // 위와는 별개로 signup, signin post 왜 안되는지 살펴볼 것, 클라이언트 문제?
+  // cors 해결하여 서버에서는 200 뜬다고 하는데, 클라이언트에서는 아직 못 받아옴
 
   const All_style = styled.div`
     // 스크롤바(필요시 수정하여 구현)
@@ -72,34 +73,35 @@ function App() {
         <Top isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} />
       </header>
       <Body_style>
-        <Main />
+        {/* <Main/> */}
+        <MyPage />
        {/* <Route
           exact path="/"
           render={() => {
-            <Redirect to='/main'/>
+            <Redirect to='/users/main'/>
           }}
         />
         <Switch>
           <Route
-            path="/main"
+            path="/users/main"
             render={() => {
               <Main />
             }}
           />
           <Route
-            path="/mypage"
+            path="/users/mypage"
             render={() => {
               <MyPage />
             }}
           />
           <Route
-            path="/totalMap-front"
+            path="/users/totalMap-front"
             render={() => {
               <RoadMapFront />
             }}
           />
           <Route
-            path="/totalMap-back"
+            path="/users/totalMap-back"
             render={() => {
               <RoadMapBack />
             }}

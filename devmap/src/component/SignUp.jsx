@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
-import logo from '../img/devmap_logo.png'
 
-// clearForm 구현하기? 어차피 창 꺼지니까 상관없다..?
+import logo from '../img/devmap_logo.png';
 
 const SignUpModalShadow = styled.div`
     position: fixed;
@@ -23,7 +22,7 @@ const SignUpWrapper = styled.div`
     position: absolute;
     left: 50%;
     top: 50%; 
-    margin-left: -12.5%;
+    margin-left: -13.5%;
     margin-top: -12.5%;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -40,7 +39,7 @@ const Welcome = styled.div`
 `;
 
 const LogoText = styled.span`
-    color: #fed0d3;
+    color: #ffa2b4;
     font-size: 25px;
     font-family: Jua;
 `;
@@ -77,10 +76,14 @@ const SignUpEmailInput = styled.input`
     margin-bottom: 20px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    // 글씨색 너무 흐려서 어쩔 수 없이 전체 색 변경
     background-color: #fff8f8; 
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
@@ -92,10 +95,13 @@ const SignUpPasswordInput = styled.input`
     margin-bottom: 20px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
     background-color: #fff8f8;
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
@@ -107,10 +113,13 @@ const SignUpConfirmPasswordInput = styled.input`
     margin-bottom: 10px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
     background-color: #fff8f8;
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
@@ -122,10 +131,13 @@ const SignUpUserNameInput = styled.input`
     margin-bottom: 30px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
     background-color: #fff8f8;
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
@@ -174,7 +186,6 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
                     <SignUpEmail>
                     <SignUpTitle>이 메 일</SignUpTitle>
                     <SignUpEmailInput 
-                        className="signup-input-email" 
                         onChange={onSignUpEmailHandler} 
                         type="email"
                         placeholder="이메일을 입력해 주세요"
@@ -183,26 +194,24 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
                     <SignUpPassword>
                     <SignUpTitle>비 밀 번 호</SignUpTitle>
                     <SignUpPasswordInput
-                        className="signup-input-password"
                         onChange={onSignUpPasswordHandler}
                         type="password"
                         placeholder="비밀번호를 입력해 주세요"
                     />
                     </SignUpPassword>
+                    {/* 서버쪽에 항목 없어 임시로 주석. 서버와 상세 항목 비교하기 */}
                     <SignUpConfirmPassword>
                     <SignUpTitle>확 인</SignUpTitle>
                     <SignUpConfirmPasswordInput
-                        className="signup-input-confirm-password"
                         onChange={onConfirmPasswordHandler}
                         type="password"
-                        placeholder="비밀번호를 다시 한번 입력해 주세요"
+                        placeholder="비밀번호를 입력해 주세요"
                     />
                     </SignUpConfirmPassword>
                     <ErrorMessage>{errorMessage}</ErrorMessage>
                     <SignUpUserName>
                     <SignUpTitle>닉 네 임</SignUpTitle>
                     <SignUpUserNameInput
-                        className="signup-input-nickname"
                         onChange={onUserNameHandler}
                         type="text"
                         placeholder="닉네임을 입력해 주세요"
