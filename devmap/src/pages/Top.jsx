@@ -127,27 +127,6 @@ const WithdrawalButton = styled.button`
     }
 `;
 
-//밖을 클릭하기위해 모달 컨테이너
-const Modal_container = styled.div`
-    background: rgba(0,0,0,.5);
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-`;
-
-//로그인 모달창 
-const ModalBox = styled.div`
-    display: block;
-    position: fixed;
-    width: 500px;
-    right: 35%;
-    top: 10%;
-    z-index: 1000;
-`;
-
 /*
   polished 사용 하여 색변화 주기
    &:hover {
@@ -180,12 +159,14 @@ const closeSignUpModal = () => {
 
 // 로그아웃 함수 여기에 만들기
 
-    if (isSignnedIn.isSignIn === true) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
+// 회원 가입, 로그인이 아직 서버측에서 안되니 실험할 때마다 계속 바꾸어주어야 함..
+    if (isSignnedIn.isSignIn === false) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
         return (
             <div>
                 <TopBox>
                     <Img_input>
-                        <a href="http://devmap.ml">
+                        {/* 로고 누르면 메인으로 가도록 */}
+                        <a href="http://devmap.ml/users/main">
                             <Img src={logo} />
                         </a>
                         <Input placeholder="검색" />
@@ -205,17 +186,16 @@ const closeSignUpModal = () => {
                 </TopBox>
                 {/* 어떻게 연결된 것인지 아직 헷갈린다.. */}
                 <SignUpModal openSignUpModal={openSignUpModal} closeSignUpModal={closeSignUpModal} isModalOpen={isModalOpen}/>
-                <ModalBox>
-                    <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
-                </ModalBox>
+                <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
             </div>
         );
-    } else if (isSignnedIn.isSignIn === false) {
+    } else if (isSignnedIn.isSignIn === true) {
         return (
             <div>
                 <TopBox>
                     <Img_input>
-                        <a href="http://devmap.ml">
+                        {/* 로고 누르면 메인으로 가도록 */}
+                        <a href="http://devmap.ml/users/main">
                             <Img src={logo} />
                         </a>
                         <Input placeholder="검색" />

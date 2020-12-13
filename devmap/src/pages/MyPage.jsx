@@ -6,8 +6,8 @@ import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
 
-export default function MyPage({ token }) {
-    const [myPageInfo, setMyPageInfo] = useState({email: 'user@user.com(임시)', newPassword: '', confirmNewPassword: '', newUserName: '', check: false, errorMessage: '' })
+export default function MyPage({ token, isSignnedIn }) {
+    const [myPageInfo, setMyPageInfo] = useState({email: 'isSignnedIn.userInfo.email', newPassword: '', confirmNewPassword: '', newUserName: 'isSignnedIn.userInfo.userName', check: false, errorMessage: '' })
     const [myPageOK, setMyPageOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
     
     const onNewPasswordHandler = (e) => {
@@ -45,13 +45,15 @@ export default function MyPage({ token }) {
         }
     }
 
+    // handleResponseSuccess와 따져보기
+
     // useEffect(() => {
     //     getEmail();
     // }, [])
 
     // 로그인이 안되어있는 상황이라, email 값도 불러오지 못하고 입력도 안됨
     // 현재 서버와 통신이 제대로 안되는 상태
-    
+
     const getEmail = async () => {
         const authedAxios = axios.create(
             { headers: { 

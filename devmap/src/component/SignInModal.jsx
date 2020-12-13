@@ -6,17 +6,6 @@ import { darken, lighten } from 'polished';
 import SignIn from './SignIn';
 axios.defaults.withCredentials = true;
 
-const Box = styled.div`
-    height : 400px;
-    width:  450px;
-
-    border: 1px solid;
-    border-radius : 10px; 
-    border-color: #fed0d3;
-
-    background: ${lighten(0.01, '#fff4f4')};
-`;
-
 export default function SignInModal({ openSignInModal, closeSignInModal, isModalOpen, handleResponseSuccess }) {
     const [signInInfo ,setSignInInfo] = useState({email: '' , password: '', errorMessage: ''});
     const [signInOK, setSignInOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
@@ -51,9 +40,7 @@ export default function SignInModal({ openSignInModal, closeSignInModal, isModal
     return (
         
         isModalOpen.signin === true ?
-        <Box>
-            <SignIn closeSignInModal={closeSignInModal} onSignInEmailHandler={onSignInEmailHandler} onSignInPasswordHandler={onSignInPasswordHandler} signInOKHandler={signInOKHandler} />
-        </Box>        
+            <SignIn closeSignInModal={closeSignInModal} onSignInEmailHandler={onSignInEmailHandler} onSignInPasswordHandler={onSignInPasswordHandler} signInOKHandler={signInOKHandler} /> 
         : ''
     )
 }
