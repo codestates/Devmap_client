@@ -160,7 +160,7 @@ const closeSignUpModal = () => {
 // 로그아웃 함수 여기에 만들기
 
 // 회원 가입, 로그인이 아직 서버측에서 안되니 실험할 때마다 계속 바꾸어주어야 함..
-    if (isSignnedIn.isSignIn === false) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
+    if (isSignnedIn.isSignIn === true) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
         return (
             <div>
                 <TopBox>
@@ -189,7 +189,7 @@ const closeSignUpModal = () => {
                 <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
             </div>
         );
-    } else if (isSignnedIn.isSignIn === true) {
+    } else if (isSignnedIn.isSignIn === false) {
         return (
             <div>
                 <TopBox>

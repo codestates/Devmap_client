@@ -16,7 +16,6 @@ const SignInModalShadow = styled.div`
     background-color: rgba(0,0,0,0.4);
 `;
 
-//로그인 모달창 
 const ModalBox = styled.div`
     display: block;
     z-index: 1000;
@@ -35,7 +34,7 @@ const ModalBox = styled.div`
 `;
 
 const Welcome = styled.div`
-    margin-left: 25%;
+    margin-left: 30%;
     margin-bottom: 30px;
 `;
 
@@ -60,14 +59,13 @@ const TextLine1 = styled.div`
 `;
 const TextLine2 = styled.div`
     margin-top: 8%;
-    margin-left: 17%;
-    
-    border: 300px;
+    // margin-left: 17%;
 `;
 const TextLine3 = styled.div`
     margin-top: 7%;
-    margin-left: 17%;
+    // margin-left: 17%;
 `;
+
 const Labelemail = styled.label`
     color: #fed0d3;
     font-size: 25px;
@@ -79,10 +77,11 @@ const Labelpassword = styled.label`
     font-family: Jua;
     margin-top: 10px;
 `;
+
 const EmailInput = styled.input`
     height: 40px;
-    width: 50%;
-    margin-left: 59px;
+    width: 60%;
+    margin-left: 45px;
     margin-right: 40px;
     margin-bottom: 20px;
     border: 3px solid;
@@ -97,13 +96,12 @@ const EmailInput = styled.input`
         padding: 10px;
     }  
 `;
-
 const PasswordInput = styled.input`
     height: 40px;
-    width: 50%;
-    margin-left: 35px;
+    width: 60%;
+    margin-left: 20px;
     margin-right: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border: 3px solid;
     border-radius : 10px; 
     font-size:  18px;
@@ -117,9 +115,10 @@ const PasswordInput = styled.input`
     }  
 `;
 
- const SignButton = styled.button`
+ const SignInButton = styled.button`
     width: 28%;
     height: 45px;
+    margin-bottom: -10px;
     margin-left: 36%;
     border: 3px solid;
     border-radius: 10px;
@@ -144,23 +143,20 @@ const PasswordInput = styled.input`
  `;
 
   const Oauth = styled.a`
-    top: -10px;
-    width: 135px;
     height: 50px;
-    background-color: #fff4f4;
+    text-align: center;
+    margin-left: 20%;
+    padding: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
     border: 3px solid;
     border-radius: 10px;
     border-color: #fed0d3;
-    font-size:  28px;
+    font-size: 28px;
     font-family: Jua;
-    text-align: center;
     color: #fed0d3;
-    position: relative;
+    background-color: #fff4f4;
     cursor: pointer;
-    padding-top: 10px;
-    padding-left: 74px;
-    padding-right: 52px;
-    padding-bottom: 10px;
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};
         box-shadow:  0 5px #dedede;
@@ -173,23 +169,20 @@ const PasswordInput = styled.input`
   `;
 
   const Oauth1 = styled.a`
-    top: -10px;
-    width: 135px;
     height: 50px;
-    background-color: #fff4f4;
+    text-align: center;
+    margin-left: 14%;
+    padding: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
     border: 3px solid;
     border-radius: 10px;
     border-color: #fed0d3;
-    font-size:  28px;
+    font-size: 28px;
     font-family: Jua;
-    text-align: center;
     color: #fed0d3;
-    position: relative;
+    background-color: #fff4f4;
     cursor: pointer;
-    padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 10px;
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};
         box-shadow:  0 5px #dedede;
@@ -210,7 +203,8 @@ export default function SignIn({closeSignInModal, onSignInEmailHandler, onSignIn
                     <Welcome>
                         <LogoText>Login to </LogoText>
                         <LogoImg src={logo} alt="oops!"/>
-                    </Welcome>                
+                    </Welcome>
+
                     <TextLine>
                     <Labelemail>이 메 일</Labelemail>
                     <EmailInput onChange={onSignInEmailHandler} 
@@ -227,8 +221,9 @@ export default function SignIn({closeSignInModal, onSignInEmailHandler, onSignIn
                     </PasswordInput>
                     </TextLine0>
                 </div>
+
                 <TextLine1>
-                <SignButton onClick={signInOKHandler}>로그인</SignButton>
+                <SignInButton onClick={signInOKHandler}>로그인</SignInButton>
                 </TextLine1>
                 {/* <div className="signup-link">
                     <Link to='/signup'>
@@ -238,7 +233,8 @@ export default function SignIn({closeSignInModal, onSignInEmailHandler, onSignIn
                 
                 <TextLine2>
                     <Oauth>구글로 로그인하기</Oauth>
-                </TextLine2>                    
+                </TextLine2>   
+
                 <TextLine3>
                     <Oauth1>페이스북으로 로그인하기</Oauth1>
                 </TextLine3>
