@@ -17,7 +17,7 @@ export default function SignUpModal({ openSignUpModal, closeSignUpModal, isModal
     const onConfirmPasswordHandler = (e) => {
         if (signUpInfo.confirmPassword === signUpInfo.password ) {
             setSignUpInfo({errorMessage: '확인되었습니다!🥳', check: true});
-            setSignUpInfo({confirmPassword: e.target.value });
+            setSignUpInfo({confirmPassword: e.target.value});
         } else {
             setSignUpInfo({errorMessage: '다시 확인해주세요!😰', check: false});
         }
@@ -28,13 +28,13 @@ export default function SignUpModal({ openSignUpModal, closeSignUpModal, isModal
 
     const signUpOKHandler = () => {
         if (signUpInfo.check === true && signUpInfo.password.length > 4 && signUpInfo.username.length > 1) {
-            const res = axios.post('http://52.78.158.147:8000/signup', 
-                signUpInfo
-            )
+            const res = axios.post('http://devmap.ml/users/signup', {
+                signUpInfo // json화 해서 보내야 함?
+            })
             .then((res) => {
                 if (res.status === 200) { // 상태 추가?
-                    openSignUpModal();
-                    window.location('http://devmap.ml')
+                    openSignUpModal(); // 모달 닫기
+                    window.location('http://devmap.ml') // 메인 페이지로 이동
                 }
             })
         } else {

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { darken, lighten } from 'polished';
 
-// clearForm 구현하기? 어차피 창 꺼지니까 상관없다..?
+import logo from '../img/devmap_logo.png';
 
 const SignUpModalShadow = styled.div`
     position: fixed;
@@ -21,15 +22,31 @@ const SignUpWrapper = styled.div`
     position: absolute;
     left: 50%;
     top: 50%; 
-    margin-left: -12.5%;
+    margin-left: -13.5%;
     margin-top: -12.5%;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 40px;
     width: 500px;
     background-color: #fff4f4;
     border: 3px dashed;
     border-radius: 10px;
     border-color: #fed0d3;
+`;
+
+const Welcome = styled.div`
+    margin-left: 25%;
+    margin-bottom: 30px;
+`;
+
+const LogoText = styled.span`
+    color: #ffa2b4;
+    font-size: 25px;
+    font-family: Jua;
+`;
+
+const LogoImg = styled.img`
+    width: 30%;
+    margin-bottom: -5px;
 `;
 
 const SignUpInputArea = styled.div`
@@ -43,67 +60,84 @@ const SignUpConfirmPassword = styled.div`
 const SignUpUserName = styled.div`
 `;
 
+// p 태그는 input이 아래로 내려간다, 한 줄에 두고 싶다면 label 태그를 사용할 것(input과 속성이 연결된다)
 const SignUpTitle = styled.label`
-    // p 태그는 input이 아래로 내려간다
-    color: #ffa2b4;
-    margin-left: 40px;
-    font-size: 20px;
+    color: #fed0d3;
+    margin-left: 10%;
+    font-size: 25px;
     font-family: Jua;
 `;
 
 const SignUpEmailInput = styled.input`
-    height: 30px;
+    height: 40px;
     width: 50%;
-    margin-left: 79px;
+    margin-left: 59px;
     margin-right: 40px;
     margin-bottom: 20px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    // 글씨색 너무 흐려서 어쩔 수 없이 전체 색 변경
+    background-color: #fff8f8; 
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
 const SignUpPasswordInput = styled.input`
-    height: 30px;
+    height: 40px;
     width: 50%;
-    margin-left: 55px;
+    margin-left: 30px;
     margin-right: 40px;
     margin-bottom: 20px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    background-color: #fff8f8;
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
 const SignUpConfirmPasswordInput = styled.input`
-    height: 30px;
+    height: 40px;
     width: 50%;
-    margin-left: 20px;
+    margin-left: 86px;
     margin-right: 40px;
     margin-bottom: 10px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    background-color: #fff8f8;
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
 const SignUpUserNameInput = styled.input`
-    height: 30px;
+    height: 40px;
     width: 50%;
-    margin-left: 79px;
+    margin-left: 59px;
     margin-right: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border : 3px solid;
     border-radius: 10px;
-    color: #FED0D3;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    background-color: #fff8f8;
     ::placeholder {
         color: #FED0D3;
+        padding-left: 10px;
     }
 `;
 
@@ -126,6 +160,17 @@ const SignUpButton = styled.button`
     background-color: #FED0D3;
     font-size: 20px;
     font-family: Jua;
+    cursor: pointer;
+  
+    &:hover {
+        background: ${lighten(0.004, '#fed0d3')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fed0d3')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
 `;
 
 export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignUpPasswordHandler, onConfirmPasswordHandler, onUserNameHandler, signUpOKHandler, errorMessage }) {
@@ -134,10 +179,13 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
         <div>
             <SignUpWrapper>
                 {/* <SignUpInputArea> */}
+                <Welcome>
+                    <LogoText>Welcome to </LogoText>
+                    <LogoImg src={logo} alt="oops!"/>
+                </Welcome>
                     <SignUpEmail>
                     <SignUpTitle>이 메 일</SignUpTitle>
                     <SignUpEmailInput 
-                        className="signup-input-email" 
                         onChange={onSignUpEmailHandler} 
                         type="email"
                         placeholder="이메일을 입력해 주세요"
@@ -146,26 +194,24 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
                     <SignUpPassword>
                     <SignUpTitle>비 밀 번 호</SignUpTitle>
                     <SignUpPasswordInput
-                        className="signup-input-password"
                         onChange={onSignUpPasswordHandler}
                         type="password"
                         placeholder="비밀번호를 입력해 주세요"
                     />
                     </SignUpPassword>
+                    {/* 서버쪽에 항목 없어 임시로 주석. 서버와 상세 항목 비교하기 */}
                     <SignUpConfirmPassword>
-                    <SignUpTitle>비밀번호 재입력</SignUpTitle>
+                    <SignUpTitle>확 인</SignUpTitle>
                     <SignUpConfirmPasswordInput
-                        className="signup-input-confirm-password"
                         onChange={onConfirmPasswordHandler}
                         type="password"
-                        placeholder="비밀번호를 다시 한번 입력해 주세요"
+                        placeholder="비밀번호를 입력해 주세요"
                     />
                     </SignUpConfirmPassword>
                     <ErrorMessage>{errorMessage}</ErrorMessage>
                     <SignUpUserName>
                     <SignUpTitle>닉 네 임</SignUpTitle>
                     <SignUpUserNameInput
-                        className="signup-input-nickname"
                         onChange={onUserNameHandler}
                         type="text"
                         placeholder="닉네임을 입력해 주세요"
