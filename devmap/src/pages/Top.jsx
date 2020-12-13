@@ -19,7 +19,6 @@ const TopBox = styled.div`
     border-color: #fed0d3;
     position: relative;
     margin: 0 auto;
-    cursor: pointer;
 `;
 
 const Img_input = styled.div`
@@ -227,10 +226,10 @@ const closeSignUpModal = () => {
                             {/* onClick={handleLogout} */}
                         </Button_Li_style>
                         <Button_Li_style>
-                        {/* <Link to="/users/mypage"> */}
+                        <Link to="/users/mypage">
                             <MyPageButton>마이 페이지</MyPageButton>
-                            {/* onClick 이벤트로 바디 영역에서 Main을 렌더링하도록 설정(라우팅) */}
-                        {/* </Link> */}
+                            {/* onClick 이벤트로 바디 영역에서 렌더링하도록 설정(라우팅) */}
+                        </Link>
                         {/* <Route
                             path="/users/mypage"
                             render={() => {

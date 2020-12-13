@@ -6,7 +6,7 @@ import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
 
-export default function MyPage() {
+export default function MyPage({ token }) {
     const [myPageInfo, setMyPageInfo] = useState({email: 'user@user.com(임시)', newPassword: '', confirmNewPassword: '', newUserName: '', check: false, errorMessage: '' })
     const [myPageOK, setMyPageOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
     
@@ -49,15 +49,18 @@ export default function MyPage() {
     //     getEmail();
     // }, [])
 
+    // 로그인이 안되어있는 상황이라, email 값도 불러오지 못하고 입력도 안됨
+    // 현재 서버와 통신이 제대로 안되는 상태
+    
     const getEmail = async () => {
         const authedAxios = axios.create(
             { headers: { 
-                // Authorization: `${token}`
-                // 토큰 관리하는 곳에서 props로 받아와 넣기(로그인 이후 모든 소통에서 헤더에 토큰 넣어 보낸다)
+                Authorization: `${token}`
+                // 로그인 이후 모든 소통에서 헤더에 토큰 넣어 보낸다
             }}
         );
 
-        const res = await authedAxios.get(`http://devmap.ml/mypage`)
+        const res = await authedAxios.get(`http://devmap.ml/users/mypage`)
         console.log('MyPage Info', res)
         setMyPageInfo({email: res.data.email});
     };
