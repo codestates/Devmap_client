@@ -82,7 +82,7 @@ export default function MyPage({ token, isSignnedIn }) {
         display: block;
         position: absolute;
         left: 50%;
-        top: 50%; 
+        top: 47%; 
         margin-left: -13.5%;
         margin-top: -14%;
         padding-top: 40px;
@@ -229,7 +229,31 @@ export default function MyPage({ token, isSignnedIn }) {
         cursor: pointer;
     `;
 
-    return (
+    const BackToMain = styled.button`
+        width: 27%;
+        height: 45px;
+        margin-top: 33.5%;
+        margin-left: 36.2%;
+        border : 3px solid;
+        border-radius: 10px;
+        border-color: #FED0D3;
+        color: #ffffff;
+        background-color: #FED0D3;
+        font-size: 20px;
+        font-family: Jua;
+        cursor: pointer;
+    
+        &:hover {
+            background: ${lighten(0.004, '#fed0d3')};
+            box-shadow:  0 5px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0008, '#fed0d3')};
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    `;
+        return (
         <MyPageWrapper>
             <MyPageBox>
                 <MyPageText>비밀번호와 닉네임을 수정하실 수 있습니다</MyPageText>
@@ -272,6 +296,11 @@ export default function MyPage({ token, isSignnedIn }) {
                     </Link>
                 </div>
             </MyPageBox>
+                <div className="mainpage-link">
+                <Link to='/users/main'>
+                    <BackToMain>👈 메인 페이지로 돌아가기</BackToMain>
+                </Link>
+                </div>
         </MyPageWrapper>
     );
 };

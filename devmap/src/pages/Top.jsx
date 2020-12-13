@@ -166,9 +166,9 @@ const closeSignUpModal = () => {
                 <TopBox>
                     <Img_input>
                         {/* 로고 누르면 메인으로 가도록 */}
-                        <a href="http://devmap.ml/users/main">
+                        <Link to="/users/main">
                             <Img src={logo} />
-                        </a>
+                        </Link>
                         <Input placeholder="검색" />
                     </Img_input>
                     <Button_Ul_style>
