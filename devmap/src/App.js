@@ -10,12 +10,11 @@ import MyPage from './pages/MyPage';
 import RoadMapFront from './pages/RoadMapFront';
 import RoadMapBack from './pages/RoadMapBack';
 
-// signIn, signUp은 접속 엔드포인트 주지 않음
-
 function App() {
   const [isSignnedIn, setIsSignnedIn] = useState({isSignIn: false, userInfo: null});
+  const [token, setToken] = useState('')
 
-  const handleResponseSuccess = async (token) => { // 로그인 성공
+  const handleResponseSuccess = async () => { // 로그인 성공
     await axios.get('').then((res) => {
       let count = 0;
         count++;
@@ -67,51 +66,65 @@ function App() {
     top: 30px;
   `;
 
+  // signup, signin 주소 필요하다(모달이 뜰 때 배경이 사라지지 않게 하려면)
+  
   return (
     <All_style>
       <header>
         <Top isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} />
       </header>
       <Body_style>
-        {/* <Main/> */}
-        <MyPage />
-       {/* <Route
-          exact path="/"
-          render={() => {
-            <Redirect to='/users/main'/>
-          }}
-        />
         <Switch>
           <Route
+            exact path="/"
+            render={() => 
+              <Redirect to='/users/main'/>
+            }
+            // render를 쓰면 계속 에러가 났었는데 () 뒤에 {}를 계속 실수로 붙여주었기 때문
+          />
+          <Route
+            exact path="/users/signup"
+            render={() => 
+              <Redirect to='/users/main'/>
+            }
+          />
+          <Route
+            exact path="/users/signin"
+            render={() => 
+              <Redirect to='/users/main'/>
+            }
+          />
+          <Route
             path="/users/main"
-            render={() => {
-              <Main />
-            }}
+            render={() => 
+              <Main token={token}/>
+            }
           />
           <Route
             path="/users/mypage"
-            render={() => {
-              <MyPage />
-            }}
+            render={() => 
+              <MyPage token={token} isSignnedIn={isSignnedIn}/>
+            }
           />
           <Route
             path="/users/totalMap-front"
-            render={() => {
-              <RoadMapFront />
-            }}
+            render={() => 
+              <RoadMapFront token={token} isSignnedIn={isSignnedIn}/>
+            }
           />
           <Route
             path="/users/totalMap-back"
-            render={() => {
-              <RoadMapBack />
-            }}
+            render={() => 
+              <RoadMapBack token={token} isSignnedIn={isSignnedIn}/>
+            }
           />
-        </Switch> */}
+        </Switch>
       </Body_style>
     </All_style>
   );
 }
 
+// signIn, signUp은 접속 엔드포인트 주지 않음
 // 로드맵은 한 곳에서 경우에 따라 렌더?
 
 export default App;
