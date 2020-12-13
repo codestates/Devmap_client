@@ -77,12 +77,12 @@ function Main() {
         </Text_style>
         <Button_Ul_style>
             <Button_Li_style>
-                <Link to="/totalmap-front">
+                <Link to="/users/totalmap-front">
                     <Button_style>프론트엔드 로드맵</Button_style>
                 </Link>
             </Button_Li_style>
             <Button_Li_style>
-                <Link to="/totalmap-back">
+                <Link to="/users/totalmap-back">
                     <Button_style>백엔드 로드맵</Button_style>
                 </Link>
             </Button_Li_style>

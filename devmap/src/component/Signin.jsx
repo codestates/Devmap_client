@@ -85,7 +85,7 @@ const EmailInput = styled.input`
     margin-right: 40px;
     margin-bottom: 20px;
     border: 3px solid;
-    border-radius : 10px; 
+    border-radius : 10px;
     font-size:  18px;
     font-family: Jua;
     color: #ffa2b4;
@@ -103,11 +103,11 @@ const PasswordInput = styled.input`
     margin-right: 40px;
     margin-bottom: 30px;
     border: 3px solid;
-    border-radius : 10px; 
+    border-radius : 10px;
     font-size:  18px;
     font-family: Jua;
     color: #ffa2b4;
-    background-color: #fff4f4;
+    background-color: #fff8f8;
     ::placeholder,
     ::-webkit-input-placeholder {
         color: #FED0D3;
@@ -125,7 +125,7 @@ const PasswordInput = styled.input`
     border-color: #fed0d3;
     color: white;
     background-color: #fed0d3;
-    font-size:  24px;
+    font-size: 20px;
     font-family: Jua;
     // text-align: center;
     // position: relative;
