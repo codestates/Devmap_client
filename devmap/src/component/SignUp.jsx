@@ -147,6 +147,7 @@ const ErrorMessage = styled.div`
     font-size: 18px;
     font-family: Jua;
     text-align: center;
+    margin-left: 135px;
 `;
 
 const SignUpButton = styled.button`
@@ -173,7 +174,7 @@ const SignUpButton = styled.button`
     }
 `;
 
-export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignUpPasswordHandler, onConfirmPasswordHandler, onUserNameHandler, signUpOKHandler, errorMessage }) {
+export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignUpPasswordHandler, onConfirmPasswordHandler, comparePassword, onUserNameHandler, signUpOKHandler, errorMessage }) {
     
     return (
         <div>
@@ -186,7 +187,7 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
                     <SignUpEmail>
                     <SignUpTitle>이 메 일</SignUpTitle>
                     <SignUpEmailInput 
-                        onChange={onSignUpEmailHandler} 
+                        onInput={onSignUpEmailHandler} 
                         type="email"
                         placeholder="이메일을 입력해 주세요"
                     />
@@ -194,7 +195,7 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
                     <SignUpPassword>
                     <SignUpTitle>비 밀 번 호</SignUpTitle>
                     <SignUpPasswordInput
-                        onChange={onSignUpPasswordHandler}
+                        onInput={onSignUpPasswordHandler}
                         type="password"
                         placeholder="비밀번호를 입력해 주세요"
                     />
@@ -203,23 +204,24 @@ export default function SignUp({ closeSignUpModal, onSignUpEmailHandler, onSignU
                     <SignUpConfirmPassword>
                     <SignUpTitle>확 인</SignUpTitle>
                     <SignUpConfirmPasswordInput
-                        onChange={onConfirmPasswordHandler}
+                        onInput={onConfirmPasswordHandler}
                         type="password"
                         placeholder="비밀번호를 입력해 주세요"
                     />
                     </SignUpConfirmPassword>
+                    {/* <button onClick={comparePassword}>일치 확인</button> */}
                     <ErrorMessage>{errorMessage}</ErrorMessage>
                     <SignUpUserName>
                     <SignUpTitle>닉 네 임</SignUpTitle>
                     <SignUpUserNameInput
-                        onChange={onUserNameHandler}
+                        onInput={onUserNameHandler}
                         type="text"
                         placeholder="닉네임을 입력해 주세요"
                     />
                     </SignUpUserName>
                 {/* </SignUpInputArea> */}
                     <SignUpButton 
-                        onClick={signUpOKHandler}
+                        onClick={signUpOKHandler,comparePassword}
                     >회원 가입
                     </SignUpButton>
                 {/* <div className="signin-link">
