@@ -145,7 +145,7 @@ const PasswordInput = styled.input`
   const Oauth = styled.a`
     height: 50px;
     text-align: center;
-    margin-left: 20%;
+    margin-left: 18%;
     padding: 2%;
     padding-left: 10%;
     padding-right: 10%;
@@ -171,7 +171,7 @@ const PasswordInput = styled.input`
   const Oauth1 = styled.a`
     height: 50px;
     text-align: center;
-    margin-left: 14%;
+    margin-left: 18%;
     padding: 2%;
     padding-left: 10%;
     padding-right: 10%;
@@ -232,11 +232,11 @@ export default function SignIn({closeSignInModal, onSignInEmailHandler, onSignIn
                 </div> */}
                 
                 <TextLine2>
-                    <Oauth>구글로 로그인하기</Oauth>
+                    <Oauth>카카오로 로그인하기</Oauth>
                 </TextLine2>   
 
                 <TextLine3>
-                    <Oauth1>페이스북으로 로그인하기</Oauth1>
+                    <Oauth1>네이버로 로그인하기</Oauth1>
                 </TextLine3>
             </div>
             </ModalBox>
