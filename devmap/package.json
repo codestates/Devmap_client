@@ -40,9 +40,5 @@
       "last 1 safari version"
     ]
   },
-    "proxy": {
-      "/api": {
-        "target": "http://devmap.ml"
-      }
-    }
+    "proxy": "http://devmap.ml"
 }
