@@ -406,7 +406,7 @@ export default function RoadMapFront() {
     `;
 
     const Arrow_arrow_7 = styled.img`
-        width: 80%;
+        width: 70%;
         margin-top: 22%;
         margin-left: 18%;
         grid-column-start: 8;
@@ -446,7 +446,7 @@ export default function RoadMapFront() {
     `;
 
     const Arrow_arrow_11 = styled.img`
-        width: 45%;
+        width: 40%;
         margin-top: 12%;
         margin-left: 25%;
         grid-column-start: 13;
@@ -456,7 +456,7 @@ export default function RoadMapFront() {
     `;
 
     const Arrow_arrow_12 = styled.img`
-        width: 45%;
+        width: 40%;
         margin-top: 12%;
         margin-left: 25%;
         grid-column-start: 24;
@@ -466,7 +466,7 @@ export default function RoadMapFront() {
     `;
 
     const Arrow_arrow_13 = styled.img`
-        width: 80%;
+        width: 70%;
         margin-top: 22%;
         margin-left: 18%;
         grid-column-start: 29;
