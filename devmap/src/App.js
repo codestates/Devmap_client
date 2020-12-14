@@ -78,22 +78,16 @@ function App() {
         <Switch>
           <Route
             exact path="/"
-            render={() => 
-              <Redirect to='/users/main'/>
-            }
+            component={Main}
             // render를 쓰면 계속 에러가 났었는데 () 뒤에 {}를 계속 실수로 붙여주었기 때문
           />
           <Route
             exact path="/users/signup"
-            render={() => 
-              <Redirect to='/users/main'/>
-            }
+            component={Main}
           />
           <Route
             exact path="/users/signin"
-            render={() => 
-              <Redirect to='/users/main'/>
-            }
+            component={Main}
           />
           <Route
             path="/users/main"
