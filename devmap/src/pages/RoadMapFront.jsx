@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
@@ -14,6 +15,29 @@ import arrow_8 from '../img/arrow_8.png';
 import etc from '../img/etc.png';
 
 export default function RoadMapFront() {
+
+    const InfoText = styled.span`
+        margin-top: 2px;
+        padding-left: 10px;
+        color: #78b8c4;
+        font-size: 20px;
+        font-family: Jua;
+        float: left;
+    `;
+
+    const ToBack = styled.button`
+        margin-top: 4px;
+        margin-right: 10px;
+        color: #a3dfea;
+        background-color: #eefffe;
+        font-size: 20px;
+        font-family: Jua;
+        float: right;
+        border: 3px solid;
+        border-radius: 10px;
+        cursor: pointer;
+    `;
+
     const RoadMapBorder = styled.div`
         width: 97%;
         height: 755px;
@@ -24,14 +48,15 @@ export default function RoadMapFront() {
         border-color: #a3dfea;
     `;
 
+    // need to modify grid setting(under space)
     const RoadMapContainer = styled.div`
         display: grid;
         width: 97%;
         height: 700px;
         margin: 0 auto;
-        margin-top: 1.5%;
+        margin-top: 0%;
         // border: 1px solid;
-        grid-template-rows: repeat(auto-fit, minmax(9%, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(8.7%, 1fr));
         grid-template-columns: repeat(auto-fit, minmax(2%, 1fr));
     `;
 
@@ -51,7 +76,7 @@ export default function RoadMapFront() {
         font-color: #eefffe;
         opacity: 1%;
         background-color: #eefffe;
-        border: #eefffe
+        border: #eefffe;
     `;
 
     const Browser = styled.button`
@@ -67,6 +92,15 @@ export default function RoadMapFront() {
         grid-column-end: 5;
         grid-row-start: 6;
         grid-row-end: 7;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Language = styled.button`
@@ -82,6 +116,15 @@ export default function RoadMapFront() {
         grid-column-end: 10;
         grid-row-start: 6;
         grid-row-end: 7;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const HTML = styled.button`
@@ -97,6 +140,15 @@ export default function RoadMapFront() {
         grid-column-end: 15;
         grid-row-start: 5;
         grid-row-end: 6;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const CSS = styled.button`
@@ -112,6 +164,15 @@ export default function RoadMapFront() {
         grid-column-end: 15;
         grid-row-start: 7;
         grid-row-end: 8;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const CSSFrameWork = styled.button`
@@ -128,6 +189,15 @@ export default function RoadMapFront() {
         grid-column-end: 21;
         grid-row-start: 8;
         grid-row-end: 9;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const TypeScript = styled.button`
@@ -143,6 +213,15 @@ export default function RoadMapFront() {
         grid-column-end: 16;
         grid-row-start: 3;
         grid-row-end: 4;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const JavaScript = styled.button`
@@ -158,6 +237,15 @@ export default function RoadMapFront() {
         grid-column-end: 16;
         grid-row-start: 9;
         grid-row-end: 10;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const CSSInJs = styled.button`
@@ -174,6 +262,15 @@ export default function RoadMapFront() {
         grid-column-end: 21;
         grid-row-start: 10;
         grid-row-end: 11;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const VersionControl = styled.button`
@@ -189,6 +286,15 @@ export default function RoadMapFront() {
         grid-column-end: 27;
         grid-row-start: 5;
         grid-row-end: 6;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Testing = styled.button`
@@ -204,6 +310,15 @@ export default function RoadMapFront() {
         grid-column-end: 27;
         grid-row-start: 7;
         grid-row-end: 8;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const FrameWork = styled.button`
@@ -219,6 +334,15 @@ export default function RoadMapFront() {
         grid-column-end: 33;
         grid-row-start: 6;
         grid-row-end: 7;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const React = styled.button`
@@ -235,6 +359,15 @@ export default function RoadMapFront() {
         grid-column-end: 34;
         grid-row-start: 5;
         grid-row-end: 6;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Vue = styled.button`
@@ -251,6 +384,15 @@ export default function RoadMapFront() {
         grid-column-end: 34;
         grid-row-start: 4;
         grid-row-end: 5;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Angular = styled.button`
@@ -267,6 +409,15 @@ export default function RoadMapFront() {
         grid-column-end: 34;
         grid-row-start: 3;
         grid-row-end: 4;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Redux = styled.button`
@@ -283,6 +434,15 @@ export default function RoadMapFront() {
         grid-column-end: 38;
         grid-row-start: 5;
         grid-row-end: 6;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const BuildTool = styled.button`
@@ -298,6 +458,15 @@ export default function RoadMapFront() {
         grid-column-end: 38;
         grid-row-start: 6;
         grid-row-end: 7;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Security = styled.button`
@@ -313,6 +482,15 @@ export default function RoadMapFront() {
         grid-column-end: 44;
         grid-row-start: 6;
         grid-row-end: 7;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Mobile = styled.button`
@@ -328,6 +506,15 @@ export default function RoadMapFront() {
         grid-column-end: 50;
         grid-row-start: 4;
         grid-row-end: 5;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Server = styled.button`
@@ -343,6 +530,15 @@ export default function RoadMapFront() {
         grid-column-end: 50;
         grid-row-start: 8;
         grid-row-end: 9;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const Arrow_arrow_1 = styled.img`
@@ -511,6 +707,10 @@ export default function RoadMapFront() {
 
     return (
         <RoadMapBorder>
+            <InfoText>*자세한 내용을 보시려면 아래 각 항목을 클릭하세요</InfoText>
+            <Link to="/users/totalmap-back">              
+                <ToBack>백엔드 로드맵 보러가기</ToBack>
+            </Link>
             <RoadMapContainer>
                 <Invisible>(1)보이나</Invisible>
                 <Arrow_arrow_1 src={arrow_1} alt='oops!' />
@@ -591,7 +791,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Angular>Angular</Angular>
+                <div></div>
                 <Invisible>(81)보이나</Invisible>
                 <div></div>
                 <div></div>
@@ -979,7 +1179,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <CSSInJs>CSS-in-JS</CSSInJs>
-                <div></div>
+                {/* <div></div>
                 <div></div>
                 <div></div>
                 <Invisible>(471)보이나</Invisible>
@@ -1011,8 +1211,8 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div>
-                <Invisible>(501)보이나</Invisible>
+                <div></div> */}
+                {/* <Invisible>(501)보이나</Invisible>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1061,7 +1261,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div>
+                <div></div> */}
             </RoadMapContainer>
         </RoadMapBorder>
     )
