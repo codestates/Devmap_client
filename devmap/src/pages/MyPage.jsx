@@ -206,6 +206,7 @@ export default function MyPage({ token, isSignnedIn }) {
         background-color: #FED0D3;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
     
         &:hover {
@@ -241,6 +242,7 @@ export default function MyPage({ token, isSignnedIn }) {
         background-color: #FED0D3;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
     
         &:hover {

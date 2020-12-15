@@ -55,6 +55,8 @@ function Main() {
         color: #ffa2b4;
         font-size: 25px;
         font-family: Jua;
+        outline: 0;
+        cursor: pointer;
 
         &:hover {
             background: ${lighten(0.004, '#fff4f4')};

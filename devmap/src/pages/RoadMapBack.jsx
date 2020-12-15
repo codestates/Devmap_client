@@ -33,6 +33,7 @@ export default function RoadMapBack() {
         float: right;
         border: 3px solid;
         border-radius: 10px;
+        outline: 0;
         cursor: pointer;
         &:hover {
             background: ${lighten(0.012, '#eefffe')};
@@ -82,6 +83,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 2;
         grid-column-end: 5;
@@ -106,6 +108,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 7;
         grid-column-end: 10;
@@ -131,6 +134,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 10;
         grid-column-end: 15;
@@ -156,6 +160,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 10;
         grid-column-end: 15;
@@ -181,6 +186,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 10;
         grid-column-end: 15;
@@ -205,6 +211,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 16;
         grid-column-end: 20;
@@ -230,6 +237,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 21;
         grid-column-end: 25;
@@ -255,6 +263,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 21;
         grid-column-end: 25;
@@ -280,6 +289,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 21;
         grid-column-end: 25;
@@ -304,6 +314,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 12;
         grid-column-end: 17;
@@ -328,6 +339,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 19;
         grid-column-end: 24;
@@ -353,6 +365,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 23;
         grid-column-end: 28;
@@ -378,6 +391,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 23;
         grid-column-end: 28;
@@ -403,6 +417,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 23;
         grid-column-end: 28;
@@ -428,6 +443,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 23;
         grid-column-end: 28;
@@ -453,6 +469,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 15;
         grid-column-end: 20;
@@ -478,6 +495,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 15;
         grid-column-end: 20;
@@ -503,6 +521,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 9;
         grid-column-end: 14;
@@ -527,6 +546,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 26;
         grid-column-end: 29;
@@ -551,6 +571,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 31;
         grid-column-end: 34;
@@ -575,6 +596,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 31;
         grid-column-end: 34;
@@ -599,6 +621,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 36;
         grid-column-end: 40;
@@ -623,6 +646,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 42;
         grid-column-end: 46;
@@ -647,6 +671,7 @@ export default function RoadMapBack() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 48;
         grid-column-end: 51;
