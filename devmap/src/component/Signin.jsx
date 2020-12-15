@@ -129,6 +129,7 @@ const PasswordInput = styled.input`
     font-family: Jua;
     // text-align: center;
     // position: relative;
+    outline: 0;
     cursor: pointer;
 
     &:hover {
@@ -156,6 +157,7 @@ const PasswordInput = styled.input`
     font-family: Jua;
     color: #fed0d3;
     background-color: #fff4f4;
+    outline: 0;
     cursor: pointer;
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};
@@ -182,6 +184,7 @@ const PasswordInput = styled.input`
     font-family: Jua;
     color: #fed0d3;
     background-color: #fff4f4;
+    outline: 0;
     cursor: pointer;
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};

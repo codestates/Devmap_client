@@ -4,6 +4,10 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
+import RoadMapItems from './RoadMapItems';
+import ModalTypeScript from './ModalTypeScript';
+// typeScript로 모달 실험 중
+
 import arrow_1 from '../img/arrow_1.png';
 import arrow_2 from '../img/arrow_2.png';
 import arrow_3 from '../img/arrow_3.png';
@@ -15,6 +19,111 @@ import arrow_8 from '../img/arrow_8.png';
 import etc from '../img/etc.png';
 
 export default function RoadMapFront() {
+
+    const [isFrontModalOpen, setIsFrontModalOpen] =
+    useState({
+        browser: false,
+        language: false,
+        html: false,
+        css: false,
+        cssF: false,
+        typeScript: false,
+        javaScript: false,
+        cssinjs: false,
+        versionControl: false,
+        testing: false,
+        framework: false,
+        react: false,
+        vue: false,
+        angular: false,
+        redux: false,
+        build: false,
+        security: false,
+        mobile: false,
+        server: false
+    })
+
+    const openBrowserModal = () => {
+        setIsFrontModalOpen({browser: !isFrontModalOpen.browser})
+        console.log(isFrontModalOpen.browser)
+    };
+    const openLanguageModal = () => {
+        setIsFrontModalOpen({language: !isFrontModalOpen.language})
+        console.log(isFrontModalOpen.language)
+    };
+    const openHtmlModal = () => {
+        setIsFrontModalOpen({html: !isFrontModalOpen.html})
+        console.log(isFrontModalOpen.html)
+    };
+    const openCssModal = () => {
+        setIsFrontModalOpen({css: !isFrontModalOpen.css})
+        console.log(isFrontModalOpen.css)
+    };
+    const openCssFModal = () => {
+        setIsFrontModalOpen({cssF: !isFrontModalOpen.cssF})
+        console.log(isFrontModalOpen.cssF)
+    };
+
+    const openTypeScriptModal = () => {
+        setIsFrontModalOpen({typeScript: true})
+        console.log(isFrontModalOpen.typeScript)
+    };
+    const closeTypeScriptModal = () => {
+        setIsFrontModalOpen({typeScript: false})
+    };
+
+    const openJavaScriptModal = () => {
+        setIsFrontModalOpen({javaScript: !isFrontModalOpen.javaScript})
+        console.log(isFrontModalOpen.javaScript)
+    };
+    const openCssInJsModal = () => {
+        setIsFrontModalOpen({cssinjs: !isFrontModalOpen.cssinjs})
+        console.log(isFrontModalOpen.cssinjs)
+    };
+    const openVersionControlModal = () => {
+        setIsFrontModalOpen({versionControl: !isFrontModalOpen.versionControl})
+        console.log(isFrontModalOpen.versionControl)
+    };
+    const openTestingModal = () => {
+        setIsFrontModalOpen({testing: !isFrontModalOpen.testing})
+        console.log(isFrontModalOpen.testing)
+    };
+    const openFrameworkModal = () => {
+        setIsFrontModalOpen({framework: !isFrontModalOpen.framework})
+        console.log(isFrontModalOpen.framework)
+    };
+    const openReactModal = () => {
+        setIsFrontModalOpen({react: !isFrontModalOpen.react})
+        console.log(isFrontModalOpen.react)
+    };
+    const openVueModal = () => {
+        setIsFrontModalOpen({vue: !isFrontModalOpen.vue})
+        console.log(isFrontModalOpen.vue)
+    };
+    const openAngularModal = () => {
+        setIsFrontModalOpen({angular: !isFrontModalOpen.angular})
+        console.log(isFrontModalOpen.angular)
+    };
+    const openReduxModal = () => {
+        setIsFrontModalOpen({redux: !isFrontModalOpen.redux})
+        console.log(isFrontModalOpen.redux)
+    };
+    const openBuildModal = () => {
+        setIsFrontModalOpen({build: !isFrontModalOpen.build})
+        console.log(isFrontModalOpen.build)
+    };
+    const openSecurityModal = () => {
+        setIsFrontModalOpen({security: !isFrontModalOpen.security})
+        console.log(isFrontModalOpen.security)
+    };
+    const openMobileModal = () => {
+        setIsFrontModalOpen({mobile: !isFrontModalOpen.mobile})
+        console.log(isFrontModalOpen.mobile)
+    };
+    const openServerModal = () => {
+        setIsFrontModalOpen({server: !isFrontModalOpen.server})
+        console.log(isFrontModalOpen.server)
+    };
 
     const InfoText = styled.span`
         margin-top: 2px;
@@ -35,7 +144,17 @@ export default function RoadMapFront() {
         float: right;
         border: 3px solid;
         border-radius: 10px;
+        outline: 0;
         cursor: pointer;
+        &:hover {
+            background: ${lighten(0.012, '#eefffe')};
+            box-shadow:  0 2px #dedede;
+        }
+        &:active {
+            background: ${darken(0.0005, '#eefffe')};
+            box-shadow: 0 2px #ffffff;
+            transform: translateY(4px);
+        }
     `;
 
     const RoadMapBorder = styled.div`
@@ -68,6 +187,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
     `;
 
@@ -87,6 +207,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 2;
         grid-column-end: 5;
@@ -111,6 +232,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 7;
         grid-column-end: 10;
@@ -135,6 +257,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 12;
         grid-column-end: 15;
@@ -159,6 +282,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 12;
         grid-column-end: 15;
@@ -184,6 +308,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 16;
         grid-column-end: 21;
@@ -208,6 +333,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 11;
         grid-column-end: 16;
@@ -232,6 +358,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 11;
         grid-column-end: 16;
@@ -257,6 +384,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 16;
         grid-column-end: 21;
@@ -281,6 +409,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 22;
         grid-column-end: 27;
@@ -305,6 +434,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 22;
         grid-column-end: 27;
@@ -329,6 +459,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 29;
         grid-column-end: 33;
@@ -354,6 +485,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 31;
         grid-column-end: 34;
@@ -379,6 +511,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 31;
         grid-column-end: 34;
@@ -404,6 +537,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 31;
         grid-column-end: 34;
@@ -429,6 +563,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 35;
         grid-column-end: 38;
@@ -453,6 +588,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 35;
         grid-column-end: 38;
@@ -477,6 +613,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 40;
         grid-column-end: 44;
@@ -501,6 +638,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 45;
         grid-column-end: 50;
@@ -525,6 +663,7 @@ export default function RoadMapFront() {
         text-align: center;
         font-size: 20px;
         font-family: Jua;
+        outline: 0;
         cursor: pointer;
         grid-column-start: 45;
         grid-column-end: 50;
@@ -822,7 +961,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <TypeScript>TypeScript</TypeScript>
+                <TypeScript onClick={openTypeScriptModal}>TypeScript</TypeScript>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -842,7 +981,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Angular>Angular</Angular>
+                <Angular onClick={openAngularModal}>Angular</Angular>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -892,7 +1031,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Vue>Vue.js</Vue>
+                <Vue onClcik={openVueModal}>Vue.js</Vue>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -906,7 +1045,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Mobile>Mobile Application</Mobile>
+                <Mobile onClcik={openMobileModal}>Mobile Application</Mobile>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -923,7 +1062,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(211)보이나</Invisible>
-                <HTML>HTML</HTML>
+                <HTML onClcik={openHtmlModal}>HTML</HTML>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -933,7 +1072,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(221)보이나</Invisible>
-                <VersionControl>버전 관리 시스템</VersionControl>
+                <VersionControl onClcik={openVersionControlModal}>버전 관리 시스템</VersionControl>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -942,9 +1081,9 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>            
-                <React>리액트</React>
+                <React onClick={openReactModal}>리액트</React>
                 <div></div>
-                <Redux>Redux</Redux>
+                <Redux onClick={openReduxModal}>Redux</Redux>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -963,12 +1102,12 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(251)보이나</Invisible>
-                <Browser>브라우저</Browser>
+                <Browser onClcik={openBrowserModal}>브라우저</Browser>
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
-                <Language>언 어</Language>
+                <Language onClcik={openLanguageModal}>언 어</Language>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -990,7 +1129,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <FrameWork>프레임 워크</FrameWork>
+                <FrameWork onClcik={openFrameworkModal}>프레임 워크</FrameWork>
                 <div></div>
                 <Invisible>(281)보이나</Invisible>
                 <div></div>
@@ -998,13 +1137,13 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <BuildTool>빌드 툴</BuildTool>
+                <BuildTool onClcik={openBuildModal}>빌드 툴</BuildTool>
                 <div></div>
                 <div></div>
                 <div></div>
                 <Invisible>(291)보이나</Invisible>
                 <div></div>
-                <Security>웹 보안 지식</Security>
+                <Security onClcik={openSecurityModal}>웹 보안 지식</Security>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1023,7 +1162,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(311)보이나</Invisible>
-                <CSS>CSS</CSS>
+                <CSS onClcik={openCssModal}>CSS</CSS>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1033,7 +1172,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(321)보이나</Invisible>
-                <Testing>테스팅 도구</Testing>
+                <Testing onClcik={openTestingModal}>테스팅 도구</Testing>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1077,7 +1216,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <CSSFrameWork>CSS 프레임 워크</CSSFrameWork>
+                <CSSFrameWork onClcik={openCssFModal}>CSS 프레임 워크</CSSFrameWork>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1106,7 +1245,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Server>서버사이드 렌더링</Server>
+                <Server onClcik={openServerModal}>서버사이드 렌더링</Server>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1122,7 +1261,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <JavaScript>JavaScript</JavaScript>
+                <JavaScript onClcik={openJavaScriptModal}>JavaScript</JavaScript>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1178,7 +1317,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <CSSInJs>CSS-in-JS</CSSInJs>
+                <CSSInJs onClcik={openCssInJsModal}>CSS-in-JS</CSSInJs>
                 {/* <div></div>
                 <div></div>
                 <div></div>
@@ -1263,6 +1402,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div> */}
             </RoadMapContainer>
+            <ModalTypeScript isFrontModalOpen={isFrontModalOpen.typeScript} closeTypeScriptModal={closeTypeScriptModal}/>
         </RoadMapBorder>
     )
 }

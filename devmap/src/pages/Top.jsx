@@ -46,6 +46,7 @@ const Input = styled.input`
     margin-left: 15.8%;
     margin-right: auto;
     box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.03);
+    outline: 0;
 
     &:hover {
         background: ${lighten(0, '#eefffe')};
@@ -88,6 +89,7 @@ const MyPageButton = styled.button`
     text-align: center;
     color: #78b8c4;
     position: relative;
+    outline: 0;
     cursor: pointer;
   
     &:hover {
@@ -101,7 +103,7 @@ const MyPageButton = styled.button`
     }
 `;
 
-const WithdrawalButton = styled.button`
+const SignOutButton = styled.button`
     top: -10px;
     width: 135px;
     height: 50px;
@@ -114,6 +116,7 @@ const WithdrawalButton = styled.button`
     text-align: center;
     color: #78b8c4;
     position: relative;
+    outline: 0;
     cursor: pointer;
   
     &:hover {
@@ -202,7 +205,7 @@ const closeSignUpModal = () => {
                     </Img_input>
                     <Button_Ul_style>
                         <Button_Li_style>
-                            <WithdrawalButton>로그아웃</WithdrawalButton>
+                            <SignOutButton>로그아웃</SignOutButton>
                             {/* onClick={handleLogout} */}
                         </Button_Li_style>
                         <Button_Li_style>
