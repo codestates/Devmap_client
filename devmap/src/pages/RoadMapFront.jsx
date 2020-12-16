@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import ModalFront from './ModalFront';
-// typeScript로 모달 실험 중임, 되는 것이 있고 안되는 것이 있음
 
 import arrow_1 from '../img/arrow_1.png';
 import arrow_2 from '../img/arrow_2.png';
@@ -170,7 +169,6 @@ export default function RoadMapFront() {
         border-color: #a3dfea;
     `;
 
-    // 그리드 세팅 수정(아래 빈 공간)
     const RoadMapContainer = styled.div`
         display: grid;
         width: 97%;
@@ -754,7 +752,7 @@ export default function RoadMapFront() {
     `;
 
     const Arrow_arrow_8 = styled.img`
-        width: 80%;
+        width: 70%;
         margin-top: 22%;
         margin-left: 18%;
         grid-column-start: 8;
