@@ -20,14 +20,23 @@ const ModalFrontWrapper = styled.div`
     position: absolute;
     display: block;
     z-index: 1000;
-    left: 0.5%;
     top: -24%;
+    left: 0.5%;
     width: 30%;
     height: 124%;
     background-color: #eefffe;
     border: 3px dashed;
     border-radius: 10px;
     border-color: #a3dfea;
+    animation: slidein 1s ease-in-out;
+    @keyframes slidein {
+        from {
+            left: -30%;
+        }
+        to {
+            left: 0.5%;
+        }
+    }
 `;
 
 const LogoImg = styled.img`
