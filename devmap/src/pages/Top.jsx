@@ -187,7 +187,7 @@ const closeSignUpModal = () => {
                         </Button_Li_style>
                     </Button_Ul_style>
                 </TopBox>
-                {/* 어떻게 연결된 것인지 아직 헷갈린다.. */}
+                {/* 모달이 페이지에 내장되어있는 상태*/}
                 <SignUpModal openSignUpModal={openSignUpModal} closeSignUpModal={closeSignUpModal} isModalOpen={isModalOpen}/>
                 <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
             </div>
