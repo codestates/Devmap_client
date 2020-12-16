@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
 
-const ModalTypeScriptShadow = styled.div`
+const ModalFrontShadow = styled.div`
     position: fixed;
     z-index: 1;
     left: 0;
@@ -16,7 +16,7 @@ const ModalTypeScriptShadow = styled.div`
     background-color: rgba(0,0,0,0.4);
 `;
 
-const ModalTypeScriptWrapper = styled.div`
+const ModalFrontWrapper = styled.div`
     position: absolute;
     display: block;
     z-index: 1000;
@@ -124,6 +124,7 @@ const CommentButton = styled.button`
 
 const CommentList = styled.ol`
     list-style: none;
+    margin-top: 5%;
     margin-left: -2%;
     margin-right: 5%;
 
@@ -143,11 +144,11 @@ const AComment = styled.li`
 `;
 
 
-export default function ModalTypeScript({ isFrontModalOpen, closeTypeScriptModal }) {
-    if (isFrontModalOpen === false) {
+export default function ModalFront({ isFrontModalOpen, closeFrontModal }) {
+    if (isFrontModalOpen === true) {
         return (
             <div>
-                <ModalTypeScriptWrapper>
+                <ModalFrontWrapper>
                     <LogoImg src={logo} alt='oops!' />
                     <TitleAndStarRating>
                         <Title># 타입스크립트</Title>
@@ -156,14 +157,14 @@ export default function ModalTypeScript({ isFrontModalOpen, closeTypeScriptModal
                     <ItemInfo>
                         * 타입스크립트란?<br/>
                         제목, 본문 영역에는 json으로 클라이언트단에서 정보를 뿌릴 예정<br/>
+                        (현재는 임의의 정보)<br/>
                         별점, 댓글 등은 당연히 서버와 통신..<br/>
                         <br/>
                         * 추천 링크<br/>
-                        근데 이렇게 아이템별로 하나하나 컴포넌트를 따로 주는게 맞는건지..<br/>
-                        스타일만 되어있고 기능은 아직 하나도 안되어있음<br/>
+                        스타일, 모달 열고 닫기까지만 완료된 상태, 슬라이드 적용할 것<br/>
                     </ItemInfo>
                     <StarRating>
-                        ☆☆☆☆☆ (컴포넌트 만들기)
+                        ☆☆☆☆☆
                     </StarRating>
                     <Comment>
                         <CommentInput placeholder="댓글을 입력하세요" />
@@ -174,9 +175,16 @@ export default function ModalTypeScript({ isFrontModalOpen, closeTypeScriptModal
                         <AComment>댓글</AComment>
                         <AComment>댓글</AComment>
                     </CommentList>
-                </ModalTypeScriptWrapper>
-                <ModalTypeScriptShadow onClcik={closeTypeScriptModal}></ModalTypeScriptShadow>
+                    {/* <button onClick={openFrontModal}>버튼</button> */}
+                </ModalFrontWrapper>
+                <ModalFrontShadow onClick={closeFrontModal} />
+                {console.log(isFrontModalOpen)}
+                {/* onClick event가 작동 안함, 역시 또 오타 때문이었다.. */}
             </div>
+        )
+    } else if (isFrontModalOpen === false){
+        return (
+            ''
         )
     } else {
         return (

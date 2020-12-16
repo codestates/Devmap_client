@@ -4,9 +4,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-import RoadMapItems from './RoadMapItems';
-import ModalTypeScript from './ModalTypeScript';
-// typeScript로 모달 실험 중
+import ModalFront from './ModalFront';
+// typeScript로 모달 실험 중임
 
 import arrow_1 from '../img/arrow_1.png';
 import arrow_2 from '../img/arrow_2.png';
@@ -21,109 +20,113 @@ import etc from '../img/etc.png';
 export default function RoadMapFront() {
 
     const [isFrontModalOpen, setIsFrontModalOpen] =
-    useState({
-        browser: false,
-        language: false,
-        html: false,
-        css: false,
-        cssF: false,
-        typeScript: false,
-        javaScript: false,
-        cssinjs: false,
-        versionControl: false,
-        testing: false,
-        framework: false,
-        react: false,
-        vue: false,
-        angular: false,
-        redux: false,
-        build: false,
-        security: false,
-        mobile: false,
-        server: false
-    })
+    useState(false
+        // browser: false,
+        // language: false,
+        // html: false,
+        // css: false,
+        // cssF: false,
+        // typeScript: false,
+        // javaScript: false,
+        // cssinjs: false,
+        // versionControl: false,
+        // testing: false,
+        // framework: false,
+        // react: false,
+        // vue: false,
+        // angular: false,
+        // redux: false,
+        // build: false,
+        // security: false,
+        // mobile: false,
+        // server: false
+    );
 
-    const openBrowserModal = () => {
-        setIsFrontModalOpen({browser: !isFrontModalOpen.browser})
-        console.log(isFrontModalOpen.browser)
+    // const openBrowserModal = () => {
+    //     setIsFrontModalOpen({browser: !isFrontModalOpen.browser})
+    //     console.log(isFrontModalOpen.browser)
+    // };
+    // const openLanguageModal = () => {
+    //     setIsFrontModalOpen({language: !isFrontModalOpen.language})
+    //     console.log(isFrontModalOpen.language)
+    // };
+    // const openHtmlModal = () => {
+    //     setIsFrontModalOpen({html: !isFrontModalOpen.html})
+    //     console.log(isFrontModalOpen.html)
+    // };
+    // const openCssModal = () => {
+    //     setIsFrontModalOpen({css: !isFrontModalOpen.css})
+    //     console.log(isFrontModalOpen.css)
+    // };
+    // const openCssFModal = () => {
+    //     setIsFrontModalOpen({cssF: !isFrontModalOpen.cssF})
+    //     console.log(isFrontModalOpen.cssF)
+    // };
+
+
+
+    const openFrontModal = () => {
+        setIsFrontModalOpen(!isFrontModalOpen)
+        // console.log(isFrontModalOpen)
     };
-    const openLanguageModal = () => {
-        setIsFrontModalOpen({language: !isFrontModalOpen.language})
-        console.log(isFrontModalOpen.language)
-    };
-    const openHtmlModal = () => {
-        setIsFrontModalOpen({html: !isFrontModalOpen.html})
-        console.log(isFrontModalOpen.html)
-    };
-    const openCssModal = () => {
-        setIsFrontModalOpen({css: !isFrontModalOpen.css})
-        console.log(isFrontModalOpen.css)
-    };
-    const openCssFModal = () => {
-        setIsFrontModalOpen({cssF: !isFrontModalOpen.cssF})
-        console.log(isFrontModalOpen.cssF)
+    const closeFrontModal = () => {
+        setIsFrontModalOpen(false)
     };
 
-    const openTypeScriptModal = () => {
-        setIsFrontModalOpen({typeScript: true})
-        console.log(isFrontModalOpen.typeScript)
-    };
-    const closeTypeScriptModal = () => {
-        setIsFrontModalOpen({typeScript: false})
-    };
 
-    const openJavaScriptModal = () => {
-        setIsFrontModalOpen({javaScript: !isFrontModalOpen.javaScript})
-        console.log(isFrontModalOpen.javaScript)
-    };
-    const openCssInJsModal = () => {
-        setIsFrontModalOpen({cssinjs: !isFrontModalOpen.cssinjs})
-        console.log(isFrontModalOpen.cssinjs)
-    };
-    const openVersionControlModal = () => {
-        setIsFrontModalOpen({versionControl: !isFrontModalOpen.versionControl})
-        console.log(isFrontModalOpen.versionControl)
-    };
-    const openTestingModal = () => {
-        setIsFrontModalOpen({testing: !isFrontModalOpen.testing})
-        console.log(isFrontModalOpen.testing)
-    };
-    const openFrameworkModal = () => {
-        setIsFrontModalOpen({framework: !isFrontModalOpen.framework})
-        console.log(isFrontModalOpen.framework)
-    };
-    const openReactModal = () => {
-        setIsFrontModalOpen({react: !isFrontModalOpen.react})
-        console.log(isFrontModalOpen.react)
-    };
-    const openVueModal = () => {
-        setIsFrontModalOpen({vue: !isFrontModalOpen.vue})
-        console.log(isFrontModalOpen.vue)
-    };
-    const openAngularModal = () => {
-        setIsFrontModalOpen({angular: !isFrontModalOpen.angular})
-        console.log(isFrontModalOpen.angular)
-    };
-    const openReduxModal = () => {
-        setIsFrontModalOpen({redux: !isFrontModalOpen.redux})
-        console.log(isFrontModalOpen.redux)
-    };
-    const openBuildModal = () => {
-        setIsFrontModalOpen({build: !isFrontModalOpen.build})
-        console.log(isFrontModalOpen.build)
-    };
-    const openSecurityModal = () => {
-        setIsFrontModalOpen({security: !isFrontModalOpen.security})
-        console.log(isFrontModalOpen.security)
-    };
-    const openMobileModal = () => {
-        setIsFrontModalOpen({mobile: !isFrontModalOpen.mobile})
-        console.log(isFrontModalOpen.mobile)
-    };
-    const openServerModal = () => {
-        setIsFrontModalOpen({server: !isFrontModalOpen.server})
-        console.log(isFrontModalOpen.server)
-    };
+
+    // const openJavaScriptModal = () => {
+    //     setIsFrontModalOpen({javaScript: !isFrontModalOpen.javaScript})
+    //     console.log(isFrontModalOpen.javaScript)
+    // };
+    // const openCssInJsModal = () => {
+    //     setIsFrontModalOpen({cssinjs: !isFrontModalOpen.cssinjs})
+    //     console.log(isFrontModalOpen.cssinjs)
+    // };
+    // const openVersionControlModal = () => {
+    //     setIsFrontModalOpen({versionControl: !isFrontModalOpen.versionControl})
+    //     console.log(isFrontModalOpen.versionControl)
+    // };
+    // const openTestingModal = () => {
+    //     setIsFrontModalOpen({testing: !isFrontModalOpen.testing})
+    //     console.log(isFrontModalOpen.testing)
+    // };
+    // const openFrameworkModal = () => {
+    //     setIsFrontModalOpen({framework: !isFrontModalOpen.framework})
+    //     console.log(isFrontModalOpen.framework)
+    // };
+    // const openReactModal = () => {
+    //     setIsFrontModalOpen({react: !isFrontModalOpen.react})
+    //     console.log(isFrontModalOpen.react)
+    // };
+    // const openVueModal = () => {
+    //     setIsFrontModalOpen({vue: !isFrontModalOpen.vue})
+    //     console.log(isFrontModalOpen.vue)
+    // };
+    // const openAngularModal = () => {
+    //     setIsFrontModalOpen({angular: !isFrontModalOpen.angular})
+    //     console.log(isFrontModalOpen.angular)
+    // };
+    // const openReduxModal = () => {
+    //     setIsFrontModalOpen({redux: !isFrontModalOpen.redux})
+    //     console.log(isFrontModalOpen.redux)
+    // };
+    // const openBuildModal = () => {
+    //     setIsFrontModalOpen({build: !isFrontModalOpen.build})
+    //     console.log(isFrontModalOpen.build)
+    // };
+    // const openSecurityModal = () => {
+    //     setIsFrontModalOpen({security: !isFrontModalOpen.security})
+    //     console.log(isFrontModalOpen.security)
+    // };
+    // const openMobileModal = () => {
+    //     setIsFrontModalOpen({mobile: !isFrontModalOpen.mobile})
+    //     console.log(isFrontModalOpen.mobile)
+    // };
+    // const openServerModal = () => {
+    //     setIsFrontModalOpen({server: !isFrontModalOpen.server})
+    //     console.log(isFrontModalOpen.server)
+    // };
 
     const InfoText = styled.span`
         margin-top: 2px;
@@ -961,7 +964,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <TypeScript onClick={openTypeScriptModal}>TypeScript</TypeScript>
+                <TypeScript onClick={openFrontModal}>TypeScript</TypeScript>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -981,7 +984,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Angular onClick={openAngularModal}>Angular</Angular>
+                <Angular onClick={openFrontModal}>Angular</Angular>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1031,7 +1034,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Vue onClcik={openVueModal}>Vue.js</Vue>
+                <Vue onClcik={openFrontModal}>Vue.js</Vue>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1045,7 +1048,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Mobile onClcik={openMobileModal}>Mobile Application</Mobile>
+                <Mobile onClcik={openFrontModal}>Mobile Application</Mobile>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1062,7 +1065,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(211)보이나</Invisible>
-                <HTML onClcik={openHtmlModal}>HTML</HTML>
+                <HTML onClcik={openFrontModal}>HTML</HTML>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1072,7 +1075,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(221)보이나</Invisible>
-                <VersionControl onClcik={openVersionControlModal}>버전 관리 시스템</VersionControl>
+                <VersionControl onClcik={openFrontModal}>버전 관리 시스템</VersionControl>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1081,9 +1084,9 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>            
-                <React onClick={openReactModal}>리액트</React>
+                <React onClick={openFrontModal}>리액트</React>
                 <div></div>
-                <Redux onClick={openReduxModal}>Redux</Redux>
+                <Redux onClick={openFrontModal}>Redux</Redux>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1102,12 +1105,12 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(251)보이나</Invisible>
-                <Browser onClcik={openBrowserModal}>브라우저</Browser>
+                <Browser onClcik={openFrontModal}>브라우저</Browser>
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
-                <Language onClcik={openLanguageModal}>언 어</Language>
+                <Language onClcik={openFrontModal}>언 어</Language>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1129,7 +1132,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <FrameWork onClcik={openFrameworkModal}>프레임 워크</FrameWork>
+                <FrameWork onClcik={openFrontModal}>프레임 워크</FrameWork>
                 <div></div>
                 <Invisible>(281)보이나</Invisible>
                 <div></div>
@@ -1137,13 +1140,13 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <BuildTool onClcik={openBuildModal}>빌드 툴</BuildTool>
+                <BuildTool onClcik={openFrontModal}>빌드 툴</BuildTool>
                 <div></div>
                 <div></div>
                 <div></div>
                 <Invisible>(291)보이나</Invisible>
                 <div></div>
-                <Security onClcik={openSecurityModal}>웹 보안 지식</Security>
+                <Security onClcik={openFrontModal}>웹 보안 지식</Security>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1162,7 +1165,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(311)보이나</Invisible>
-                <CSS onClcik={openCssModal}>CSS</CSS>
+                <CSS onClcik={openFrontModal}>CSS</CSS>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1172,7 +1175,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(321)보이나</Invisible>
-                <Testing onClcik={openTestingModal}>테스팅 도구</Testing>
+                <Testing onClcik={openFrontModal}>테스팅 도구</Testing>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1216,7 +1219,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <CSSFrameWork onClcik={openCssFModal}>CSS 프레임 워크</CSSFrameWork>
+                <CSSFrameWork onClcik={openFrontModal}>CSS 프레임 워크</CSSFrameWork>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1245,7 +1248,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Server onClcik={openServerModal}>서버사이드 렌더링</Server>
+                <Server onClcik={openFrontModal}>서버사이드 렌더링</Server>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1261,7 +1264,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <JavaScript onClcik={openJavaScriptModal}>JavaScript</JavaScript>
+                <JavaScript onClcik={openFrontModal}>JavaScript</JavaScript>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1317,7 +1320,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <CSSInJs onClcik={openCssInJsModal}>CSS-in-JS</CSSInJs>
+                <CSSInJs onClcik={openFrontModal}>CSS-in-JS</CSSInJs>
                 {/* <div></div>
                 <div></div>
                 <div></div>
@@ -1402,7 +1405,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div> */}
             </RoadMapContainer>
-            <ModalTypeScript isFrontModalOpen={isFrontModalOpen.typeScript} closeTypeScriptModal={closeTypeScriptModal}/>
+            <ModalFront isFrontModalOpen={isFrontModalOpen} closeFrontModal={closeFrontModal} />
         </RoadMapBorder>
     )
 }
