@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import ModalFront from './ModalFront';
-// typeScript로 모달 실험 중임
+// typeScript로 모달 실험 중임, 되는 것이 있고 안되는 것이 있음
 
 import arrow_1 from '../img/arrow_1.png';
 import arrow_2 from '../img/arrow_2.png';
@@ -170,7 +170,7 @@ export default function RoadMapFront() {
         border-color: #a3dfea;
     `;
 
-    // need to modify grid setting(under space)
+    // 그리드 세팅 수정(아래 빈 공간)
     const RoadMapContainer = styled.div`
         display: grid;
         width: 97%;
@@ -843,10 +843,6 @@ export default function RoadMapFront() {
         grid-row-end: 7;
     `;
 
-    // 일단 눌러서 들어가면 로드맵이 한번에 딱 뜬다
-    // -> 
-    // 거기서 하나를 누르면 거기에 해당하는 정보를 사이드 바(모달?)에서 띄운다(프론트엔드에서 정보(json) 관리!)
-
     return (
         <RoadMapBorder>
             <InfoText>*자세한 내용을 보시려면 아래 각 항목을 클릭하세요</InfoText>
@@ -872,27 +868,27 @@ export default function RoadMapFront() {
                 <Arrow_arrow_14 src={arrow_8} alt='oops!' />
                 <Arrow_arrow_15 src={arrow_1} alt='oops!' />
                 <Arrow_arrow_16 src={etc} alt='oops!' />
-                <div></div>
-                <div></div>
+                <TypeScript onClick={openFrontModal}>TypeScript</TypeScript>
+                <Angular onClick={openFrontModal}>Angular</Angular>
                 <Invisible>(21)보이나</Invisible>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <Vue onClick={openFrontModal}>Vue.js</Vue>
+                <Mobile onClick={openFrontModal}>Mobile Application</Mobile>
+                <HTML onClick={openFrontModal}>HTML</HTML>
+                <VersionControl onClick={openFrontModal}>버전 관리 시스템</VersionControl>
+                <React onClick={openFrontModal}>리액트</React>
+                <Redux onClick={openFrontModal}>Redux</Redux>
+                <Browser onClick={openFrontModal}>브라우저</Browser>
+                <Language onClick={openFrontModal}>언 어</Language>
+                <FrameWork onClick={openFrontModal}>프레임 워크</FrameWork>
                 <Invisible>(31)보이나</Invisible>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <BuildTool onClick={openFrontModal}>빌드 툴</BuildTool>
+                <Security onClick={openFrontModal}>웹 보안 지식</Security>
+                <CSS onClick={openFrontModal}>CSS</CSS>
+                <Testing onClick={openFrontModal}>테스팅 도구</Testing>
+                <CSSFrameWork onClick={openFrontModal}>CSS 프레임 워크</CSSFrameWork>
+                <Server onClick={openFrontModal}>서버사이드 렌더링</Server>
+                <JavaScript onClick={openFrontModal}>JavaScript</JavaScript>
+                <CSSInJs onClick={openFrontModal}>CSS-in-JS</CSSInJs>
                 <div></div>
                 <Invisible>(41)보이나</Invisible>
                 <div></div>
@@ -964,7 +960,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <TypeScript onClick={openFrontModal}>TypeScript</TypeScript>
+                <Invisible>(111)보이나</Invisible>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -984,7 +980,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Angular onClick={openFrontModal}>Angular</Angular>
+                <Invisible>(131)보이나</Invisible>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1034,7 +1030,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Vue onClcik={openFrontModal}>Vue.js</Vue>
+                <Invisible>(181)보이나</Invisible>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1048,7 +1044,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Mobile onClcik={openFrontModal}>Mobile Application</Mobile>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1065,7 +1061,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(211)보이나</Invisible>
-                <HTML onClcik={openFrontModal}>HTML</HTML>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1075,7 +1071,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(221)보이나</Invisible>
-                <VersionControl onClcik={openFrontModal}>버전 관리 시스템</VersionControl>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1084,9 +1080,9 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>            
-                <React onClick={openFrontModal}>리액트</React>
+                <Invisible>(231)보이나</Invisible>
                 <div></div>
-                <Redux onClick={openFrontModal}>Redux</Redux>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1105,12 +1101,12 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(251)보이나</Invisible>
-                <Browser onClcik={openFrontModal}>브라우저</Browser>
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
-                <Language onClcik={openFrontModal}>언 어</Language>
+                <div></div>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1132,7 +1128,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <FrameWork onClcik={openFrontModal}>프레임 워크</FrameWork>
+                <div></div>
                 <div></div>
                 <Invisible>(281)보이나</Invisible>
                 <div></div>
@@ -1140,13 +1136,13 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <BuildTool onClcik={openFrontModal}>빌드 툴</BuildTool>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
                 <Invisible>(291)보이나</Invisible>
                 <div></div>
-                <Security onClcik={openFrontModal}>웹 보안 지식</Security>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1165,7 +1161,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(311)보이나</Invisible>
-                <CSS onClcik={openFrontModal}>CSS</CSS>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1175,7 +1171,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <Invisible>(321)보이나</Invisible>
-                <Testing onClcik={openFrontModal}>테스팅 도구</Testing>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1219,7 +1215,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <CSSFrameWork onClcik={openFrontModal}>CSS 프레임 워크</CSSFrameWork>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1248,7 +1244,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <Server onClcik={openFrontModal}>서버사이드 렌더링</Server>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1264,7 +1260,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <JavaScript onClcik={openFrontModal}>JavaScript</JavaScript>
+                <Invisible>(411)보이나</Invisible>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1320,7 +1316,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <CSSInJs onClcik={openFrontModal}>CSS-in-JS</CSSInJs>
+                <div></div>
                 {/* <div></div>
                 <div></div>
                 <div></div>
