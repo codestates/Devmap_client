@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-import SignIn from './SignIn';
+import SignIn from './Signin';
 axios.defaults.withCredentials = true;
 
 export default function SignInModal({ openSignInModal, closeSignInModal, isModalOpen, handleResponseSuccess }) {
