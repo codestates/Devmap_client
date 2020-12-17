@@ -31,7 +31,7 @@ const ModalFrontWrapper = styled.div`
     width: 30%;
     height: 124%;
     background-color: #eefffe;
-    border: 3px dashed;
+    border: 5px solid;
     border-radius: 10px;
     border-color: #a3dfea;
     animation: slidein 0.5s ease-in-out;
@@ -72,15 +72,16 @@ const ItemInfo = styled.div`
     margin-left: 5%;
     margin-right: 5%;
     padding: 5%;
+    padding-top: 2%;
     padding-left: 2%;
     padding-right: 2%;
     font-size: 20px;
-    font-family: Do Hyeon;
+    font-family: Gaegu;
     color: #78b8c4;
     background-color: #fff8f8;
     border: 3px solid;
     border-radius: 10px;
-    border-color: #ffa2b4;
+    border-color: #a3dfea;
     max-height: 30%;
     overflow: auto;
     ::-webkit-scrollbar {
@@ -99,9 +100,14 @@ const ItemInfo = styled.div`
     }
 `;
 
-const Link = styled.a`
+const ItemTitle = styled.p`
     font-size: 20px;
     font-family: Jua;
+`;
+
+const Link = styled.a`
+    font-size: 20px;
+    font-family: Gaegu;
     text-decoration: none;
     color: #78b8c4;
     
@@ -177,7 +183,7 @@ const AComment = styled.li`
     padding: 2%;
     border: 3px solid;
     border-radius: 10px;
-    border-color: #ffa2b4;
+    border-color: #a3dfea;
     background-color: #fff8f8;
     font-size: 20px;
     font-family: Do Hyeon;
@@ -198,9 +204,9 @@ export default function ModalFront({ isFrontModalOpen, closeFrontModal }) {
                                 <StarRate>★★★★☆</StarRate>
                             </TitleAndStarRating>
                             <ItemInfo>
-                                <p>🚀 {frontJsonData[i].title}(이)란?</p>
+                                <ItemTitle>🚀 {frontJsonData[i].title}(이)란?</ItemTitle>
                                 <p>{frontJsonData[i].info.replaceAll("\n", "<br/>")}</p>
-                                <p>💻 추천 링크</p>
+                                <ItemTitle>💻 추천 링크</ItemTitle>
                                 <Link href={frontJsonData[i].link} target="_blank">➤ 이동하기</Link>
                             </ItemInfo>
                             <StarRating>
