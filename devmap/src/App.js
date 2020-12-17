@@ -12,19 +12,19 @@ import RoadMapBack from './pages/RoadMapBack';
 
 function App() {
   const [isSignnedIn, setIsSignnedIn] = useState({isSignIn: false, userInfo: null});
-  const [token, setToken] = useState('')
+  // const [token, setToken] = useState('')
 
-  const handleResponseSuccess = async () => { // 로그인 성공
-    await axios.get('').then((res) => {
-      let count = 0;
-        count++;
-      if (count > 1) {
-        setIsSignnedIn({isSignIn: true, userInfo: res.data}); // userInfo 상태 생성하기?
-      } else {
-        return ;
-      }
-        console.log(isSignnedIn.userInfo);
-    },);
+  const handleResponseSuccess = () => { // 로그인 성공
+    // await axios.get('http://devmap.ml/users/signin').then((res) => {
+    //   let count = 0;
+    //     count++;
+    //   if (count > 1) {
+        setIsSignnedIn({isSignIn: true}); // userInfo: res.data // userInfo 상태 생성하기?
+    //   } else {
+    //     return ;
+    //   }
+    //     console.log(isSignnedIn.userInfo);
+    // },);
   };
 
   // useEffect(() => { // componentDidMount()
@@ -92,25 +92,25 @@ function App() {
           <Route
             path="/users/main"
             render={() => 
-              <Main token={token}/>
+              <Main/>
             }
           />
           <Route
             path="/users/mypage"
             render={() => 
-              <MyPage token={token} isSignnedIn={isSignnedIn}/>
+              <MyPage isSignnedIn={isSignnedIn}/>
             }
           />
           <Route
             path="/users/totalMap-front"
             render={() => 
-              <RoadMapFront token={token} isSignnedIn={isSignnedIn}/>
+              <RoadMapFront isSignnedIn={isSignnedIn}/>
             }
           />
           <Route
             path="/users/totalMap-back"
             render={() => 
-              <RoadMapBack token={token} isSignnedIn={isSignnedIn}/>
+              <RoadMapBack isSignnedIn={isSignnedIn}/>
             }
           />
         </Switch>
