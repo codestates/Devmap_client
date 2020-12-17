@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
+import frontJsonData from '../json/RoadMapFront';
+
+console.log(frontJsonData[0].name);
 
 const ModalFrontShadow = styled.div`
     position: fixed;
@@ -37,6 +40,7 @@ const ModalFrontWrapper = styled.div`
             left: 0.5%;
         }
     }
+    // 슬라이드 아웃하려면 display를 none으로?
 `;
 
 const LogoImg = styled.img`
@@ -48,7 +52,7 @@ const LogoImg = styled.img`
 const TitleAndStarRating = styled.div`
     margin-top: 3%;
     margin-left: 5%;
-    font-size: 40px;
+    font-size: 30px;
     font-family: Jua;
     color: #78b8c4;
 `;
@@ -75,6 +79,32 @@ const ItemInfo = styled.div`
     border-radius: 10px;
     border-color: #ffa2b4;
     max-height: 30%;
+    overflow: auto;
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #fed0d3;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        background-clip: padding-box;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #fff4f4;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px white;
+    }
+`;
+
+const Link = styled.a`
+    font-size: 20px;
+    font-family: Jua;
+    text-decoration: none;
+    color: #78b8c4;
+    
+    // &;visited {
+    //     color: #grey;
+    // }
 `;
 
 const StarRating = styled.div`
@@ -136,11 +166,10 @@ const CommentList = styled.ol`
     margin-top: 5%;
     margin-left: -2%;
     margin-right: 5%;
-
 `;
 
 const AComment = styled.li`
-    height: 60px;
+    height: 55px;
     margin-top: 2%;
     padding: 2%;
     border: 3px solid;
@@ -152,46 +181,52 @@ const AComment = styled.li`
     color: #78b8c4;
 `;
 
-
 export default function ModalFront({ isFrontModalOpen, closeFrontModal }) {
-    if (isFrontModalOpen === true) {
-        return (
-            <div>
-                <ModalFrontWrapper>
-                    <LogoImg src={logo} alt='oops!' />
-                    <TitleAndStarRating>
-                        <Title># 타입스크립트</Title>
-                        <StarRate>★★★★☆</StarRate>
-                    </TitleAndStarRating>
-                    <ItemInfo>
-                        * 타입스크립트란?<br/>
-                        제목, 본문 영역에는 json으로 클라이언트단에서 정보를 뿌릴 예정<br/>
-                        (현재는 임의의 정보)<br/>
-                        별점, 댓글 등은 당연히 서버와 통신..<br/>
-                        <br/>
-                        * 추천 링크<br/>
-                        스타일, 모달 열고 닫기까지만 완료된 상태, 슬라이드 적용할 것<br/>
-                    </ItemInfo>
-                    <StarRating>
-                        ☆☆☆☆☆
-                    </StarRating>
-                    <Comment>
-                        <CommentInput placeholder="댓글을 입력하세요" />
-                        <CommentButton>▶</CommentButton>
-                    </Comment>
-                    <CommentList>
-                        <AComment>댓글</AComment>
-                        <AComment>댓글</AComment>
-                        <AComment>댓글</AComment>
-                    </CommentList>
-                    {/* <button onClick={openFrontModal}>버튼</button> */}
-                </ModalFrontWrapper>
-                <ModalFrontShadow onClick={closeFrontModal} />
-                {console.log(isFrontModalOpen)}
-                {/* onClick event가 작동 안함, 역시 또 오타 때문이었다.. */}
-            </div>
-        )
-    } else if (isFrontModalOpen === false){
+    if (isFrontModalOpen.modal === true) {
+        console.log(isFrontModalOpen.name === frontJsonData[1].name)
+        for (let i = 0; i < frontJsonData.length; i++) {
+            if (isFrontModalOpen.name === frontJsonData[i].name) {
+                return (
+                    <div>
+                        <ModalFrontWrapper>
+                            <LogoImg src={logo} alt='oops!' />
+                            <TitleAndStarRating>
+                                <Title># {frontJsonData[i].title}</Title>
+                                <StarRate>★★★★☆</StarRate>
+                            </TitleAndStarRating>
+                            <ItemInfo>
+                                <p>🚀 {frontJsonData[i].title}(이)란?</p>
+                                <p>{frontJsonData[i].info}</p>
+                                <p>💻 추천 링크</p>
+                                <Link href={frontJsonData[i].link} target="_blank">이동하기</Link>
+                            </ItemInfo>
+                            <StarRating>
+                                ☆☆☆☆☆
+                            </StarRating>
+                            <Comment>
+                                <CommentInput placeholder="댓글을 입력하세요" />
+                                <CommentButton>▶</CommentButton>
+                            </Comment>
+                            <CommentList>
+                                <AComment>댓글</AComment>
+                                <AComment>댓글</AComment>
+                                <AComment>댓글</AComment>
+                            </CommentList>
+                            {/* <button onClick={openFrontModal}>버튼</button> */}
+                        </ModalFrontWrapper>
+                        <ModalFrontShadow onClick={closeFrontModal} />
+                        {console.log(isFrontModalOpen)}
+                        {/* onClick event가 작동 안함, 역시 또 오타 때문이었다.. */}
+                    </div>
+                )  
+            }
+            // } else {
+            //     return (
+            //         alert('항목이 없습니다!')
+            //     )
+            // }
+        }
+    } else if (isFrontModalOpen.modal === false){
         return (
             ''
         )
