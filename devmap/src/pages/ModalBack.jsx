@@ -50,7 +50,7 @@ const LogoImg = styled.img`
 const TitleAndStarRating = styled.div`
     margin-top: 3%;
     margin-left: 5%;
-    font-size: 40px;
+    font-size: 30px;
     font-family: Jua;
     color: #78b8c4;
 `;
@@ -77,6 +77,32 @@ const ItemInfo = styled.div`
     border-radius: 10px;
     border-color: #ffa2b4;
     max-height: 30%;
+    overflow: auto;
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #fed0d3;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        background-clip: padding-box;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #fff4f4;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px white;
+    }
+`;
+
+const Link = styled.a`
+    font-size: 20px;
+    font-family: Jua;
+    text-decoration: none;
+    color: #78b8c4;
+    
+    // &;visited {
+    //     color: #grey;
+    // }
 `;
 
 const StarRating = styled.div`
@@ -141,7 +167,7 @@ const CommentList = styled.ol`
 `;
 
 const AComment = styled.li`
-    height: 60px;
+    height: 55px;
     margin-top: 2%;
     padding: 2%;
     border: 3px solid;
@@ -155,44 +181,54 @@ const AComment = styled.li`
 
 
 export default function ModalBack({ isBackModalOpen, closeBackModal }) {
-    if (isBackModalOpen === true) {
-        return (
-            <div>
-                <ModalBackWrapper>
-                    <LogoImg src={logo} alt='oops!' />
-                    <TitleAndStarRating>
-                        <Title># 타입스크립트</Title>
-                        <StarRate>★★★★☆</StarRate>
-                    </TitleAndStarRating>
-                    <ItemInfo>
-                        * 타입스크립트란?<br/>
-                        제목, 본문 영역에는 json으로 클라이언트단에서 정보를 뿌릴 예정<br/>
-                        (현재는 임의의 정보)<br/>
-                        별점, 댓글 등은 당연히 서버와 통신..<br/>
-                        <br/>
-                        * 추천 링크<br/>
-                        스타일, 모달 열고 닫기까지만 완료된 상태, 슬라이드 적용할 것<br/>
-                    </ItemInfo>
-                    <StarRating>
-                        ☆☆☆☆☆
-                    </StarRating>
-                    <Comment>
-                        <CommentInput placeholder="댓글을 입력하세요" />
-                        <CommentButton>▶</CommentButton>
-                    </Comment>
-                    <CommentList>
-                        <AComment>댓글</AComment>
-                        <AComment>댓글</AComment>
-                        <AComment>댓글</AComment>
-                    </CommentList>
-                    {/* <button onClick={openBackModal}>버튼</button> */}
-                </ModalBackWrapper>
-                <ModalBackShadow onClick={closeBackModal} />
-                {console.log(isBackModalOpen)}
-                {/* onClick event가 작동 안함, 역시 또 오타 때문이었다.. */}
-            </div>
-        )
-    } else if (isBackModalOpen === false){
+    if (isBackModalOpen.modal === true) {
+        for (let i = 0; i < backJsonData.length; i++) {
+            if (isBackModalOpen.name === backJsonData[i].name) {
+                return (
+                    <div>
+                        <ModalBackWrapper>
+                            <LogoImg src={logo} alt='oops!' />
+                            <TitleAndStarRating>
+                                <Title># {backJsonData[i].title}</Title>
+                                <StarRate>★★★★☆</StarRate>
+                            </TitleAndStarRating>
+                            <ItemInfo>
+                                <p>🚀 {backJsonData[i].title}(이)란?</p>
+                                <p>{backJsonData[i].info}</p>
+                                <p>💻 추천 링크</p>
+                                <Link href={backJsonData[i].link} target="_blank">➤ 이동하기</Link>
+                            </ItemInfo>
+                            <StarRating>
+                                ☆☆☆☆☆
+                            </StarRating>
+                            <Comment>
+                                <CommentInput placeholder="댓글을 입력하세요" />
+                                <CommentButton>▶</CommentButton>
+                            </Comment>
+                            <CommentList>
+                                <AComment>댓글 1</AComment>
+                                <AComment>댓글 2</AComment>
+                                <AComment>댓글 3</AComment>
+                            </CommentList>
+                            {/* <button onClick={openBackModal}>버튼</button> */}
+                        </ModalBackWrapper>
+                        <ModalBackShadow onClick={closeBackModal} />
+                        {console.log(isBackModalOpen)}
+                        {/* onClick event가 작동 안함, 역시 또 오타 때문이었다.. */}
+                    </div>
+                )
+            }
+            // } else if (isBackModalOpen === false){
+            //     return (
+            //         ''
+            //     )
+            // } else {
+            //     return (
+            //         alert('뭔가 잘못됐다..')
+            //     )
+            // }
+        }
+    } else if (isBackModalOpen.modal === false){
         return (
             ''
         )
@@ -200,5 +236,5 @@ export default function ModalBack({ isBackModalOpen, closeBackModal }) {
         return (
             alert('뭔가 잘못됐다..')
         )
-    }
+    } 
 }

@@ -140,7 +140,7 @@ const SignOutButton = styled.button`
   }
 */
 
-function Top ({ isSignnedIn, handleResponseSuccess }) {
+function Top ({ isSignnedIn, handleResponseSuccess, handleSignOut }) {
 
 const [isModalOpen, setIsModalOpen] = useState({signin: false, signup: false});
 
@@ -160,7 +160,7 @@ const closeSignUpModal = () => {
     setIsModalOpen({signin: false, signup: false});
 };
 
-// 로그아웃 함수 여기에 만들기
+// 로그아웃 함수 여기에 만들기 // 임시로 상태만 바꾸어 줌
 
 // 회원 가입, 로그인이 아직 서버측에서 안되니 실험할 때마다 계속 바꾸어주어야 함..
     if (isSignnedIn.isSignIn === false) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
@@ -205,7 +205,7 @@ const closeSignUpModal = () => {
                     </Img_input>
                     <Button_Ul_style>
                         <Button_Li_style>
-                            <SignOutButton>로그아웃</SignOutButton>
+                            <SignOutButton onClick={handleSignOut}>로그아웃</SignOutButton>
                             {/* onClick={handleLogout} */}
                         </Button_Li_style>
                         <Button_Li_style>
