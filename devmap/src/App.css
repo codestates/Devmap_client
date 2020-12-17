@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gugi&family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gugi&family=Jua&family=Gaegu:wght@300;400&display=swap');
 
 .App {
   font-family: 'Black Han Sans', sans-serif;
   font-family: 'Do Hyeon', sans-serif;
   font-family: 'Gugi', cursive;
   font-family: 'Jua', sans-serif;
-  
+  font-family: 'Gaegu', cursive;
 }

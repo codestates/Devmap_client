@@ -130,7 +130,7 @@ export default
         {
             "name" : "security",
             "title" : "웹 보안 지식",
-            "info" : "웹 보안 에 관련한 기초적인 지식 추천 링크로 부터 겉핱기부터 시작 하기.",
+            "info" : "웹 보안 에 관련한 기초적인 지식 추천 링크로부터 시작 하기.",
             "link" : "https://yohanpro.com/posts/front-end-security"
         },
         {
