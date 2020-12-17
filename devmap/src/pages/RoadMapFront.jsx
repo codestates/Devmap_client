@@ -18,114 +18,15 @@ import etc from '../img/etc.png';
 
 export default function RoadMapFront() {
 
-    const [isFrontModalOpen, setIsFrontModalOpen] =
-    useState(false
-        // browser: false,
-        // language: false,
-        // html: false,
-        // css: false,
-        // cssF: false,
-        // typeScript: false,
-        // javaScript: false,
-        // cssinjs: false,
-        // versionControl: false,
-        // testing: false,
-        // framework: false,
-        // react: false,
-        // vue: false,
-        // angular: false,
-        // redux: false,
-        // build: false,
-        // security: false,
-        // mobile: false,
-        // server: false
-    );
+    const [isFrontModalOpen, setIsFrontModalOpen] = useState({name: '', modal: false});
 
-    // const openBrowserModal = () => {
-    //     setIsFrontModalOpen({browser: !isFrontModalOpen.browser})
-    //     console.log(isFrontModalOpen.browser)
-    // };
-    // const openLanguageModal = () => {
-    //     setIsFrontModalOpen({language: !isFrontModalOpen.language})
-    //     console.log(isFrontModalOpen.language)
-    // };
-    // const openHtmlModal = () => {
-    //     setIsFrontModalOpen({html: !isFrontModalOpen.html})
-    //     console.log(isFrontModalOpen.html)
-    // };
-    // const openCssModal = () => {
-    //     setIsFrontModalOpen({css: !isFrontModalOpen.css})
-    //     console.log(isFrontModalOpen.css)
-    // };
-    // const openCssFModal = () => {
-    //     setIsFrontModalOpen({cssF: !isFrontModalOpen.cssF})
-    //     console.log(isFrontModalOpen.cssF)
-    // };
-
-
-
-    const openFrontModal = () => {
-        setIsFrontModalOpen(!isFrontModalOpen)
+    const openFrontModal = (name) => {
+        setIsFrontModalOpen({name: name, modal: true})
         // console.log(isFrontModalOpen)
     };
     const closeFrontModal = () => {
-        setIsFrontModalOpen(false)
+        setIsFrontModalOpen({name: '', modal: false})
     };
-
-
-
-    // const openJavaScriptModal = () => {
-    //     setIsFrontModalOpen({javaScript: !isFrontModalOpen.javaScript})
-    //     console.log(isFrontModalOpen.javaScript)
-    // };
-    // const openCssInJsModal = () => {
-    //     setIsFrontModalOpen({cssinjs: !isFrontModalOpen.cssinjs})
-    //     console.log(isFrontModalOpen.cssinjs)
-    // };
-    // const openVersionControlModal = () => {
-    //     setIsFrontModalOpen({versionControl: !isFrontModalOpen.versionControl})
-    //     console.log(isFrontModalOpen.versionControl)
-    // };
-    // const openTestingModal = () => {
-    //     setIsFrontModalOpen({testing: !isFrontModalOpen.testing})
-    //     console.log(isFrontModalOpen.testing)
-    // };
-    // const openFrameworkModal = () => {
-    //     setIsFrontModalOpen({framework: !isFrontModalOpen.framework})
-    //     console.log(isFrontModalOpen.framework)
-    // };
-    // const openReactModal = () => {
-    //     setIsFrontModalOpen({react: !isFrontModalOpen.react})
-    //     console.log(isFrontModalOpen.react)
-    // };
-    // const openVueModal = () => {
-    //     setIsFrontModalOpen({vue: !isFrontModalOpen.vue})
-    //     console.log(isFrontModalOpen.vue)
-    // };
-    // const openAngularModal = () => {
-    //     setIsFrontModalOpen({angular: !isFrontModalOpen.angular})
-    //     console.log(isFrontModalOpen.angular)
-    // };
-    // const openReduxModal = () => {
-    //     setIsFrontModalOpen({redux: !isFrontModalOpen.redux})
-    //     console.log(isFrontModalOpen.redux)
-    // };
-    // const openBuildModal = () => {
-    //     setIsFrontModalOpen({build: !isFrontModalOpen.build})
-    //     console.log(isFrontModalOpen.build)
-    // };
-    // const openSecurityModal = () => {
-    //     setIsFrontModalOpen({security: !isFrontModalOpen.security})
-    //     console.log(isFrontModalOpen.security)
-    // };
-    // const openMobileModal = () => {
-    //     setIsFrontModalOpen({mobile: !isFrontModalOpen.mobile})
-    //     console.log(isFrontModalOpen.mobile)
-    // };
-    // const openServerModal = () => {
-    //     setIsFrontModalOpen({server: !isFrontModalOpen.server})
-    //     console.log(isFrontModalOpen.server)
-    // };
 
     const InfoText = styled.span`
         margin-top: 2px;
@@ -866,27 +767,27 @@ export default function RoadMapFront() {
                 <Arrow_arrow_14 src={arrow_8} alt='oops!' />
                 <Arrow_arrow_15 src={arrow_1} alt='oops!' />
                 <Arrow_arrow_16 src={etc} alt='oops!' />
-                <TypeScript onClick={openFrontModal}>TypeScript</TypeScript>
-                <Angular onClick={openFrontModal}>Angular</Angular>
+                <TypeScript onClick={() => openFrontModal('typescript')}>TypeScript</TypeScript>
+                <Angular onClick={() => openFrontModal('angular')}>Angular</Angular>
                 <Invisible>(21)보이나</Invisible>
-                <Vue onClick={openFrontModal}>Vue.js</Vue>
-                <Mobile onClick={openFrontModal}>Mobile Application</Mobile>
-                <HTML onClick={openFrontModal}>HTML</HTML>
-                <VersionControl onClick={openFrontModal}>버전 관리 시스템</VersionControl>
-                <React onClick={openFrontModal}>리액트</React>
-                <Redux onClick={openFrontModal}>Redux</Redux>
-                <Browser onClick={openFrontModal}>브라우저</Browser>
-                <Language onClick={openFrontModal}>언 어</Language>
-                <FrameWork onClick={openFrontModal}>프레임 워크</FrameWork>
+                <Vue onClick={() => openFrontModal('vue')}>Vue.js</Vue>
+                <Mobile onClick={() => openFrontModal('mobile')}>Mobile Application</Mobile>
+                <HTML onClick={() => openFrontModal('html')}>HTML</HTML>
+                <VersionControl onClick={() => openFrontModal('versionControl')}>버전 관리 시스템</VersionControl>
+                <React onClick={() => openFrontModal('react')}>React</React>
+                <Redux onClick={() => openFrontModal('redux')}>Redux</Redux>
+                <Browser onClick={() => openFrontModal('browser')}>브라우저</Browser>
+                <Language onClick={() => openFrontModal('language')}>언 어</Language>
+                <FrameWork onClick={() => openFrontModal('framework')}>프레임 워크</FrameWork>
                 <Invisible>(31)보이나</Invisible>
-                <BuildTool onClick={openFrontModal}>빌드 툴</BuildTool>
-                <Security onClick={openFrontModal}>웹 보안 지식</Security>
-                <CSS onClick={openFrontModal}>CSS</CSS>
-                <Testing onClick={openFrontModal}>테스팅 도구</Testing>
-                <CSSFrameWork onClick={openFrontModal}>CSS 프레임 워크</CSSFrameWork>
-                <Server onClick={openFrontModal}>서버사이드 렌더링</Server>
-                <JavaScript onClick={openFrontModal}>JavaScript</JavaScript>
-                <CSSInJs onClick={openFrontModal}>CSS-in-JS</CSSInJs>
+                <BuildTool onClick={() => openFrontModal('build')}>빌드 툴</BuildTool>
+                <Security onClick={() => openFrontModal('security')}>웹 보안 지식</Security>
+                <CSS onClick={() => openFrontModal('css')}>CSS</CSS>
+                <Testing onClick={() => openFrontModal('testing')}>테스팅 도구</Testing>
+                <CSSFrameWork onClick={() => openFrontModal('cssF')}>CSS 프레임 워크</CSSFrameWork>
+                <Server onClick={() => openFrontModal('server')}>서버사이드 렌더링</Server>
+                <JavaScript onClick={() => openFrontModal('javascript')}>JavaScript</JavaScript>
+                <CSSInJs onClick={() => openFrontModal('cssinjs')}>CSS-in-JS</CSSInJs>
                 <div></div>
                 <Invisible>(41)보이나</Invisible>
                 <div></div>
