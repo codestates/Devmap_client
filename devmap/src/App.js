@@ -19,12 +19,23 @@ function App() {
     //   let count = 0;
     //     count++;
     //   if (count > 1) {
-        setIsSignnedIn({isSignIn: true}); // userInfo: res.data // userInfo 상태 생성하기?
+      setIsSignnedIn({isSignIn: true}); // userInfo: res.data // userInfo 상태 생성하기?
     //   } else {
     //     return ;
     //   }
     //     console.log(isSignnedIn.userInfo);
     // },);
+  };
+
+  const handleSignOut = () => {
+    // axios
+    //   .post('http://devmap.ml/users/signout', {
+    //     token: null
+    //   })
+    //   .then(() => {
+        setIsSignnedIn({isSignIn: false});
+        alert('정상적으로 로그아웃 되었습니다!👋')
+      // })
   };
 
   // useEffect(() => { // componentDidMount()
@@ -72,7 +83,7 @@ function App() {
   return (
     <All_style>
       <header>
-        <Top isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} />
+        <Top isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} handleSignOut={handleSignOut}/>
       </header>
       <Body_style>
         <Switch>

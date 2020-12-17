@@ -5,6 +5,9 @@ import { darken, lighten } from 'polished';
 import logo from '../img/devmap_logo.png';
 import frontJsonData from '../json/RoadMapFront';
 
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
+
 console.log(frontJsonData[0].name);
 
 const ModalFrontShadow = styled.div`
@@ -31,7 +34,7 @@ const ModalFrontWrapper = styled.div`
     border: 3px dashed;
     border-radius: 10px;
     border-color: #a3dfea;
-    animation: slidein 1s ease-in-out;
+    animation: slidein 0.5s ease-in-out;
     @keyframes slidein {
         from {
             left: -30%;
@@ -196,9 +199,9 @@ export default function ModalFront({ isFrontModalOpen, closeFrontModal }) {
                             </TitleAndStarRating>
                             <ItemInfo>
                                 <p>🚀 {frontJsonData[i].title}(이)란?</p>
-                                <p>{frontJsonData[i].info}</p>
+                                <p>{frontJsonData[i].info.replaceAll("\n", "<br/>")}</p>
                                 <p>💻 추천 링크</p>
-                                <Link href={frontJsonData[i].link} target="_blank">이동하기</Link>
+                                <Link href={frontJsonData[i].link} target="_blank">➤ 이동하기</Link>
                             </ItemInfo>
                             <StarRating>
                                 ☆☆☆☆☆
@@ -208,9 +211,9 @@ export default function ModalFront({ isFrontModalOpen, closeFrontModal }) {
                                 <CommentButton>▶</CommentButton>
                             </Comment>
                             <CommentList>
-                                <AComment>댓글</AComment>
-                                <AComment>댓글</AComment>
-                                <AComment>댓글</AComment>
+                                <AComment>댓글 1</AComment>
+                                <AComment>댓글 2</AComment>
+                                <AComment>댓글 3</AComment>
                             </CommentList>
                             {/* <button onClick={openFrontModal}>버튼</button> */}
                         </ModalFrontWrapper>

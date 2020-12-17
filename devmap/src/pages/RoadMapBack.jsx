@@ -4,6 +4,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
+import ModalBack from './ModalBack';
+
 import arrow_1 from '../img/arrow_1.png';
 import arrow_6 from '../img/arrow_6.png';
 import arrow_9 from '../img/arrow_9.png';
@@ -13,6 +15,16 @@ import arrow_12 from '../img/arrow_12.png';
 import arrow_13 from '../img/arrow_13.png';
 
 export default function RoadMapBack() {
+
+    const [isBackModalOpen, setIsBackModalOpen] = useState({name: '', modal: false});
+
+    const openBackModal = (name) => {
+        setIsBackModalOpen({name: name, modal: true})
+        // console.log(isBackModalOpen)
+    };
+    const closeBackModal = () => {
+        setIsBackModalOpen({name: '', modal: false})
+    };
 
     const InfoText = styled.div`
         margin-top: 2px;
@@ -836,32 +848,32 @@ export default function RoadMapBack() {
             </Link>
             <RoadMapContainer>
                 <Invisible>(1)보이나</Invisible>
-                <Browser>브라우저</Browser>
-                <Language>언 어</Language>
-                <Java>Java</Java>
-                <Python>Python</Python>
-                <JavaScript>JavaScript</JavaScript>
-                <FrameWork>프레임 워크</FrameWork>
-                <Spring>Spring</Spring>
-                <Django>Django</Django>
-                <Node>Node.js</Node>
+                <Browser onClick={() => openBackModal('browser')}>브라우저</Browser>
+                <Language onClick={() => openBackModal('language')}>언 어</Language>
+                <Java onClick={() => openBackModal('java')}>Java</Java>
+                <Python onClick={() => openBackModal('python')}>Python</Python>
+                <JavaScript onClick={() => openBackModal('javascript')}>JavaScript</JavaScript>
+                <FrameWork onClick={() => openBackModal('framework')}>프레임 워크</FrameWork>
+                <Spring onClick={() => openBackModal('spring')}>Spring</Spring>
+                <Django onClick={() => openBackModal('django')}>Django</Django>
+                <Node onClick={() => openBackModal('node')}>Node.js</Node>
                 <Invisible>(11)보이나</Invisible>
-                <VersionControl>버전 관리 시스템</VersionControl>
-                <DataBase>데이터 베이스</DataBase>
-                <PostgreSQL>PostgreSQL</PostgreSQL>
-                <MySQL>MySQL</MySQL>
-                <MSSQL>MSSQL</MSSQL>
-                <MariaDB>MariaDB</MariaDB>
-                <WebSocket>웹소켓 I/O</WebSocket>
-                <NoSQL>NoSQL</NoSQL>
-                <MongoDB>MongoDB</MongoDB>
+                <VersionControl onClick={() => openBackModal('version')}>버전 관리 시스템</VersionControl>
+                <DataBase onClick={() => openBackModal('database')}>데이터 베이스</DataBase>
+                <PostgreSQL onClick={() => openBackModal('postgresql')}>PostgreSQL</PostgreSQL>
+                <MySQL onClick={() => openBackModal('mysql')}>MySQL</MySQL>
+                <MSSQL onClick={() => openBackModal('mssql')}>MSSQL</MSSQL>
+                <MariaDB onClick={() => openBackModal('mariadb')}>MariaDB</MariaDB>
+                <WebSocket onClick={() => openBackModal('websocket')}>웹소켓 I/O</WebSocket>
+                <NoSQL onClick={() => openBackModal('nosql')}>NoSQL</NoSQL>
+                <MongoDB onClick={() => openBackModal('mongodb')}>MongoDB</MongoDB>
                 <Invisible>(21)보이나</Invisible>
-                <API>API</API>
-                <Certification>인증</Certification>
-                <Caching>캐싱</Caching>
-                <Security>웹 보안 지식</Security>
-                <Testing>테스팅 도구</Testing>
-                <CICD>CI/CD</CICD>
+                <API onClick={() => openBackModal('api')}>API</API>
+                <Certification onClick={() => openBackModal('authentication')}>인증</Certification>
+                <Caching onClick={() => openBackModal('caching')}>캐싱</Caching>
+                <Security onClick={() => openBackModal('security')}>웹 보안 지식</Security>
+                <Testing onClick={() => openBackModal('testing')}>테스팅 도구</Testing>
+                <CICD onClick={() => openBackModal('cicd')}>CI/CD</CICD>
                 <Arrow_arrow_1 src={arrow_1} alt='oops!' />
                 <Arrow_arrow_2 src={arrow_1} alt='oops!' />
                 <Arrow_arrow_3 src={arrow_1} alt='oops!' />
@@ -1386,6 +1398,7 @@ export default function RoadMapBack() {
                 <div></div>
                 <div></div> */}
             </RoadMapContainer>
+            <ModalBack isBackModalOpen={isBackModalOpen} closeBackModal={closeBackModal} />
         </RoadMapBorder>
     )
 }
