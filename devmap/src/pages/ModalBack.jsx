@@ -26,7 +26,7 @@ const ModalBackWrapper = styled.div`
     width: 30%;
     height: 124%;
     background-color: #eefffe;
-    border: 3px dashed;
+    border: 5px solid;
     border-radius: 10px;
     border-color: #a3dfea;
     animation: slidein 1s ease-in-out;
@@ -75,7 +75,7 @@ const ItemInfo = styled.div`
     background-color: #fff8f8;
     border: 3px solid;
     border-radius: 10px;
-    border-color: #a3dfea;
+    border-color: #fed0d3;
     max-height: 30%;
     overflow: auto;
     ::-webkit-scrollbar {
@@ -177,7 +177,7 @@ const AComment = styled.li`
     padding: 2%;
     border: 3px solid;
     border-radius: 10px;
-    border-color: #a3dfea;
+    border-color: #fed0d3;
     background-color: #fff8f8;
     font-size: 20px;
     font-family: Do Hyeon;
