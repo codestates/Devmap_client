@@ -70,12 +70,12 @@ const ItemInfo = styled.div`
     padding-left: 2%;
     padding-right: 2%;
     font-size: 20px;
-    font-family: Do Hyeon;
+    font-family: Gaegu;
     color: #78b8c4;
     background-color: #fff8f8;
     border: 3px solid;
     border-radius: 10px;
-    border-color: #ffa2b4;
+    border-color: #a3dfea;
     max-height: 30%;
     overflow: auto;
     ::-webkit-scrollbar {
@@ -94,9 +94,14 @@ const ItemInfo = styled.div`
     }
 `;
 
-const Link = styled.a`
+const ItemTitle = styled.p`
     font-size: 20px;
     font-family: Jua;
+`;
+
+const Link = styled.a`
+    font-size: 20px;
+    font-family: Gaegu;
     text-decoration: none;
     color: #78b8c4;
     
@@ -172,7 +177,7 @@ const AComment = styled.li`
     padding: 2%;
     border: 3px solid;
     border-radius: 10px;
-    border-color: #ffa2b4;
+    border-color: #a3dfea;
     background-color: #fff8f8;
     font-size: 20px;
     font-family: Do Hyeon;
@@ -193,9 +198,9 @@ export default function ModalBack({ isBackModalOpen, closeBackModal }) {
                                 <StarRate>★★★★☆</StarRate>
                             </TitleAndStarRating>
                             <ItemInfo>
-                                <p>🚀 {backJsonData[i].title}(이)란?</p>
+                                <ItemTitle>🚀 {backJsonData[i].title}(이)란?</ItemTitle>
                                 <p>{backJsonData[i].info}</p>
-                                <p>💻 추천 링크</p>
+                                <ItemTitle>💻 추천 링크</ItemTitle>
                                 <Link href={backJsonData[i].link} target="_blank">➤ 이동하기</Link>
                             </ItemInfo>
                             <StarRating>
