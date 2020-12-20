@@ -209,12 +209,12 @@ const closeSignUpModal = () => {
                             {/* onClick={handleLogout} */}
                         </Button_Li_style>
                         <Button_Li_style>
-                        <Link to="/users/mypage">
+                        <Link to="/users/memberinfo">
                             <MyPageButton>마이 페이지</MyPageButton>
                             {/* onClick 이벤트로 바디 영역에서 렌더링하도록 설정(라우팅) */}
                         </Link>
                         {/* <Route
-                            path="/users/mypage"
+                            path="/users/memberinfo"
                             render={() => {
                                 return <MyPage />
                                 // body 영역에서 띄울 것
