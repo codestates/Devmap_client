@@ -35,7 +35,7 @@ function App() {
     //   .then(() => {
         setIsSignnedIn({isSignIn: false});
         alert('정상적으로 로그아웃 되었습니다!👋')
-        window.location.assign('http://devmap.ml/users/main')
+        // window.location.assign('http://devmap.ml/users/main/')
       // })
   };
 

@@ -300,7 +300,7 @@ class MyPage extends Component {
             })
             .then(json => {
                 alert('비밀번호가 정상적으로 변경되었습니다!😄')
-                window.location.assign('http://devmap.ml/users/main')
+                // window.location.assign('http://devmap.ml/users/main')
             })
             .catch(err => console.error(err));
         } else {
