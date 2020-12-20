@@ -1216,7 +1216,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                {/* <div></div>
+                <div></div>
                 <div></div>
                 <div></div>
                 <Invisible>(471)보이나</Invisible>
@@ -1248,8 +1248,8 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div> */}
-                {/* <Invisible>(501)보이나</Invisible>
+                <div></div>
+                <Invisible>(501)보이나</Invisible>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -1298,7 +1298,7 @@ export default function RoadMapFront() {
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div> */}
+                <div></div>
             </RoadMapContainer>
             <ModalFront isFrontModalOpen={isFrontModalOpen} closeFrontModal={closeFrontModal} />
         </RoadMapBorder>
