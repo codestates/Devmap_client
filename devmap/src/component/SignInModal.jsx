@@ -239,26 +239,30 @@ class SignInModal extends Component {
     }
 
     login = event => {
-        console.log(this.state.credentials)
-        fetch('http://devmap.ml/users/signin/', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(this.state.credentials)
-        })
-        .then( data => data.json())
-        .then(
-            data => {
-                console.log(data.token);
-            }
-        )
-        .then(data => {
-            // if (data.status === 200) {
-                alert('로그인 되었습니다!😄')
-                this.props.handleResponseSuccess();
-                this.props.closeSignInModal();
-            // }
-        })
-        .catch( error => console.error(error));
+        if (this.state.credentials.username.length > 1 && this.state.credentials.password.length > 1) {
+            console.log(this.state.credentials)
+            fetch('http://devmap.ml/users/signin/', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(this.state.credentials)
+            })
+            .then( data => data.json())
+            .then(
+                data => {
+                    console.log(data.token);
+                }
+            )
+            .then(data => {
+                // if (data.status === 200) {
+                    alert('로그인 되었습니다!😄')
+                    this.props.handleResponseSuccess();
+                    this.props.closeSignInModal();
+                // }
+            })
+            .catch( error => console.error(error));
+        } else {
+            alert('아이디와 비밀번호를 입력해 주세요!😨')
+        }
     }
 
     inputChanged = event => {

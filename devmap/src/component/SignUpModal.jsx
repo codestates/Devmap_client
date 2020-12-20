@@ -290,25 +290,29 @@ import logo from '../img/devmap_logo.png';
         // }
     
         register = event => {
-            console.log(this.state.credentials)
-            fetch('http://devmap.ml/users/signup/', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(this.state.credentials)
-            })
-            .then(data => data.json())
-            .then(
-                data => {
-                    console.log(data.token);
-                }
-            )
-            .then(data => {
-                // if (data.status === 200) {
-                    alert('환영합니다!🥰')
-                    this.props.closeSignUpModal();
-                // }
-            })
-            .catch(err => console.error(err));
+            if (this.state.credentials.username.length > 1 && this.state.credentials.password.length > 1 && this.state.credentials.email.length > 1) {
+                console.log(this.state.credentials)
+                fetch('http://devmap.ml/users/signup/', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(this.state.credentials)
+                })
+                .then(data => data.json())
+                .then(
+                    data => {
+                        console.log(data.token);
+                    }
+                )
+                .then(data => {
+                    // if (data.status === 200) {
+                        alert('환영합니다!🥰')
+                        this.props.closeSignUpModal();
+                    // }
+                })
+                .catch(err => console.error(err));
+            } else {
+                alert('아래 항목을 모두 기입해 주세요!😨')
+            }
         }
 
         inputChanged = event => {
