@@ -14,7 +14,7 @@ function App() {
   const [isSignnedIn, setIsSignnedIn] = useState({isSignIn: false, userInfo: null});
   // const [token, setToken] = useState('')
 
-  const handleResponseSuccess = () => { // 로그인 성공
+  const handleResponseSuccess = () => { // 로그인 상태만 바꾸어 줌
     // await axios.get('http://devmap.ml/users/signin').then((res) => {
     //   let count = 0;
     //     count++;

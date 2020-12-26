@@ -5,6 +5,434 @@ import React, { Component } from 'react';
 // import SignUp from './SignUp';
 // axios.defaults.withCredentials = true;
 
+import styled from 'styled-components';
+import { darken, lighten } from 'polished';
+
+import logo from '../img/devmap_logo.png';
+
+const SignUpModalShadow = styled.div`
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+`;
+
+const SignUpWrapper = styled.div`
+    display: block;
+    z-index: 1000;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -13.5%;
+    margin-top: -12.5%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 500px;
+    background-color: #fff4f4;
+    border: 3px dashed;
+    border-radius: 10px;
+    border-color: #fed0d3;
+`;
+
+const Welcome = styled.div`
+    margin-left: 25%;
+    margin-bottom: 30px;
+`;
+
+const LogoText = styled.span`
+    color: #ffa2b4;
+    font-size: 25px;
+    font-family: Jua;
+`;
+
+const LogoImg = styled.img`
+    width: 30%;
+    margin-bottom: -5px;
+`;
+
+const SignUpInputArea = styled.div`
+`;
+const SignUpEmail = styled.div`
+`;
+const SignUpPassword = styled.div`
+`;
+const SignUpConfirmPassword = styled.div`
+`;
+const SignUpUserName = styled.div`
+`;
+
+// p 태그는 input이 아래로 내려간다, 한 줄에 두고 싶다면 label 태그를 사용할 것(input과 속성이 연결된다)
+const SignUpTitle = styled.label`
+    color: #fed0d3;
+    margin-left: 10%;
+    font-size: 25px;
+    font-family: Jua;
+`;
+
+const SignUpEmailInput = styled.input`
+    height: 40px;
+    width: 50%;
+    margin-left: 59px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border : 3px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    // 글씨색 너무 흐려서 어쩔 수 없이 전체 색 변경
+    background-color: #fff8f8;
+    outline: 0;
+    ::placeholder {
+        color: #FED0D3;
+        padding-left: 10px;
+    }
+`;
+
+const SignUpPasswordInput = styled.input`
+    height: 40px;
+    width: 50%;
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border : 3px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    background-color: #fff8f8;
+    outline: 0;
+    ::placeholder {
+        color: #FED0D3;
+        padding-left: 10px;
+    }
+`;
+
+const SignUpConfirmPasswordInput = styled.input`
+    height: 40px;
+    width: 50%;
+    margin-left: 86px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    border : 3px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    background-color: #fff8f8;
+    outline: 0;
+    ::placeholder {
+        color: #FED0D3;
+        padding-left: 10px;
+    }
+`;
+
+const SignUpUserNameInput = styled.input`
+    height: 40px;
+    width: 50%;
+    margin-left: 59px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border : 3px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Jua;
+    color: #ffa2b4;
+    background-color: #fff8f8;
+    outline: 0;
+    ::placeholder {
+        color: #FED0D3;
+        padding-left: 10px;
+    }
+`;
+
+const ErrorMessage = styled.div`
+    color: #ffa2b4;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-family: Jua;
+    text-align: center;
+    margin-left: 50%;
+`;
+
+const CompareButton = styled.button`
+    width: 20%;
+    height: 30px;
+    margin-left: 69%;
+    margin-bottom: 2%;
+    border : 3px solid;
+    border-radius: 10px;
+    border-color: #FED0D3;
+    color: #ffffff;
+    background-color: #FED0D3;
+    font-size: 15px;
+    font-family: Jua;
+    outline: 0;
+    cursor: pointer;
+
+    &:hover {
+        background: ${lighten(0.004, '#fed0d3')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fed0d3')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+`;
+
+const SignUpButton = styled.button`
+    width: 28%;
+    height: 45px;
+    margin-left: 36%;
+    border : 3px solid;
+    border-radius: 10px;
+    border-color: #FED0D3;
+    color: #ffffff;
+    background-color: #FED0D3;
+    font-size: 20px;
+    font-family: Jua;
+    outline: 0;
+    cursor: pointer;
+
+    &:hover {
+        background: ${lighten(0.004, '#fed0d3')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fed0d3')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+`;
+
+class SignUpModal extends Component {
+    // constructor(props) {
+    //     super(props);
+        // console.log(props.closeSignUpModal); // 받아 온다
+
+        state = {
+            credentials: {username: '', email: '', password: ''},
+            confirmPassword: '',
+            check: false,
+            errorMessage: ''
+        };
+    // }
+
+    // 클라이언트에서는 토큰 상태 신경 안써도 된다?
+    // login = event => {
+    //     console.log(this.state.credentials)
+    //     fetch('http://devmap.ml/users/signin/', {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(this.state.credentials)
+    //     })
+    //     .then( data => data.json())
+    //     .then(
+    //         data => {
+    //             console.log(data.token);
+    //         }
+    //     )
+    //     .catch( error => console.error(error));
+    // }
+
+    register = event => {
+        if (this.state.credentials.username.length > 1 && this.state.credentials.email.length > 1 && this.state.credentials.password.length > 1) {
+            // console.log('userInfo', this.state.credentials)
+            fetch('http://devmap.ml/users/signup/', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(this.state.credentials)
+            })
+            .then(data => data.json())
+            .then(
+                data => { // 이 것들을 상태로 주어 다른 데서도 사용해야 함
+                    // 서로의 조건이 다르고 한쪽에 있는게 한쪽에는 없어서,
+                    // 조건을 줄 때 에러가 난다
+                    // 둘 다에게 있으면서도 서로 다른 조건을 찾아야 한다
+                    // 안그럼 앞에 것만 됨
+                    if (!(data.username)) {
+                        console.log('토큰', data.token);
+                        console.log('id', data.user.id);
+                        alert('환영합니다!🥰');
+                        this.props.closeSignUpModal();
+                        // clear form
+                    } else if (data.username[0] === "해당 사용자 이름은 이미 존재합니다.") {
+                        console.log('data', data.username[0]);
+                        alert('이미 존재하는 id입니다!😟');
+                        // clear form
+                    }
+                    // this.props.updateUserInfo();
+                }
+            )
+            .catch(err => 
+                console.error(err)
+            );
+        } else {
+            alert('아래 항목을 모두 기입해 주세요!😨');
+        }
+    };
+
+    inputChanged = event => {
+        const cred = this.state.credentials;
+        cred[event.target.name] = event.target.value;
+        this.setState({credentials: cred});
+    };
+
+    onConfirmPasswordHandler = event => {
+        this.setState({confirmPassword: event.target.value});
+    };
+
+    comparePassword = () => {
+        if (this.state.credentials.password === this.state.confirmPassword) {
+            this.setState({errorMessage: '확인되었습니다!🥳', check: true});
+        } else if (this.state.credentials.password !== this.state.confirmPassword) {
+            this.setState({errorMessage: '다시 확인해주세요!😰', check: false});
+        }
+    };
+
+    usernameInputEraser = () => {
+        // const cred = this.state.credentials;
+        // cred[event.target.name] = '';
+        // this.setState({credentials: cred});
+
+        // update nested state
+        // 입력한 내용 삭제 버튼으로는 안된다.. // 이 함수 자체는 적용되는데..(input칸에 적용) // 아 하나하나는 된다.. 뒤에 것만
+        this.setState({
+            credentials: {
+                ...this.state.credentials,
+                username: ''
+            }
+        })
+    };
+
+    emailInputEraser = () => {
+        this.setState({
+            credentials: {
+                ...this.state.credentials,
+                email: ''
+            }
+        })
+    };
+
+    passwordInputEraser = () => {
+        this.setState({
+            credentials: {
+                ...this.state.credentials,
+                password: ''    
+            }
+        })
+    };
+
+    confirmPasswordInputEraser = () => { // 이건 된다.. 개별로는 돼..
+        this.setState({
+            confirmPassword: ''
+        });
+        console.log(this.state.confirmPassword)
+    };
+
+    
+    // refresh = () => {
+    //   window.location.assign('/users/signup') // signup에서 get 메소드가 허용되지 않음.. 으어어어..
+    // }
+    
+    render() {
+        // const { openSignUpModal, closeSignUpModal, isModalOpen } = this.props;
+        // console.log(this.props.closeSignUpModal);
+        return (
+            this.props.isModalOpen.signup === true ? 
+            <div>
+                <SignUpWrapper>
+                    {/* <SignUpInputArea> */}
+                    <Welcome>
+                        <LogoText>Welcome to </LogoText>
+                        <LogoImg src={logo} alt="oops!"/>
+                    </Welcome>
+                        <SignUpUserName>
+                        <SignUpTitle>아 이 디</SignUpTitle>
+                        <SignUpUserNameInput
+                            type="text"
+                            name="username"
+                            value={this.state.credentials.username}
+                            onChange={this.inputChanged}
+                            onClick={this.usernameInputEraser} // 클릭하면 지워짐
+                            placeholder="아이디를 입력해 주세요"
+                        />
+                        </SignUpUserName>
+                        <SignUpEmail>
+                        <SignUpTitle>이 메 일</SignUpTitle>
+                        <SignUpEmailInput 
+                            type="text"
+                            name="email"
+                            value={this.state.credentials.email}
+                            onChange={this.inputChanged}
+                            onClick={this.emailInputEraser}
+                            placeholder="이메일을 입력해 주세요"
+                        />
+                        </SignUpEmail>
+                        <SignUpPassword>
+                        <SignUpTitle>비 밀 번 호</SignUpTitle>
+                        <SignUpPasswordInput
+                            type="password"
+                            name="password"
+                            value={this.state.credentials.password}
+                            onChange={this.inputChanged}
+                            onClick={this.passwordInputEraser}
+                            placeholder="비밀번호를 입력해 주세요"
+                        />
+                        </SignUpPassword>
+                        {/* 서버쪽에 항목 없어 임시로 주석. 서버와 상세 항목 비교하기 */}
+                        <SignUpConfirmPassword>
+                        <SignUpTitle>확 인</SignUpTitle>
+                        <SignUpConfirmPasswordInput
+                            type="password"
+                            name="confirmPassword"
+                            value={this.state.confirmPassword}
+                            onChange={this.onConfirmPasswordHandler}
+                            onClick={this.confirmPasswordInputEraser}
+                            placeholder="비밀번호를 입력해 주세요"
+                        />
+                        </SignUpConfirmPassword>
+                        <ErrorMessage>{this.state.errorMessage}</ErrorMessage>
+                        <CompareButton onClick={this.comparePassword}>일치 확인</CompareButton>
+                    {/* </SignUpInputArea> */}
+                        <SignUpButton 
+                            onClick={
+                                () => {
+                                    this.register();
+                                    this.usernameInputEraser(); // 일단은 아이디 겹치는 것만 잡아내니까 이것만..
+                                    // window.location.reload(); // 이걸 하고 모달 오픈 상태를 강제로 오픈으로 바꿔주면.. ok?
+                                    // this.openSignUpModal();
+                                    // this.emailInputEraser();
+                                    // this.passwordInputEraser();
+                                    // this.confirmPasswordInputEraser();
+                                }
+                            } // this.comparePassword
+                            // onSubmit={this.inputEraser} // 어떻게 지울 것인가?
+                        >회원 가입
+                        </SignUpButton>
+                        {/* <button onClick={() => {this.usernameInputEraser(); this.emailInputEraser(); this.passwordInputEraser(); this.confirmPasswordInputEraser();}}>입력한 내용 삭제</button> */}
+                        {/* credential을 분리해서 username, email, password으로 하니 되었지만.. 이젠 서버에서 에러 보냄. 묶어서 객체로만 보내야 함 */}
+                    {/* <div className="signin-link">
+                        <Link to='/signin'>
+                            <h3>계정이 있으신가요?</h3>
+                        </Link>
+                    </div> */}
+                </SignUpWrapper>
+                <SignUpModalShadow onClick={() => this.props.closeSignUpModal()} />
+            </div>
+            : ''
+        )
+    }
+}
+
+export default SignUpModal;
+    
 // export default function SignUpModal({ openSignUpModal, closeSignUpModal, isModalOpen }) {
 //     const [signUpInfo, setSignUpInfo] = useState({email: '', username: '', check: false, errorMessage: ''});
 //     const [signUpOK, setSignUpOk] = useState({message: '잠시 후에 다시 시도해 주세요!😭'});
@@ -57,355 +485,6 @@ import React, { Component } from 'react';
     // }
 // };
 
-import styled from 'styled-components';
-import { darken, lighten } from 'polished';
-
-import logo from '../img/devmap_logo.png';
-
-    const SignUpModalShadow = styled.div`
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-    `;
-
-    const SignUpWrapper = styled.div`
-        display: block;
-        z-index: 1000;
-        position: absolute;
-        left: 50%;
-        top: 50%; 
-        margin-left: -13.5%;
-        margin-top: -12.5%;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        width: 500px;
-        background-color: #fff4f4;
-        border: 3px dashed;
-        border-radius: 10px;
-        border-color: #fed0d3;
-    `;
-
-    const Welcome = styled.div`
-        margin-left: 25%;
-        margin-bottom: 30px;
-    `;
-
-    const LogoText = styled.span`
-        color: #ffa2b4;
-        font-size: 25px;
-        font-family: Jua;
-    `;
-
-    const LogoImg = styled.img`
-        width: 30%;
-        margin-bottom: -5px;
-    `;
-
-    const SignUpInputArea = styled.div`
-    `;
-    const SignUpEmail = styled.div`
-    `;
-    const SignUpPassword = styled.div`
-    `;
-    const SignUpConfirmPassword = styled.div`
-    `;
-    const SignUpUserName = styled.div`
-    `;
-
-    // p 태그는 input이 아래로 내려간다, 한 줄에 두고 싶다면 label 태그를 사용할 것(input과 속성이 연결된다)
-    const SignUpTitle = styled.label`
-        color: #fed0d3;
-        margin-left: 10%;
-        font-size: 25px;
-        font-family: Jua;
-    `;
-
-    const SignUpEmailInput = styled.input`
-        height: 40px;
-        width: 50%;
-        margin-left: 59px;
-        margin-right: 40px;
-        margin-bottom: 20px;
-        border : 3px solid;
-        border-radius: 10px;
-        font-size: 18px;
-        font-family: Jua;
-        color: #ffa2b4;
-        // 글씨색 너무 흐려서 어쩔 수 없이 전체 색 변경
-        background-color: #fff8f8; 
-        ::placeholder {
-            color: #FED0D3;
-            padding-left: 10px;
-        }
-    `;
-
-    const SignUpPasswordInput = styled.input`
-        height: 40px;
-        width: 50%;
-        margin-left: 30px;
-        margin-right: 40px;
-        margin-bottom: 20px;
-        border : 3px solid;
-        border-radius: 10px;
-        font-size: 18px;
-        font-family: Jua;
-        color: #ffa2b4;
-        background-color: #fff8f8;
-        ::placeholder {
-            color: #FED0D3;
-            padding-left: 10px;
-        }
-    `;
-
-    const SignUpConfirmPasswordInput = styled.input`
-        height: 40px;
-        width: 50%;
-        margin-left: 86px;
-        margin-right: 40px;
-        margin-bottom: 10px;
-        border : 3px solid;
-        border-radius: 10px;
-        font-size: 18px;
-        font-family: Jua;
-        color: #ffa2b4;
-        background-color: #fff8f8;
-        ::placeholder {
-            color: #FED0D3;
-            padding-left: 10px;
-        }
-    `;
-
-    const SignUpUserNameInput = styled.input`
-        height: 40px;
-        width: 50%;
-        margin-left: 59px;
-        margin-right: 40px;
-        margin-bottom: 20px;
-        border : 3px solid;
-        border-radius: 10px;
-        font-size: 18px;
-        font-family: Jua;
-        color: #ffa2b4;
-        background-color: #fff8f8;
-        ::placeholder {
-            color: #FED0D3;
-            padding-left: 10px;
-        }
-    `;
-
-    const ErrorMessage = styled.div`
-        color: #ffa2b4;
-        padding-bottom: 10px;
-        font-size: 18px;
-        font-family: Jua;
-        text-align: center;
-        margin-left: 50%;
-    `;
-
-    const CompareButton = styled.button`
-        width: 20%;
-        height: 30px;
-        margin-left: 69%;
-        margin-bottom: 2%;
-        border : 3px solid;
-        border-radius: 10px;
-        border-color: #FED0D3;
-        color: #ffffff;
-        background-color: #FED0D3;
-        font-size: 15px;
-        font-family: Jua;
-        outline: 0;
-        cursor: pointer;
-    
-        &:hover {
-            background: ${lighten(0.004, '#fed0d3')};
-            box-shadow:  0 5px #dedede;
-        }
-        &:active {
-            background: ${darken(0.0008, '#fed0d3')};
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-    `;
-
-    const SignUpButton = styled.button`
-        width: 28%;
-        height: 45px;
-        margin-left: 36%;
-        border : 3px solid;
-        border-radius: 10px;
-        border-color: #FED0D3;
-        color: #ffffff;
-        background-color: #FED0D3;
-        font-size: 20px;
-        font-family: Jua;
-        outline: 0;
-        cursor: pointer;
-    
-        &:hover {
-            background: ${lighten(0.004, '#fed0d3')};
-            box-shadow:  0 5px #dedede;
-        }
-        &:active {
-            background: ${darken(0.0008, '#fed0d3')};
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-    `;
-
-    class SignUpModal extends Component {
-        // constructor(props) {
-        //     super(props);
-            // console.log(props.closeSignUpModal); // 받아 온다
-
-            state = {
-                credentials: {username: '', email: '', password: ''},
-                confirmPassword: '',
-                check: false,
-                errorMessage: '',
-            }
-        // }
-    
-        // 클라이언트에서는 토큰 상태 신경 안써도 된다
-        // login = event => {
-        //     console.log(this.state.credentials)
-        //     fetch('http://devmap.ml/users/signin/', {
-        //         method: 'POST',
-        //         headers: {'Content-Type': 'application/json'},
-        //         body: JSON.stringify(this.state.credentials)
-        //     })
-        //     .then( data => data.json())
-        //     .then(
-        //         data => {
-        //             console.log(data.token);
-        //         }
-        //     )
-        //     .catch( error => console.error(error));
-        // }
-    
-        register = event => {
-            if (this.state.credentials.username.length > 1 && this.state.credentials.password.length > 1 && this.state.credentials.email.length > 1) {
-                console.log(this.state.credentials)
-                fetch('http://devmap.ml/users/signup/', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(this.state.credentials)
-                })
-                .then(data => data.json())
-                .then(
-                    data => {
-                        console.log(data.token);
-                    }
-                )
-                .then(data => {
-                    // if (data.status === 200) {
-                        alert('환영합니다!🥰')
-                        this.props.closeSignUpModal();
-                    // }
-                })
-                .catch(err => console.error(err));
-            } else {
-                alert('아래 항목을 모두 기입해 주세요!😨')
-            }
-        }
-
-        inputChanged = event => {
-            const cred = this.state.credentials;
-            cred[event.target.name] = event.target.value;
-            this.setState({credentials: cred});
-        }
-    
-        onConfirmPasswordHandler = event => {
-            this.setState({confirmPassword: event.target.value});
-        };
-
-        comparePassword = () => {
-            if (this.state.credentials.password === this.state.confirmPassword) {
-                this.setState({errorMessage: '확인되었습니다!🥳', check: true});
-            } else if (this.state.credentials.password !== this.state.confirmPassword) {
-                this.setState({errorMessage: '다시 확인해주세요!😰', check: false});
-            }
-        };
-
-        render() {
-            // const { openSignUpModal, closeSignUpModal, isModalOpen } = this.props;
-            // console.log(this.props.closeSignUpModal);
-            return(
-                this.props.isModalOpen.signup === true ? 
-                <div>
-                    <SignUpWrapper>
-                        {/* <SignUpInputArea> */}
-                        <Welcome>
-                            <LogoText>Welcome to </LogoText>
-                            <LogoImg src={logo} alt="oops!"/>
-                        </Welcome>
-                            <SignUpUserName>
-                            <SignUpTitle>아 이 디</SignUpTitle>
-                            <SignUpUserNameInput
-                                type="text"
-                                name="username"
-                                value={this.state.credentials.username}
-                                onChange={this.inputChanged}
-                                placeholder="아이디를 입력해 주세요"
-                            />
-                            </SignUpUserName>
-                            <SignUpEmail>
-                            <SignUpTitle>이 메 일</SignUpTitle>
-                            <SignUpEmailInput 
-                                type="text"
-                                name="email"
-                                value={this.state.credentials.email}
-                                onChange={this.inputChanged} 
-                                placeholder="이메일을 입력해 주세요"
-                            />
-                            </SignUpEmail>
-                            <SignUpPassword>
-                            <SignUpTitle>비 밀 번 호</SignUpTitle>
-                            <SignUpPasswordInput
-                                type="password"
-                                name="password"
-                                value={this.state.credentials.password}
-                                onChange={this.inputChanged}
-                                placeholder="비밀번호를 입력해 주세요"
-                            />
-                            </SignUpPassword>
-                            {/* 서버쪽에 항목 없어 임시로 주석. 서버와 상세 항목 비교하기 */}
-                            <SignUpConfirmPassword>
-                            <SignUpTitle>확 인</SignUpTitle>
-                            <SignUpConfirmPasswordInput
-                                type="password"
-                                onChange={this.onConfirmPasswordHandler}
-                                placeholder="비밀번호를 입력해 주세요"
-                            />
-                            </SignUpConfirmPassword>
-                            <ErrorMessage>{this.state.errorMessage}</ErrorMessage>
-                            <CompareButton onClick={this.comparePassword}>일치 확인</CompareButton>
-                        {/* </SignUpInputArea> */}
-                            <SignUpButton 
-                                onClick={this.register} // this.comparePassword
-                            >회원 가입
-                            </SignUpButton>
-                        {/* <div className="signin-link">
-                            <Link to='/signin'>
-                                <h3>계정이 있으신가요?</h3>
-                            </Link>
-                        </div> */}
-                    </SignUpWrapper>
-                    <SignUpModalShadow onClick={() => this.props.closeSignUpModal()} />
-                </div>
-                : ''
-            )
-        }
-    }
-    
-    export default SignUpModal;
-    
 //     return (
 //         isModalOpen.signup === true ? 
 //             <SignUp 

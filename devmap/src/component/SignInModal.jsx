@@ -4,40 +4,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
-// import SignIn from './SignIn';
-// axios.defaults.withCredentials = true;
-
-// export default function SignInModal({ openSignInModal, closeSignInModal, isModalOpen, handleResponseSuccess }) {
-//     const [signInInfo ,setSignInInfo] = useState({email: '' , password: '', errorMessage: ''});
-//     const [signInOK, setSignInOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
-    
-//     const onSignInEmailHandler = (e) => {
-//         setSignInInfo({eamil: e.target.value});
-//     };
-//     const onSignInPasswordHandler = (e) => {
-//         setSignInInfo({password: e.target.value});
-//     };
-
-//     const signInOKHandler = () => {
-//         // if (signInInfo.email.length > 4 && signInInfo.password.length > 4) { length 문제 뜸
-//             const res = axios.post('/users/signin', {
-//                 signInInfo
-//             })
-//             .then((res) => {
-//                 if (res.status === 200) { // 상태 추가?
-//                     handleResponseSuccess();
-//                     openSignInModal(); // 닫기
-//                     // window.location('http://devmap.ml') // 리다이렉트
-//                 }
-//             })
-//             // .catch((err) => {
-//             //     // if (res.status === 301) { // 계속 301이 뜬다고 한다 // CORS 에러
-//             //         alert(`${signInOK.message}`)
-//             //     // }
-//             // })
-//         // }
-//     }
-
 import logo from '../img/devmap_logo.png';
 
 const SignInModalShadow = styled.div`
@@ -151,7 +117,7 @@ const PasswordInput = styled.input`
     }  
 `;
 
- const SignInButton = styled.button`
+const SignInButton = styled.button`
     width: 28%;
     height: 45px;
     margin-bottom: -10px;
@@ -177,9 +143,9 @@ const PasswordInput = styled.input`
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
- `;
+`;
 
-  const Oauth = styled.a`
+const Oauth = styled.a`
     height: 50px;
     text-align: center;
     margin-left: 18%;
@@ -204,9 +170,9 @@ const PasswordInput = styled.input`
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
-  `;
+`;
 
-  const Oauth1 = styled.a`
+const Oauth1 = styled.a`
     height: 50px;
     text-align: center;
     margin-left: 18%;
@@ -231,7 +197,7 @@ const PasswordInput = styled.input`
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
-  `;
+`;
 
 class SignInModal extends Component {
     state = {
@@ -332,6 +298,40 @@ class SignInModal extends Component {
 }
 
 export default SignInModal;
+
+// import SignIn from './SignIn';
+// axios.defaults.withCredentials = true;
+
+// export default function SignInModal({ openSignInModal, closeSignInModal, isModalOpen, handleResponseSuccess }) {
+//     const [signInInfo ,setSignInInfo] = useState({email: '' , password: '', errorMessage: ''});
+//     const [signInOK, setSignInOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
+    
+//     const onSignInEmailHandler = (e) => {
+//         setSignInInfo({eamil: e.target.value});
+//     };
+//     const onSignInPasswordHandler = (e) => {
+//         setSignInInfo({password: e.target.value});
+//     };
+
+//     const signInOKHandler = () => {
+//         // if (signInInfo.email.length > 4 && signInInfo.password.length > 4) { length 문제 뜸
+//             const res = axios.post('/users/signin', {
+//                 signInInfo
+//             })
+//             .then((res) => {
+//                 if (res.status === 200) { // 상태 추가?
+//                     handleResponseSuccess();
+//                     openSignInModal(); // 닫기
+//                     // window.location('http://devmap.ml') // 리다이렉트
+//                 }
+//             })
+//             // .catch((err) => {
+//             //     // if (res.status === 301) { // 계속 301이 뜬다고 한다 // CORS 에러
+//             //         alert(`${signInOK.message}`)
+//             //     // }
+//             // })
+//         // }
+//     }
 
     // return (
         

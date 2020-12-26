@@ -246,7 +246,7 @@ class MyPage extends Component {
 
     // username과 email 받아와서 띄워주기
     getUserData = () => {
-        fetch('http://devmap.ml/users/memberinfo/1/', {
+        fetch('http://devmap.ml/users/memberinfo/10/', {
             method: 'GET',
             headers: {'Content-type': 'application/json'}
         })
@@ -259,14 +259,14 @@ class MyPage extends Component {
         // })
         .then(
             json => {
-                console.log(json) // 서버에 있는 모든 user의 데이터를 다 받아온다
+                console.log('id에 해당하는 값', json) // 서버에 있는 모든 user의 데이터를 다 받아온다
                 this.setState({
                     username: json.username, // 임시적으로 0 넣어 줌
                     email: json.email
                 })
             }
         )
-        .then(data => console.log('아이디와 이메일', data))
+        .then(data => console.log('아이디와 이메일', data)) // undefined
         .catch(err => console.error(err));
     };
 
@@ -307,67 +307,6 @@ class MyPage extends Component {
             alert('아래 항목을 모두 기입해 주세요!😨')
         }
     };
-
-// export default function MyPage({ token, isSignnedIn }) {
-//     const [myPageInfo, setMyPageInfo] = useState({email: 'isSignnedIn.userInfo.email', newPassword: '', confirmNewPassword: '', newUserName: 'isSignnedIn.userInfo.userName', check: false, errorMessage: '' })
-//     const [myPageOK, setMyPageOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
-    
-//     const onNewPasswordHandler = (e) => {
-//         setMyPageInfo({newPassword: e.target.value});
-//     };
-//     const onConfirmNewPasswordHandler = (e) => {
-//         if (myPageInfo.confirmNewPassword === myPageInfo.newPassword) {
-//             setMyPageInfo({errorMessage: '확인되었습니다!🥳', check: true});
-//             setMyPageInfo({confirmNewPassword: e.target.value});
-//         } else {
-//             setMyPageInfo({errorMessag: '다시 확인해주세요!😰', check: false});
-//         }
-//     };
-//     const onNewUserNameHandler = (e) => {
-//         setMyPageInfo({newUserName: e.target.value});
-//     };
-    
-//     // onClick에 넣고, clearForm 기능과 함께 사용하기
-//     const myPageOKHandler = () => {
-//         if (myPageInfo.newPassword.length > 4) {
-//             const res = axios.post('http://devmap.ml/users/memberinfo', {
-//                 myPageInfo
-//             })
-//             .then((res) => {
-//                 if (res.status === 200) {
-//                     alert('정보 변경이 정상적으로 완료되었습니다!🤩')
-//                     window.location('http://devmap.ml/users/memberinfo') // 서버 엔드포인트 확인
-//                     // 클라이언트 엔드포인트, 서버 엔드포인트 같아도 괜찮은가?
-//                     // 이렇게 하면 리다이렉트되어 clearForm 기능이 구현이 될까?
-//                 }
-//             })
-//             .catch((err) => {
-//                 alert(`${myPageOK.message}`)
-//             })
-//         }
-//     }
-
-    // handleResponseSuccess와 따져보기
-
-    // useEffect(() => {
-    //     getEmail();
-    // }, [])
-
-    // 로그인이 안되어있는 상황이라, email 값도 불러오지 못하고 입력도 안됨
-    // 현재 서버와 통신이 제대로 안되는 상태
-
-    // const getEmail = async () => {
-    //     const authedAxios = axios.create(
-    //         { headers: { 
-    //             Authorization: `${token}`
-    //             // 로그인 이후 모든 소통에서 헤더에 토큰 넣어 보낸다
-    //         }}
-    //     );
-
-    //     const res = await authedAxios.get(`http://devmap.ml/users/memberinfo`)
-    //     console.log('MyPage Info', res)
-    //     setMyPageInfo({email: res.data.email});
-    // };
 
     componentDidMount() {
         console.log('componentDidMount!')
@@ -441,3 +380,64 @@ class MyPage extends Component {
 };
 
 export default MyPage;
+
+// export default function MyPage({ token, isSignnedIn }) {
+//     const [myPageInfo, setMyPageInfo] = useState({email: 'isSignnedIn.userInfo.email', newPassword: '', confirmNewPassword: '', newUserName: 'isSignnedIn.userInfo.userName', check: false, errorMessage: '' })
+//     const [myPageOK, setMyPageOK] = useState({message: '잠시 후에 다시 시도해 주세요!😭'})
+    
+//     const onNewPasswordHandler = (e) => {
+//         setMyPageInfo({newPassword: e.target.value});
+//     };
+//     const onConfirmNewPasswordHandler = (e) => {
+//         if (myPageInfo.confirmNewPassword === myPageInfo.newPassword) {
+//             setMyPageInfo({errorMessage: '확인되었습니다!🥳', check: true});
+//             setMyPageInfo({confirmNewPassword: e.target.value});
+//         } else {
+//             setMyPageInfo({errorMessag: '다시 확인해주세요!😰', check: false});
+//         }
+//     };
+//     const onNewUserNameHandler = (e) => {
+//         setMyPageInfo({newUserName: e.target.value});
+//     };
+    
+//     // onClick에 넣고, clearForm 기능과 함께 사용하기
+//     const myPageOKHandler = () => {
+//         if (myPageInfo.newPassword.length > 4) {
+//             const res = axios.post('http://devmap.ml/users/memberinfo', {
+//                 myPageInfo
+//             })
+//             .then((res) => {
+//                 if (res.status === 200) {
+//                     alert('정보 변경이 정상적으로 완료되었습니다!🤩')
+//                     window.location('http://devmap.ml/users/memberinfo') // 서버 엔드포인트 확인
+//                     // 클라이언트 엔드포인트, 서버 엔드포인트 같아도 괜찮은가?
+//                     // 이렇게 하면 리다이렉트되어 clearForm 기능이 구현이 될까?
+//                 }
+//             })
+//             .catch((err) => {
+//                 alert(`${myPageOK.message}`)
+//             })
+//         }
+//     }
+
+    // handleResponseSuccess와 따져보기
+
+    // useEffect(() => {
+    //     getEmail();
+    // }, [])
+
+    // 로그인이 안되어있는 상황이라, email 값도 불러오지 못하고 입력도 안됨
+    // 현재 서버와 통신이 제대로 안되는 상태
+
+    // const getEmail = async () => {
+    //     const authedAxios = axios.create(
+    //         { headers: { 
+    //             Authorization: `${token}`
+    //             // 로그인 이후 모든 소통에서 헤더에 토큰 넣어 보낸다
+    //         }}
+    //     );
+
+    //     const res = await authedAxios.get(`http://devmap.ml/users/memberinfo`)
+    //     console.log('MyPage Info', res)
+    //     setMyPageInfo({email: res.data.email});
+    // };
