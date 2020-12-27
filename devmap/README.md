@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+[![PROJECT-devmap](https://img.shields.io/badge/PROJECT-devmap-pink?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAhCAMAAACP+FljAAAAclBMVEX////+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NP+0NN4uMSBusWKu8acvsilwMmuwsq3w8u/xczDxszPyM7RyM7ays/jy9DszdH+0NNeA2KAAAAAF3RSTlMAECAwQFBgcICQoKWwwMjMztDg5Ojv8GFpmCsAAADmSURBVHjavZKFcsQgFEVvHGhc1n33/v8n1knfJMB4z0iEAzyDIC7KqqpKlcBJWtGy0TGWRIYSmoWS9lywUavth61gd7x3cyzFhlKwnDc5Psl0TwpB8KQGEFf0CRfSzAFa4fT44r77FajxRd7PwtdP+V7ZNM0mLGRBITYb7xU1EGmSXmEEWkrhthAG4C0oTLbS9ud1fQUQ5Z03hmYepi5Yh6joGBAitazDay8FtfF3k1oM20p4kAWQ5pVHOJH5bys7h7C/sE8gpnJNGeGPuOKCPoNkechGRVgSm1mpcrjJlCqVyiL8Lx+YbFAZx6XCOAAAAABJRU5ErkJggg==)](http://devmap.ml/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎓 Devmap
 
-## Available Scripts
+![Devmap_로고_3](https://user-images.githubusercontent.com/65750731/100399028-7cadf380-3094-11eb-84e0-7d96933ce5e4.png)
 
-In the project directory, you can run:
+#### 🚀 To. 코린이
+개발 공부를 하기로 마음먹은 당신..
 
-### `npm start`
+무엇부터 공부해야 할지, 이 다음에는 무엇을 해야할 지 막막하죠?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Devmap**에서 그 청사진을 미리 살펴보세요!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 🔆 Stack
+![image](https://user-images.githubusercontent.com/66219179/103165504-2b904b80-485c-11eb-9bdf-548a76ac836e.png)
 
-### `npm test`
+# 📌 Architecture
+### Front - End 
+![Front - End flow](https://user-images.githubusercontent.com/61407010/100432571-2022f680-30dd-11eb-85c0-dde6e03d91c9.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Back - End 
+![Back - End](https://user-images.githubusercontent.com/61407010/100430600-5ca12300-30da-11eb-8f0b-b06fc43acfdc.png)
 
-### `npm run build`
+# 👥Team Member
+|Git|Name|Role|
+|:--|:--:|:--:|   
+|[![GITHUB-O2O25252](https://img.shields.io/badge/GITHUB-O2O25252-black?style=for-the-badge&logo=GitHub)](https://github.com/O2O25252)|👨 임희찬|🌐 Frontend|
+|[![GITHUB-intothejourneys](https://img.shields.io/badge/GITHUB-intothejourneys-pink?style=for-the-badge&logo=GitHub)](https://github.com/intothejourneys)|👩 권은정|🌐 Frontend|
+|[![GITHUB-jesussangho](https://img.shields.io/badge/GITHUB-jesussangho-blue?style=for-the-badge&logo=GitHub)](https://github.com/jesussangho)|👨 이상호|💻 Backend|
+|[![GITHUB-hyunhoh](https://img.shields.io/badge/GITHUB-hyunhoh-green?style=for-the-badge&logo=GitHub)](https://github.com/hyunhoh)|👨 한현호|💻 Backend|   
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 🏷️ For project details
+## [devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
