@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import React, { useState } from 'react';
 // import axios from 'axios';
+
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
@@ -145,63 +146,63 @@ const SignInButton = styled.button`
     }
 `;
 
-const Oauth = styled.a`
-    height: 50px;
-    text-align: center;
-    margin-left: 18%;
-    padding: 2%;
-    padding-left: 10%;
-    padding-right: 10%;
-    border: 3px solid;
-    border-radius: 10px;
-    border-color: #fed0d3;
-    font-size: 28px;
-    font-family: Jua;
-    color: #fed0d3;
-    background-color: #fff4f4;
-    outline: 0;
-    cursor: pointer;
-    &:hover {
-        background: ${lighten(0.004, '#fff4f4')};
-        box-shadow:  0 5px #dedede;
-    }
-    &:active {
-        background: ${darken(0.0008, '#fff4f4')};
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-`;
+// const Oauth = styled.a`
+//     height: 50px;
+//     text-align: center;
+//     margin-left: 18%;
+//     padding: 2%;
+//     padding-left: 10%;
+//     padding-right: 10%;
+//     border: 3px solid;
+//     border-radius: 10px;
+//     border-color: #fed0d3;
+//     font-size: 28px;
+//     font-family: Jua;
+//     color: #fed0d3;
+//     background-color: #fff4f4;
+//     outline: 0;
+//     cursor: pointer;
+//     &:hover {
+//         background: ${lighten(0.004, '#fff4f4')};
+//         box-shadow:  0 5px #dedede;
+//     }
+//     &:active {
+//         background: ${darken(0.0008, '#fff4f4')};
+//         box-shadow: 0 5px #666;
+//         transform: translateY(4px);
+//     }
+// `;
 
-const Oauth1 = styled.a`
-    height: 50px;
-    text-align: center;
-    margin-left: 18%;
-    padding: 2%;
-    padding-left: 10%;
-    padding-right: 10%;
-    border: 3px solid;
-    border-radius: 10px;
-    border-color: #fed0d3;
-    font-size: 28px;
-    font-family: Jua;
-    color: #fed0d3;
-    background-color: #fff4f4;
-    outline: 0;
-    cursor: pointer;
-    &:hover {
-        background: ${lighten(0.004, '#fff4f4')};
-        box-shadow:  0 5px #dedede;
-    }
-    &:active {
-        background: ${darken(0.0008, '#fff4f4')};
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-`;
+// const Oauth1 = styled.a`
+//     height: 50px;
+//     text-align: center;
+//     margin-left: 18%;
+//     padding: 2%;
+//     padding-left: 10%;
+//     padding-right: 10%;
+//     border: 3px solid;
+//     border-radius: 10px;
+//     border-color: #fed0d3;
+//     font-size: 28px;
+//     font-family: Jua;
+//     color: #fed0d3;
+//     background-color: #fff4f4;
+//     outline: 0;
+//     cursor: pointer;
+//     &:hover {
+//         background: ${lighten(0.004, '#fff4f4')};
+//         box-shadow:  0 5px #dedede;
+//     }
+//     &:active {
+//         background: ${darken(0.0008, '#fff4f4')};
+//         box-shadow: 0 5px #666;
+//         transform: translateY(4px);
+//     }
+// `;
 
 class SignInModal extends Component {
     state = {
-        credentials: {username: '', email: '', password: ''}
+        credentials: {username: '', password: ''}
     }
 
     login = event => {
@@ -215,16 +216,17 @@ class SignInModal extends Component {
             .then( data => data.json())
             .then(
                 data => {
-                    console.log(data.token);
+                    console.log('data', data)
+                    if (data.token) {
+                        console.log(data.token);
+                        alert('로그인 되었습니다!😄');
+                        this.props.handleResponseSuccess();
+                        this.props.closeSignInModal();
+                    } else {
+                        alert('아이디와 비밀번호를 확인해 주세요!😟');
+                    }
                 }
             )
-            .then(data => {
-                // if (data.status === 200) {
-                    alert('로그인 되었습니다!😄')
-                    this.props.handleResponseSuccess();
-                    this.props.closeSignInModal();
-                // }
-            })
             .catch( error => console.error(error));
         } else {
             alert('아이디와 비밀번호를 입력해 주세요!😨')
@@ -236,6 +238,16 @@ class SignInModal extends Component {
         cred[event.target.name] = event.target.value;
         this.setState({credentials: cred});
     }
+
+    inputEraser = () => {
+        this.setState({
+            credentials: {
+                ...this.state.credentials,
+                username: '',
+                password: ''    
+            }
+        })
+    };
 
     render () {
         return (
@@ -252,10 +264,10 @@ class SignInModal extends Component {
                         <TextLine>
                         <Labelemail>아 이 디</Labelemail>
                         <EmailInput 
-                            onChange={this.inputChanged} 
-                            value={this.state.credentials.username}
                             type="text"
                             name="username"
+                            value={this.state.credentials.username}
+                            onChange={this.inputChanged} 
                             placeholder="아이디를 입력해 주세요">
                         </EmailInput>
                         </TextLine>
@@ -263,17 +275,21 @@ class SignInModal extends Component {
                         <TextLine0>
                         <Labelpassword>비 밀 번 호</Labelpassword>
                         <PasswordInput 
-                            onChange={this.inputChanged}
-                            value={this.state.credentials.password}
                             type="password"
                             name="password"
+                            value={this.state.credentials.password}
+                            onChange={this.inputChanged}
                             placeholder="비밀번호를 입력해 주세요">
                         </PasswordInput>
                         </TextLine0>
                     </div>
-    
                     <TextLine1>
-                    <SignInButton onClick={this.login}>로그인</SignInButton>
+                    <SignInButton onClick={
+                        () => {
+                            this.login();
+                            this.inputEraser();
+                        }    
+                    }>로그인</SignInButton>
                     </TextLine1>
                     {/* <div className="signup-link">
                         <Link to='/signup'>
@@ -281,16 +297,22 @@ class SignInModal extends Component {
                         </Link>
                     </div> */}
                     
-                    <TextLine2>
+                    {/* <TextLine2>
                         <Oauth>카카오로 로그인하기</Oauth>
                     </TextLine2>   
     
                     <TextLine3>
                         <Oauth1>네이버로 로그인하기</Oauth1>
-                    </TextLine3>
+                    </TextLine3> */}
                 </div>
                 </ModalBox>
-                <SignInModalShadow onClick={() => this.props.closeSignInModal()}></SignInModalShadow>
+                <SignInModalShadow 
+                    onClick={
+                        () => {
+                            this.props.closeSignInModal();
+                            this.inputEraser();
+                        }
+                    }></SignInModalShadow>
             </div>
             : ''
         )

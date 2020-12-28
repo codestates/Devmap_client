@@ -245,8 +245,9 @@ class MyPage extends Component {
     // data // ${data.id}
 
     // username과 email 받아와서 띄워주기
+
     getUserData = () => {
-        fetch('http://devmap.ml/users/memberinfo/10/', {
+        fetch('http://devmap.ml/users/memberinfo/15/', {
             method: 'GET',
             headers: {'Content-type': 'application/json'}
         })
@@ -311,6 +312,7 @@ class MyPage extends Component {
     componentDidMount() {
         console.log('componentDidMount!')
         this.getUserData();
+        console.log('userInfo', this.props.userInfo);
     }
 
     // componentDidMount!

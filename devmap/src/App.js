@@ -5,14 +5,15 @@ import styled from 'styled-components';
 
 import './App.css';
 import Top from './pages/Top';
+import Background from './pages/Background';
 import Main from './pages/Main';
 import MyPage from './pages/MyPage';
 import RoadMapFront from './pages/RoadMapFront';
 import RoadMapBack from './pages/RoadMapBack';
+import SignUpModal from './component/SignUpModal';
 
 function App() {
   const [isSignnedIn, setIsSignnedIn] = useState({isSignIn: false, userInfo: null});
-  // const [token, setToken] = useState('')
 
   const handleResponseSuccess = () => { // 로그인 상태만 바꾸어 줌
     // await axios.get('http://devmap.ml/users/signin').then((res) => {
@@ -33,10 +34,10 @@ function App() {
     //     token: null
     //   })
     //   .then(() => {
-        setIsSignnedIn({isSignIn: false});
-        alert('정상적으로 로그아웃 되었습니다!👋')
-        // window.location.assign('http://devmap.ml/users/main/')
-      // })
+      setIsSignnedIn({isSignIn: false});
+      alert('정상적으로 로그아웃 되었습니다!👋')
+      // window.location.assign('http://devmap.ml/users/main/')
+    // })
   };
 
   // useEffect(() => { // componentDidMount()
@@ -110,7 +111,7 @@ function App() {
           <Route
             path="/users/memberinfo"
             render={() => 
-              <MyPage isSignnedIn={isSignnedIn}/>
+              <MyPage isSignnedIn={isSignnedIn} />
             }
           />
           <Route
