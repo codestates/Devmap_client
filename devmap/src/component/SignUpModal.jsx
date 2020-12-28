@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 // import React, { useState } from 'react';
 // import axios from 'axios';
 
-// import SignUp from './SignUp';
-// axios.defaults.withCredentials = true;
-
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
+// import SignUp from './SignUp';
+// axios.defaults.withCredentials = true;
 
 const SignUpModalShadow = styled.div`
     position: fixed;
@@ -157,13 +156,16 @@ const ErrorMessage = styled.div`
     font-size: 18px;
     font-family: Jua;
     text-align: center;
-    margin-left: 50%;
+    margin-left: 31%;
 `;
 
-const CompareButton = styled.button`
-    width: 20%;
+const CompareAndErase = styled.div`
+`;
+
+const EraseButton = styled.button`
+    width: 28%;
     height: 30px;
-    margin-left: 69%;
+    margin-left: 21%;
     margin-bottom: 2%;
     border : 3px solid;
     border-radius: 10px;
@@ -174,7 +176,33 @@ const CompareButton = styled.button`
     font-family: Jua;
     outline: 0;
     cursor: pointer;
+    float: left;
+    &:hover {
+        background: ${lighten(0.004, '#fed0d3')};
+        box-shadow:  0 5px #dedede;
+    }
+    &:active {
+        background: ${darken(0.0008, '#fed0d3')};
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+`;
 
+const CompareButton = styled.button`
+    width: 28%;
+    height: 30px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    border : 3px solid;
+    border-radius: 10px;
+    border-color: #FED0D3;
+    color: #ffffff;
+    background-color: #FED0D3;
+    font-size: 15px;
+    font-family: Jua;
+    outline: 0;
+    cursor: pointer;
+    float: left;
     &:hover {
         background: ${lighten(0.004, '#fed0d3')};
         box-shadow:  0 5px #dedede;
@@ -251,22 +279,21 @@ class SignUpModal extends Component {
             })
             .then(data => data.json())
             .then(
-                data => { // 이 것들을 상태로 주어 다른 데서도 사용해야 함
-                    // 서로의 조건이 다르고 한쪽에 있는게 한쪽에는 없어서,
-                    // 조건을 줄 때 에러가 난다
-                    // 둘 다에게 있으면서도 서로 다른 조건을 찾아야 한다
-                    // 안그럼 앞에 것만 됨
+                data => { // ** 이 것들을 상태로 주어 다른 데서도 사용해야 함(MyPage에서 해당하는 유저 info만 받아오기)
+                    // 서로의 조건이 다르고 한쪽에 있는게 한쪽에는 없어서, 조건을 줄 때 에러가 난다
+                    // 둘 다에게 있으면서도 서로 다른 조건을 찾아야 한다, 안그럼 앞에 것만 됨
                     if (!(data.username)) {
                         console.log('토큰', data.token);
                         console.log('id', data.user.id);
                         alert('환영합니다!🥰');
                         this.props.closeSignUpModal();
-                        // clear form
+                        // clear form -> 구현 완료
                     } else if (data.username[0] === "해당 사용자 이름은 이미 존재합니다.") {
                         console.log('data', data.username[0]);
                         alert('이미 존재하는 id입니다!😟');
-                        // clear form
+                        // clear form -> 구현 완료
                     }
+                    // ** email 부분도 서버와 상의 하에 추가하기
                     // this.props.updateUserInfo();
                 }
             )
@@ -296,47 +323,61 @@ class SignUpModal extends Component {
         }
     };
 
-    usernameInputEraser = () => {
-        // const cred = this.state.credentials;
-        // cred[event.target.name] = '';
-        // this.setState({credentials: cred});
-
-        // update nested state
-        // 입력한 내용 삭제 버튼으로는 안된다.. // 이 함수 자체는 적용되는데..(input칸에 적용) // 아 하나하나는 된다.. 뒤에 것만
-        this.setState({
-            credentials: {
-                ...this.state.credentials,
-                username: ''
-            }
-        })
+    resetComparePassword = () => {
+        this.setState({errorMessage: ''});
     };
 
-    emailInputEraser = () => {
-        this.setState({
-            credentials: {
-                ...this.state.credentials,
-                email: ''
-            }
-        })
-    };
+    // usernameInputEraser = () => {
+    //     // const cred = this.state.credentials;
+    //     // cred[event.target.name] = '';
+    //     // this.setState({credentials: cred});
 
-    passwordInputEraser = () => {
+    //     // update nested state
+    //     // 입력한 내용 삭제 버튼으로는 안된다.. // 이 함수 자체는 적용되는데..(input칸에 적용) // 아 하나하나는 된다.. 뒤에 것만
+    //     this.setState({
+    //         credentials: {
+    //             ...this.state.credentials,
+    //             username: ''
+    //         }
+    //     })
+    // };
+
+    // emailInputEraser = () => {
+    //     this.setState({
+    //         credentials: {
+    //             ...this.state.credentials,
+    //             email: ''
+    //         }
+    //     })
+    // };
+
+    // passwordInputEraser = () => {
+    //     this.setState({
+    //         credentials: {
+    //             ...this.state.credentials,
+    //             password: ''    
+    //         }
+    //     })
+    // };
+
+    inputEraser = () => {
         this.setState({
             credentials: {
                 ...this.state.credentials,
+                username: '',
+                email: '',
                 password: ''    
             }
         })
     };
 
-    confirmPasswordInputEraser = () => { // 이건 된다.. 개별로는 돼..
+    confirmPasswordInputEraser = () => { // 이건 된다.. 객체에 안 담긴 개별로는 돼..
         this.setState({
             confirmPassword: ''
         });
         console.log(this.state.confirmPassword)
     };
 
-    
     // refresh = () => {
     //   window.location.assign('/users/signup') // signup에서 get 메소드가 허용되지 않음.. 으어어어..
     // }
@@ -360,7 +401,7 @@ class SignUpModal extends Component {
                             name="username"
                             value={this.state.credentials.username}
                             onChange={this.inputChanged}
-                            onClick={this.usernameInputEraser} // 클릭하면 지워짐
+                            // onClick={this.usernameInputEraser} // 클릭하면 지워짐 // 수정하려 해도 지워지는게 불편..
                             placeholder="아이디를 입력해 주세요"
                         />
                         </SignUpUserName>
@@ -371,7 +412,7 @@ class SignUpModal extends Component {
                             name="email"
                             value={this.state.credentials.email}
                             onChange={this.inputChanged}
-                            onClick={this.emailInputEraser}
+                            // onClick={this.emailInputEraser}
                             placeholder="이메일을 입력해 주세요"
                         />
                         </SignUpEmail>
@@ -382,7 +423,7 @@ class SignUpModal extends Component {
                             name="password"
                             value={this.state.credentials.password}
                             onChange={this.inputChanged}
-                            onClick={this.passwordInputEraser}
+                            // onClick={this.passwordInputEraser}
                             placeholder="비밀번호를 입력해 주세요"
                         />
                         </SignUpPassword>
@@ -394,37 +435,59 @@ class SignUpModal extends Component {
                             name="confirmPassword"
                             value={this.state.confirmPassword}
                             onChange={this.onConfirmPasswordHandler}
-                            onClick={this.confirmPasswordInputEraser}
+                            // onClick={this.confirmPasswordInputEraser}
                             placeholder="비밀번호를 입력해 주세요"
                         />
                         </SignUpConfirmPassword>
                         <ErrorMessage>{this.state.errorMessage}</ErrorMessage>
-                        <CompareButton onClick={this.comparePassword}>일치 확인</CompareButton>
+                        <CompareAndErase>
+                            <EraseButton onClick={
+                                () => {
+                                // this.usernameInputEraser(); 
+                                // this.emailInputEraser(); 
+                                // this.passwordInputEraser();
+                                this.inputEraser();
+                                this.confirmPasswordInputEraser();
+                                }
+                            }
+                            >입력 내용 전체 삭제
+                            </EraseButton>
+                            <CompareButton onClick={this.comparePassword}>비밀 번호 일치 확인</CompareButton>
+                        </CompareAndErase>
+                        {/* credential을 분리해서 username, email, password으로 하니 되었지만.. 이젠 서버에서 에러 보냄. 묶어서 객체로만 보내야 함 */}
                     {/* </SignUpInputArea> */}
                         <SignUpButton 
                             onClick={
                                 () => {
                                     this.register();
-                                    this.usernameInputEraser(); // 일단은 아이디 겹치는 것만 잡아내니까 이것만..
                                     // window.location.reload(); // 이걸 하고 모달 오픈 상태를 강제로 오픈으로 바꿔주면.. ok?
                                     // this.openSignUpModal();
+                                    // this.usernameInputEraser(); // 일단은 아이디 겹치는 것만 잡아내니까 이것만..
                                     // this.emailInputEraser();
                                     // this.passwordInputEraser();
-                                    // this.confirmPasswordInputEraser();
+                                    this.inputEraser();
+                                    this.confirmPasswordInputEraser();
+                                    this.resetComparePassword();
+                                    console.log(this.props) // isModalOpen, openSignUpModal, closeSignUpModal만.. userInfo 바꾸는 함 수 못받아 옴..
                                 }
                             } // this.comparePassword
-                            // onSubmit={this.inputEraser} // 어떻게 지울 것인가?
                         >회원 가입
                         </SignUpButton>
-                        {/* <button onClick={() => {this.usernameInputEraser(); this.emailInputEraser(); this.passwordInputEraser(); this.confirmPasswordInputEraser();}}>입력한 내용 삭제</button> */}
-                        {/* credential을 분리해서 username, email, password으로 하니 되었지만.. 이젠 서버에서 에러 보냄. 묶어서 객체로만 보내야 함 */}
                     {/* <div className="signin-link">
                         <Link to='/signin'>
                             <h3>계정이 있으신가요?</h3>
                         </Link>
                     </div> */}
                 </SignUpWrapper>
-                <SignUpModalShadow onClick={() => this.props.closeSignUpModal()} />
+                <SignUpModalShadow 
+                    onClick={
+                        () => {
+                            this.props.closeSignUpModal();
+                            this.inputEraser();
+                            this.resetComparePassword();
+                        }
+                     }
+                />
             </div>
             : ''
         )
