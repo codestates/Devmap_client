@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
-import notReady from '../img/notready.png';
+import notReady from '../img/notready_1.png';
 import frontJsonData from '../json/RoadMapFront';
 
 console.log(frontJsonData[0].name);
@@ -137,11 +137,11 @@ const Popular = styled.span`
 
 const NotReadyImage = styled.img`
     position: fixed;
-    margin-top: 3%;
-    margin-left: 8%;
+    margin-top: 1.5%;
+    margin-left: 6.5%;
     z-index: 2000;
-    width: 14%;
-    height: 24%;
+    width: 18%;
+    height: 32%;
 `;
 
 const NotReady = styled.div`
@@ -151,10 +151,10 @@ const NotReady = styled.div`
     border-radius: 10px;
     z-index: 1001;
     width: 28%;
-    height: 32%;
+    height: 34%;
     overflow: auto;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0,0,0,0.1);
 `;
 
 const Comment = styled.div`
