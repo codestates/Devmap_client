@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-// import React, { useState } from 'react';
-// import axios from 'axios';
 
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
-// import SignUp from './SignUp';
-// axios.defaults.withCredentials = true;
 
 const SignUpModalShadow = styled.div`
     position: fixed;
@@ -54,8 +50,8 @@ const LogoImg = styled.img`
     margin-bottom: -5px;
 `;
 
-const SignUpInputArea = styled.div`
-`;
+// const SignUpInputArea = styled.div`
+// `;
 const SignUpEmail = styled.div`
 `;
 const SignUpPassword = styled.div`
@@ -179,11 +175,11 @@ const EraseButton = styled.button`
     float: left;
     &:hover {
         background: ${lighten(0.004, '#fed0d3')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fed0d3')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;
@@ -205,11 +201,11 @@ const CompareButton = styled.button`
     float: left;
     &:hover {
         background: ${lighten(0.004, '#fed0d3')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fed0d3')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;
@@ -230,11 +226,11 @@ const SignUpButton = styled.button`
 
     &:hover {
         background: ${lighten(0.004, '#fed0d3')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fed0d3')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;
@@ -277,23 +273,34 @@ class SignUpModal extends Component {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(this.state.credentials)
             })
+            // axios 
+            // .post('http://devmap.ml/users/signup/', {
+            //     credentials: this.state.credentials
+            // })
             .then(data => data.json())
             .then(
-                data => { // ** 이 것들을 상태로 주어 다른 데서도 사용해야 함(MyPage에서 해당하는 유저 info만 받아오기)
+                data => { // 이 것들을 상태로 주어 다른 데서도 사용해야 함(MyPage에서 해당하는 유저 info만 받아오기) // 로그인에서는 id 못 받아오므로
                     // 서로의 조건이 다르고 한쪽에 있는게 한쪽에는 없어서, 조건을 줄 때 에러가 난다
                     // 둘 다에게 있으면서도 서로 다른 조건을 찾아야 한다, 안그럼 앞에 것만 됨
-                    if (!(data.username)) {
+                    if (!(data.username)) { //  && data.email
                         console.log('토큰', data.token);
                         console.log('id', data.user.id);
+                        this.props.getIdNumber(data);
                         alert('환영합니다!🥰');
                         this.props.closeSignUpModal();
                         // clear form -> 구현 완료
                     } else if (data.username[0] === "해당 사용자 이름은 이미 존재합니다.") {
                         console.log('data', data.username[0]);
                         alert('이미 존재하는 id입니다!😟');
-                        // clear form -> 구현 완료
                     }
-                    // ** email 부분도 서버와 상의 하에 추가하기
+                        // clear form -> 구현 완료
+                    // } else if (data.email[0] === "이 필드는 반드시 고유(unique)해야 합니다.") {
+                    //     console.log('data', data.email[0]);
+                    //     alert('이미 존재하는 email입니다!😟');
+                    // } else if (data.username[0] === "해당 사용자 이름은 이미 존재합니다." && data.email[0] === "이 필드는 반드시 고유(unique)해야 합니다.") {
+                    //     alert('이미 존재하는 id와 email입니다!😟');
+                    // }
+                    // email 부분도 서버와 상의 하에 추가하기 -> 취소
                     // this.props.updateUserInfo();
                 }
             )
@@ -454,7 +461,7 @@ class SignUpModal extends Component {
                             </EraseButton>
                             <CompareButton onClick={this.comparePassword}>비밀 번호 일치 확인</CompareButton>
                         </CompareAndErase>
-                        {/* credential을 분리해서 username, email, password으로 하니 되었지만.. 이젠 서버에서 에러 보냄. 묶어서 객체로만 보내야 함 */}
+                        {/* credential을 분리해서 username, email, password으로 하니 되었지만.. 이젠 서버에서 에러 보냄. 묶어서 객체로만 보내야 함 -> 해결 */}
                     {/* </SignUpInputArea> */}
                         <SignUpButton 
                             onClick={
@@ -468,7 +475,7 @@ class SignUpModal extends Component {
                                     this.inputEraser();
                                     this.confirmPasswordInputEraser();
                                     this.resetComparePassword();
-                                    console.log(this.props) // isModalOpen, openSignUpModal, closeSignUpModal만.. userInfo 바꾸는 함 수 못받아 옴..
+                                    // console.log(this.props) // isModalOpen, openSignUpModal, closeSignUpModal만.. userInfo 바꾸는 함 수 못받아 옴..
                                 }
                             } // this.comparePassword
                         >회원 가입

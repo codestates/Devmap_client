@@ -1,5 +1,6 @@
-import React, { useState , useEffect} from 'react';
-import { Link, Switch, Route, Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
@@ -8,9 +9,8 @@ import SignInModalButton from '../component/SignInModalButton';
 import SignUpModalButton from '../component/SignUpModalButton';
 import SignInModal from '../component/SignInModal';
 import SignUpModal from '../component/SignUpModal';
-import MyPage from '../pages/MyPage';
 
-const TopBox = styled.div`
+const TopBorder = styled.div`
     width: 97%;
     top: 18px;
     background-color: #fff4f4;
@@ -21,7 +21,7 @@ const TopBox = styled.div`
     margin: 0 auto;
 `;
 
-const Img_input = styled.div`
+const ImgInput = styled.div`
     vertical-aline: middle;
 `;
 
@@ -62,7 +62,7 @@ const Input = styled.input`
     }  
 `;
 
-const Button_Ul_style = styled.ul`
+const ButtonUl = styled.ul`
     display: table;
     list-style:none;
     padding-left: 0px;
@@ -71,7 +71,7 @@ const Button_Ul_style = styled.ul`
     margin-bottom: -3px;
 `;
 
-const Button_Li_style = styled.li`
+const ButtonLi = styled.li`
     float: right;
     margin: 5px;
 `;
@@ -94,11 +94,11 @@ const MyPageButton = styled.button`
   
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fff4f4')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;
@@ -121,11 +121,11 @@ const SignOutButton = styled.button`
   
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fff4f4')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;
@@ -140,75 +140,75 @@ const SignOutButton = styled.button`
   }
 */
 
-function Top ({ isSignnedIn, handleResponseSuccess, handleSignOut }) {
+function Top({ isSignnedIn, handleResponseSuccess, handleSignOut, getIdNumber }) {
 
-const [isModalOpen, setIsModalOpen] = useState({signin: false, signup: false});
+    const [isModalOpen, setIsModalOpen] = useState({signin: false, signup: false});
 
-const openSignInModal = () => {
-    setIsModalOpen({signin: !isModalOpen.signin, signup: false})
-    console.log(isModalOpen)
-};
-const closeSignInModal = () => {
-    setIsModalOpen({signin: false, signup: false});
-};
+    const openSignInModal = () => {
+        setIsModalOpen({signin: !isModalOpen.signin, signup: false})
+        console.log(isModalOpen)
+    };
+    const closeSignInModal = () => {
+        setIsModalOpen({signin: false, signup: false});
+    };
 
-const openSignUpModal = () => {
-    setIsModalOpen({signup : !isModalOpen.signup, signin: false})
-    console.log(isModalOpen)
-};
-const closeSignUpModal = () => {
-    setIsModalOpen({signin: false, signup: false});
-};
+    const openSignUpModal = () => {
+        setIsModalOpen({signup : !isModalOpen.signup, signin: false})
+        console.log(isModalOpen)
+    };
+    const closeSignUpModal = () => {
+        setIsModalOpen({signin: false, signup: false});
+    };
 
-// 로그아웃 함수 여기에 만들기 // 임시로 상태만 바꾸어 줌
+    console.log('로그인 상태, top', isSignnedIn.isSignIn); // true
 
 // 회원 가입, 로그인이 아직 서버측에서 안되니 실험할 때마다 계속 바꾸어주어야 함..
     if (isSignnedIn.isSignIn === false) { // MyPage 실험으로 임시로 상태 바꾸어 둠 // signin, signup 엔드 포인트 없앨 것인가?
         return (
             <div>
-                <TopBox>
-                    <Img_input>
+                <TopBorder>
+                    <ImgInput>
                         {/* 로고 누르면 메인으로 가도록 */}
                         <Link to="/users/main">
                             <Img src={logo} />
                         </Link>
                         <Input placeholder="검색" />
-                    </Img_input>
-                    <Button_Ul_style>
-                        <Button_Li_style>
+                    </ImgInput>
+                    <ButtonUl>
+                        <ButtonLi>
                             <Link to="/users/signin">
                                 <SignInModalButton openSignInModal={openSignInModal} />
                             </Link>
-                        </Button_Li_style>
-                        <Button_Li_style>
+                        </ButtonLi>
+                        <ButtonLi>
                             <Link to="/users/signup">
                                 <SignUpModalButton openSignUpModal={openSignUpModal} />
                             </Link>
-                        </Button_Li_style>
-                    </Button_Ul_style>
-                </TopBox>
+                        </ButtonLi>
+                    </ButtonUl>
+                </TopBorder>
                 {/* 모달이 페이지에 내장되어있는 상태*/}
-                <SignUpModal openSignUpModal={openSignUpModal} closeSignUpModal={closeSignUpModal} isModalOpen={isModalOpen}/>
-                <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} handleResponseSuccess={handleResponseSuccess} />
+                <SignUpModal openSignUpModal={openSignUpModal} closeSignUpModal={closeSignUpModal} isModalOpen={isModalOpen} getIdNumber={getIdNumber} />
+                <SignInModal openSignInModal={openSignInModal} closeSignInModal={closeSignInModal} isModalOpen={isModalOpen} isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} />
             </div>
         );
     } else if (isSignnedIn.isSignIn === true) {
         return (
             <div>
-                <TopBox>
-                    <Img_input>
+                <TopBorder>
+                    <ImgInput>
                         {/* 로고 누르면 메인으로 가도록 */}
-                        <a href="http://localhost:3000/users/main">
+                        <Link to="/users/main">
                             <Img src={logo} />
-                        </a>
+                        </Link>
                         <Input placeholder="검색" />
-                    </Img_input>
-                    <Button_Ul_style>
-                        <Button_Li_style>
+                    </ImgInput>
+                    <ButtonUl>
+                        <ButtonLi>
                             <SignOutButton onClick={handleSignOut}>로그아웃</SignOutButton>
                             {/* onClick={handleLogout} */}
-                        </Button_Li_style>
-                        <Button_Li_style>
+                        </ButtonLi>
+                        <ButtonLi>
                         <Link to="/users/memberinfo">
                             <MyPageButton>마이 페이지</MyPageButton>
                             {/* onClick 이벤트로 바디 영역에서 렌더링하도록 설정(라우팅) */}
@@ -220,14 +220,14 @@ const closeSignUpModal = () => {
                                 // body 영역에서 띄울 것
                             }}
                         /> */}
-                        </Button_Li_style>
-                    </Button_Ul_style>
-                </TopBox>
+                        </ButtonLi>
+                    </ButtonUl>
+                </TopBorder>
             </div>
         );
     } else {
         alert('로그인 상태가 true도 false도 아니다....')
-    }
+    };
 }
 
 export default Top;

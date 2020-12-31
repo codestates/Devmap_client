@@ -1,44 +1,81 @@
-import React, { useState , useEffect} from 'react';
-import { Link, Switch, Route, Redirect } from "react-router-dom";
-import axios from 'axios';
+import React, { useState } from 'react';
+import { Switch, Route } from "react-router-dom";
+
 import styled from 'styled-components';
 
 import './App.css';
 import Top from './pages/Top';
-import Background from './pages/Background';
 import Main from './pages/Main';
 import MyPage from './pages/MyPage';
 import RoadMapFront from './pages/RoadMapFront';
 import RoadMapBack from './pages/RoadMapBack';
-import SignUpModal from './component/SignUpModal';
+
+const All = styled.div`
+    // 스크롤바(필요시 수정하여 구현)
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #FED0D3;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: grey;
+    }
+`;
+
+const Body = styled.body`
+    position: relative;
+    top: 30px;
+`;
 
 function App() {
   const [isSignnedIn, setIsSignnedIn] = useState({isSignIn: false, userInfo: null});
+  // const [userInfo, setUserInfo] = useState(null);
+  const [token, setToken] = useState(null);
+  const [idNumber, setIdNumber] = useState(null);
 
-  const handleResponseSuccess = () => { // 로그인 상태만 바꾸어 줌
+  const handleResponseSuccess = (data) => {
     // await axios.get('http://devmap.ml/users/signin').then((res) => {
     //   let count = 0;
     //     count++;
     //   if (count > 1) {
-      setIsSignnedIn({isSignIn: true}); // userInfo: res.data // userInfo 상태 생성하기?
-    //   } else {
+      // await axios
+      //   .post('http://devmap.ml/users/signin/')
+      //   .then(res => {
+      //     console.log('res'. res);
+      //     user = res.userInfo;
+      //     token = res.token;
+      //   })
+        setIsSignnedIn({isSignIn: true});
+        // setUserInfo(user);
+        setToken(data.token);
+        // console.log('token status', token);
+      //   } else {
     //     return ;
     //   }
     //     console.log(isSignnedIn.userInfo);
     // },);
   };
 
+  console.log('로그인 상태, App', isSignnedIn.isSignIn); // true // false(signout 시)
+  console.log('App token status', token); // 받아온다!!!! // null(signout 시)
+
   const handleSignOut = () => {
-    // axios
-    //   .post('http://devmap.ml/users/signout', {
-    //     token: null
-    //   })
+    // await axios
+    //   .post('http://devmap.ml/users/signout/')
     //   .then(() => {
-      setIsSignnedIn({isSignIn: false});
-      alert('정상적으로 로그아웃 되었습니다!👋')
-      // window.location.assign('http://devmap.ml/users/main/')
-    // })
+        setIsSignnedIn({isSignIn: false});
+        setToken(null);
+        alert('정상적으로 로그아웃 되었습니다!👋');
+        window.location.replace('http://localhost:3000/users/main/');
+      // })
   };
+
+  const getIdNumber = (data) => {
+    setIdNumber(data.user.id)
+  };
+
+  console.log('회원 가입시 서버로부터 받은 id number', idNumber);
 
   // useEffect(() => { // componentDidMount()
   //   handleResponseSuccess();
@@ -62,32 +99,14 @@ function App() {
   // 위와는 별개로 signup, signin post 왜 안되는지 살펴볼 것, 클라이언트 문제?
   // CORS 해결하여 서버에서는 200 뜬다고 하는데, 클라이언트에서는 아직 못 받아옴
 
-  const All_style = styled.div`
-    // 스크롤바(필요시 수정하여 구현)
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: #FED0D3;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: grey;
-    }
-  `;
-
-  const Body_style = styled.body`
-    position: relative;
-    top: 30px;
-  `;
-
   // signup, signin 주소 필요하다(모달이 뜰 때 배경이 사라지지 않게 하려면)
   
   return (
-    <All_style>
+    <All>
       <header>
-        <Top isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} handleSignOut={handleSignOut}/>
+        <Top isSignnedIn={isSignnedIn} handleResponseSuccess={handleResponseSuccess} handleSignOut={handleSignOut} getIdNumber={getIdNumber} />
       </header>
-      <Body_style>
+      <Body>
         <Switch>
           <Route
             exact path="/"
@@ -111,7 +130,7 @@ function App() {
           <Route
             path="/users/memberinfo"
             render={() => 
-              <MyPage isSignnedIn={isSignnedIn} />
+              <MyPage isSignnedIn={isSignnedIn} token={token} idNumber={idNumber} />
             }
           />
           <Route
@@ -127,8 +146,8 @@ function App() {
             }
           />
         </Switch>
-      </Body_style>
-    </All_style>
+      </Body>
+    </All>
   );
 }
 
