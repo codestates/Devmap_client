@@ -1,4 +1,5 @@
-import React, { useState} from 'react';
+import React from 'react';
+
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
@@ -20,11 +21,11 @@ const Button = styled.button`
   
     &:hover {
         background: ${lighten(0.004, '#fff4f4')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fff4f4')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;

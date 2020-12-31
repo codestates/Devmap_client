@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
+import notReady from '../img/notready.png';
 import frontJsonData from '../json/RoadMapFront';
-
-import jQuery from "jquery";
-window.$ = window.jQuery = jQuery;
 
 console.log(frontJsonData[0].name);
 
@@ -63,9 +62,9 @@ const TitleAndStarRating = styled.div`
 const Title = styled.span`
 `;
 
-const StarRate = styled.span`
-    margin-left: 5%;
-`;
+// const StarRate = styled.span`
+//     margin-left: 5%;
+// `;
 
 const ItemInfo = styled.div`
     margin-top: 5%;
@@ -82,7 +81,7 @@ const ItemInfo = styled.div`
     border: 3px solid;
     border-radius: 10px;
     border-color: #fed0d3;
-    max-height: 30%;
+    max-height: 33%;
     overflow: auto;
     ::-webkit-scrollbar {
         width: 15px;
@@ -116,16 +115,50 @@ const Link = styled.a`
     // }
 `;
 
-const StarRating = styled.div`
-    margin-top: 5%;
-    margin-left: 5%;
-    font-size: 20px;
-    font-family: Jua;
-    color: #78b8c4;
+const DiffPopu = styled.div`
+    margin-top: 2%;
+`;
+
+const Difficult = styled.span`
+    margin-left: 3.5%;
+`;
+
+const Popular = styled.span`
+    margin-left: 3.5%;
+`;
+
+// const StarRating = styled.div`
+//     margin-top: 5%;
+//     margin-left: 5%;
+//     font-size: 20px;
+//     font-family: Jua;
+//     color: #78b8c4;
+// `;
+
+const NotReadyImage = styled.img`
+    position: fixed;
+    margin-top: 3%;
+    margin-left: 8%;
+    z-index: 2000;
+    width: 14%;
+    height: 24%;
+`;
+
+const NotReady = styled.div`
+    position: fixed;
+    margin-top: 1%;
+    margin-left: 1%;
+    border-radius: 10px;
+    z-index: 1001;
+    width: 28%;
+    height: 32%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.05);
 `;
 
 const Comment = styled.div`
-    margin-top: 2%;
+    margin-top: 5%;
     margin-left: 5%;
     font-size: 20px;
     font-family: Jua;
@@ -161,11 +194,11 @@ const CommentButton = styled.button`
     cursor: pointer;
     &:hover {
         background: ${lighten(0.004, '#78b8c4')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#78b8c4')};
-        box-shadow: 0 5px #ffffff;
+        box-shadow: 0 2px #ffffff;
         transform: translateY(4px);
     }
 `;
@@ -201,25 +234,32 @@ export default function ModalFront({ isFrontModalOpen, closeFrontModal }) {
                             <LogoImg src={logo} alt='oops!' />
                             <TitleAndStarRating>
                                 <Title># {frontJsonData[i].title}</Title>
-                                <StarRate>★★★★☆</StarRate>
+                                {/* <StarRate>★★★★☆</StarRate> */}
+                                <DiffPopu>
+                                    <Difficult>난이도 : {frontJsonData[i].diffStar}</Difficult>
+                                    <Popular>인기도 : {frontJsonData[i].popuStar}</Popular>
+                                </DiffPopu>
                             </TitleAndStarRating>
                             <ItemInfo>
                                 <ItemTitle>🚀 {frontJsonData[i].title}(이)란?</ItemTitle>
                                 <p>{frontJsonData[i].info.replaceAll("\n", "<br/>")}</p>
                                 <ItemTitle>💻 추천 링크</ItemTitle>
+                                <p></p>
                                 <Link href={frontJsonData[i].link} target="_blank">➤ 이동하기</Link>
                             </ItemInfo>
-                            <StarRating>
+                            {/* <StarRating>
                                 ☆☆☆☆☆
-                            </StarRating>
+                            </StarRating> */}
+                            <NotReadyImage src={notReady} alt='oops!' />
+                            <NotReady></NotReady>
                             <Comment>
-                                <CommentInput placeholder="댓글을 입력하세요" />
+                                <CommentInput placeholder="댓글을 입력하세요 : 기능 준비중입니다" />
                                 <CommentButton>▶</CommentButton>
                             </Comment>
                             <CommentList>
-                                <AComment>댓글 1</AComment>
-                                <AComment>댓글 2</AComment>
-                                <AComment>댓글 3</AComment>
+                                <AComment>댓글 1 : 기능 준비중입니다</AComment>
+                                <AComment>댓글 2 : 기능 준비중입니다</AComment>
+                                {/* <AComment>댓글 3</AComment> */}
                             </CommentList>
                             {/* <button onClick={openFrontModal}>버튼</button> */}
                         </ModalFrontWrapper>

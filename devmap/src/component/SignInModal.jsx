@@ -1,11 +1,38 @@
 import React, { Component } from 'react';
-// import React, { useState } from 'react';
-// import axios from 'axios';
 
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
+
+// axios.defaults.xsrfCookieName = "csrftoken";
+// axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+// axios.defaults.headers.common['X-CSRFToken'] = getCookie("csrftoken");
+// axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
+// axios.defaults.withCredentials = true;
+
+// function getCookie(name) { 
+//     let cookieValue = null; 
+//     if (document.cookie && document.cookie !== '') { 
+//         let cookies = document.cookie.split(';'); 
+//         for (var i = 0; i < cookies.length; i++) { 
+//             var cookie = cookies[i].replace(' ', ''); 
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) { 
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1)); break; 
+//             } 
+//         } 
+//     } 
+//     return cookieValue; 
+// } 
+
+// const CSRFToken = () => { 
+//     const csrftoken = getCookie('csrftoken'); 
+//     return( 
+//         <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken}
+//         /> 
+//     ) 
+// };
+
 
 const SignInModalShadow = styled.div`
     position: fixed;
@@ -60,14 +87,14 @@ const TextLine0 = styled.div`
 `;
 const TextLine1 = styled.div`
 `;
-const TextLine2 = styled.div`
-    margin-top: 8%;
-    // margin-left: 17%;
-`;
-const TextLine3 = styled.div`
-    margin-top: 7%;
-    // margin-left: 17%;
-`;
+// const TextLine2 = styled.div`
+//     margin-top: 8%;
+//     // margin-left: 17%;
+// `;
+// const TextLine3 = styled.div`
+//     margin-top: 7%;
+//     // margin-left: 17%;
+// `;
 
 const Labelemail = styled.label`
     color: #fed0d3;
@@ -93,6 +120,7 @@ const EmailInput = styled.input`
     font-family: Jua;
     color: #ffa2b4;
     background-color: #fff8f8;
+    outline: 0;
     ::placeholder,
     ::-webkit-input-placeholder {
         color: #FED0D3;
@@ -111,6 +139,7 @@ const PasswordInput = styled.input`
     font-family: Jua;
     color: #ffa2b4;
     background-color: #fff8f8;
+    outline: 0;
     ::placeholder,
     ::-webkit-input-placeholder {
         color: #FED0D3;
@@ -137,11 +166,11 @@ const SignInButton = styled.button`
 
     &:hover {
         background: ${lighten(0.004, '#fed0d3')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#fed0d3')};
-        box-shadow: 0 5px #666;
+        box-shadow: 0 2px #666;
         transform: translateY(4px);
     }
 `;
@@ -200,9 +229,43 @@ const SignInButton = styled.button`
 //     }
 // `;
 
+// const API_HOST = 'http://devmap.ml/';
+// let csrfToken_ = null;
+
+// // csrf 토큰 받아오기
+// async function getCsrfToken() {
+//   if (csrfToken_ === null) {
+//     const res = await fetch(`${API_HOST}users/signin/`, {
+//       credentials: 'include',
+//     });
+//     const data = await res.json();
+//     csrfToken_ = data.csrfToken;
+//   }
+//   console.log(csrfToken_);
+//   return csrfToken_;
+// }
+
+// // 헤더에 csrf 토큰을 넣어 post나 get 요청 보내기
+// async function authedFetch(method) {
+//   const res = await fetch(`${API_HOST}users/signin/`, {
+//     method: method,
+//     headers: (
+//       method === 'POST' // default
+//         ? {'X-CSRFToken': await getCsrfToken()}
+//         : {}
+//     ),
+//     body: JSON.stringify(this.state.credentials),
+//     credentials: 'include',
+//   });
+//   const data = await res.json();
+//   return data;
+// }
+
 class SignInModal extends Component {
     state = {
-        credentials: {username: '', password: ''}
+        credentials: {username: '', password: ''},
+        // get: '',
+        // post: ''
     }
 
     login = event => {
@@ -213,14 +276,25 @@ class SignInModal extends Component {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(this.state.credentials)
             })
+            // axios
+            // .post('http://devmap.ml/users/signin/', {
+            //     body: JSON.stringify(this.state.credentials)
+            // })
+            // this.setState({
+            //     post: await authedFetch('POST')
+            // })
             .then( data => data.json())
             .then(
                 data => {
-                    console.log('data', data)
+                    console.log('login get data', data) // expiry, token만 받을 수 있다(서버 정해진 규칙) // id를 받을 수 있으면 좋을텐데..
+                    
+                    // const { accessToken } = data.token;
+                    // axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+                    // console.lod('login get token', accessToken);
+
                     if (data.token) {
-                        console.log(data.token);
                         alert('로그인 되었습니다!😄');
-                        this.props.handleResponseSuccess();
+                        this.props.handleResponseSuccess(data);
                         this.props.closeSignInModal();
                     } else {
                         alert('아이디와 비밀번호를 확인해 주세요!😟');
@@ -252,7 +326,8 @@ class SignInModal extends Component {
     render () {
         return (
             this.props.isModalOpen.signin === true ?
-            <div> 
+            <div>
+                {/* <CSRFToken> */}
                 <ModalBox>
                 <div>
                     <div>    
@@ -306,6 +381,7 @@ class SignInModal extends Component {
                     </TextLine3> */}
                 </div>
                 </ModalBox>
+                {/* </CSRFToken> */}
                 <SignInModalShadow 
                     onClick={
                         () => {

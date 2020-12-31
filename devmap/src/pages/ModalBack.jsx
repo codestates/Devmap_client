@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import logo from '../img/devmap_logo.png';
+import notReady from '../img/notready.png';
 import backJsonData from '../json/RoadMapBack';
 
 const ModalBackShadow = styled.div`
@@ -58,9 +60,19 @@ const TitleAndStarRating = styled.div`
 const Title = styled.span`
 `;
 
-const StarRate = styled.span`
-    margin-left: 5%;
-`;
+// const StarRate = styled.span`
+//     margin-left: 5%;
+// `;
+
+// const Checkbox = styled.input`
+//     -webkit-transform: scale(1.6);
+// `;
+
+// const CheckboxText = styled.span`
+//     margin-left: 8px;
+//     font-size: 20px;
+//     font-family: Jua;
+// `;
 
 const ItemInfo = styled.div`
     margin-top: 5%;
@@ -76,7 +88,7 @@ const ItemInfo = styled.div`
     border: 3px solid;
     border-radius: 10px;
     border-color: #fed0d3;
-    max-height: 30%;
+    max-height: 33%;
     overflow: auto;
     ::-webkit-scrollbar {
         width: 15px;
@@ -94,7 +106,7 @@ const ItemInfo = styled.div`
     }
 `;
 
-const ItemTitle = styled.p`
+const ItemTitle = styled.div`
     font-size: 20px;
     font-family: Jua;
 `;
@@ -110,16 +122,50 @@ const Link = styled.a`
     // }
 `;
 
-const StarRating = styled.div`
-    margin-top: 5%;
-    margin-left: 5%;
-    font-size: 20px;
-    font-family: Jua;
-    color: #78b8c4;
+const DiffPopu = styled.div`
+    margin-top: 2%;
+`;
+
+const Difficult = styled.span`
+    margin-left: 3.5%;
+`;
+
+const Popular = styled.span`
+    margin-left: 3.5%;
+`;
+
+// const StarRating = styled.div`
+//     margin-top: 5%;
+//     margin-left: 5%;
+//     font-size: 20px;
+//     font-family: Jua;
+//     color: #78b8c4;
+// `;
+
+const NotReadyImage = styled.img`
+    position: fixed;
+    margin-top: 3%;
+    margin-left: 8%;
+    z-index: 2000;
+    width: 14%;
+    height: 24%;
+`;
+
+const NotReady = styled.div`
+    position: fixed;
+    margin-top: 1%;
+    margin-left: 1%;
+    border-radius: 10px;
+    z-index: 1001;
+    width: 28%;
+    height: 32%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.05);
 `;
 
 const Comment = styled.div`
-    margin-top: 2%;
+    margin-top: 5%;
     margin-left: 5%;
     font-size: 20px;
     font-family: Jua;
@@ -155,11 +201,11 @@ const CommentButton = styled.button`
     cursor: pointer;
     &:hover {
         background: ${lighten(0.004, '#78b8c4')};
-        box-shadow:  0 5px #dedede;
+        box-shadow:  0 2px #dedede;
     }
     &:active {
         background: ${darken(0.0008, '#78b8c4')};
-        box-shadow: 0 5px #ffffff;
+        box-shadow: 0 2px #ffffff;
         transform: translateY(4px);
     }
 `;
@@ -186,6 +232,41 @@ const AComment = styled.li`
 
 
 export default function ModalBack({ isBackModalOpen, closeBackModal }) {
+
+    // const [isChecked, setIsChecked] 
+    // = useState(
+    //     {
+    //         browser: false,
+    //         language: false,
+    //         java: false,
+    //         phyton: false,
+    //         javascript: false,
+    //         framework: false,
+    //         spring: false,
+    //         django: false,
+    //         node: false,
+    //         version: false,
+    //         database: false,
+    //         postgresql: false,
+    //         mysql: false,
+    //         mssql: false,
+    //         mariadb: false,
+    //         websocket: false,
+    //         nosql: false,
+    //         mongodb: false,
+    //         api: false,
+    //         authentication: false,
+    //         caching: false,
+    //         security: false,
+    //         testing: false,
+    //         cicd: false
+    //     }
+    // );
+
+    // const handleCheckChange =() => { // 지금으로썬 불가능..
+    //     setIsChecked(!isChecked)
+    // };
+
     if (isBackModalOpen.modal === true) {
         for (let i = 0; i < backJsonData.length; i++) {
             if (isBackModalOpen.name === backJsonData[i].name) {
@@ -195,25 +276,40 @@ export default function ModalBack({ isBackModalOpen, closeBackModal }) {
                             <LogoImg src={logo} alt='oops!' />
                             <TitleAndStarRating>
                                 <Title># {backJsonData[i].title}</Title>
-                                <StarRate>★★★★☆</StarRate>
+                                {/* <StarRate>★★★★☆</StarRate> */}
+                                <DiffPopu>
+                                    <Difficult>난이도 : {backJsonData[i].diffStar}</Difficult>
+                                    <Popular>인기도 : {backJsonData[i].popuStar}</Popular>
+                                </DiffPopu>
+                                {/* <div>
+                                    <Checkbox 
+                                        name='isChecked'
+                                        type='checkbox'
+                                        checked={isChecked}
+                                        onChange={handleCheckChange}
+                                    ></Checkbox>
+                                    <CheckboxText>공부할래요!</CheckboxText>
+                                </div> */}
                             </TitleAndStarRating>
                             <ItemInfo>
                                 <ItemTitle>🚀 {backJsonData[i].title}(이)란?</ItemTitle>
                                 <p>{backJsonData[i].info}</p>
                                 <ItemTitle>💻 추천 링크</ItemTitle>
+                                <p></p>
                                 <Link href={backJsonData[i].link} target="_blank">➤ 이동하기</Link>
                             </ItemInfo>
-                            <StarRating>
+                            {/* <StarRating>
                                 ☆☆☆☆☆
-                            </StarRating>
+                            </StarRating> */}
+                            <NotReadyImage src={notReady} alt='oops!' />
+                            <NotReady></NotReady>
                             <Comment>
-                                <CommentInput placeholder="댓글을 입력하세요" />
+                                <CommentInput placeholder="댓글 기능 준비중입니다" />
                                 <CommentButton>▶</CommentButton>
                             </Comment>
                             <CommentList>
-                                <AComment>댓글 1</AComment>
-                                <AComment>댓글 2</AComment>
-                                <AComment>댓글 3</AComment>
+                                <AComment>댓글 기능 준비중입니다</AComment>
+                                <AComment>댓글 기능 준비중입니다</AComment>
                             </CommentList>
                             {/* <button onClick={openBackModal}>버튼</button> */}
                         </ModalBackWrapper>
