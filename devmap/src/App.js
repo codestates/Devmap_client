@@ -67,7 +67,7 @@ function App() {
         setIsSignnedIn({isSignIn: false});
         setToken(null);
         alert('정상적으로 로그아웃 되었습니다!👋');
-        window.location.replace('http://localhost:3000/users/main/');
+        window.location.replace('http://devmap.ml/');
       // })
   };
 
