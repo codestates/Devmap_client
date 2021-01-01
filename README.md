@@ -14,20 +14,22 @@
 # 🔆 Stack
 ![image](https://user-images.githubusercontent.com/66219179/103165504-2b904b80-485c-11eb-9bdf-548a76ac836e.png)
 
-# 📌 Architecture
-### Front - End 
-![Front - End flow](https://user-images.githubusercontent.com/61407010/100432571-2022f680-30dd-11eb-85c0-dde6e03d91c9.png)
-
-### Back - End 
-![Back - End](https://user-images.githubusercontent.com/61407010/100430600-5ca12300-30da-11eb-8f0b-b06fc43acfdc.png)
-
 # 👥Team Member
+![readme](https://user-images.githubusercontent.com/65750731/103433297-205d6700-4c32-11eb-8c6a-06337ce79e72.PNG)
+
 |Git|Name|Role|
 |:--|:--:|:--:|   
 |[![GITHUB-O2O25252](https://img.shields.io/badge/GITHUB-O2O25252-black?style=for-the-badge&logo=GitHub)](https://github.com/O2O25252)|👨 임희찬|🌐 Frontend|
 |[![GITHUB-intothejourneys](https://img.shields.io/badge/GITHUB-intothejourneys-pink?style=for-the-badge&logo=GitHub)](https://github.com/intothejourneys)|👩 권은정|🌐 Frontend|
 |[![GITHUB-jesussangho](https://img.shields.io/badge/GITHUB-jesussangho-blue?style=for-the-badge&logo=GitHub)](https://github.com/jesussangho)|👨 이상호|💻 Backend|
 |[![GITHUB-hyunhoh](https://img.shields.io/badge/GITHUB-hyunhoh-green?style=for-the-badge&logo=GitHub)](https://github.com/hyunhoh)|👨 한현호|💻 Backend|   
+
+# 📌 Architecture
+### Front - End 
+![Front - End flow](https://user-images.githubusercontent.com/61407010/100432571-2022f680-30dd-11eb-85c0-dde6e03d91c9.png)
+
+### Back - End 
+![Back - End](https://user-images.githubusercontent.com/61407010/100430600-5ca12300-30da-11eb-8f0b-b06fc43acfdc.png)
 
 # 🏷️ For project details
 ## [devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
