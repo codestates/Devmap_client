@@ -11,10 +11,6 @@
 
 **Devmap**에서 그 청사진을 미리 살펴보세요!
 
-# 🔆 Stack
-
-![image](https://user-images.githubusercontent.com/66219179/103165504-2b904b80-485c-11eb-9bdf-548a76ac836e.png)
-
 # 👥Team Member
 
 ![readme](https://user-images.githubusercontent.com/65750731/103433297-205d6700-4c32-11eb-8c6a-06337ce79e72.PNG)
@@ -25,6 +21,10 @@
 |[![GITHUB-intothejourneys](https://img.shields.io/badge/GITHUB-intothejourneys-pink?style=for-the-badge&logo=GitHub)](https://github.com/intothejourneys)|👩 권은정|🌐 Frontend|
 |[![GITHUB-jesussangho](https://img.shields.io/badge/GITHUB-jesussangho-blue?style=for-the-badge&logo=GitHub)](https://github.com/jesussangho)|👨 이상호|💻 Backend|
 |[![GITHUB-hyunhoh](https://img.shields.io/badge/GITHUB-hyunhoh-green?style=for-the-badge&logo=GitHub)](https://github.com/hyunhoh)|👨 한현호|💻 Backend|   
+
+# 🔆 Stack
+
+![image](https://user-images.githubusercontent.com/66219179/103165504-2b904b80-485c-11eb-9bdf-548a76ac836e.png)
 
 # 📌 For project details
 ## [devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
