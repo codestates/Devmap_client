@@ -30,7 +30,7 @@
 ## [devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
 
 # 📌 노션 문서
-## (https://www.notion.so/11-Democracy-Devmap-35ccb0767a47426195f06ae78f368ca7)
+## [Notion](https://www.notion.so/11-Democracy-Devmap-35ccb0767a47426195f06ae78f368ca7)
 
 # 💻 배포 링크
-## (http://devmap.ml/)
+## [devmap site](http://devmap.ml/)
