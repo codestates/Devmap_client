@@ -27,10 +27,10 @@
 ![image](https://user-images.githubusercontent.com/66219179/103165504-2b904b80-485c-11eb-9bdf-548a76ac836e.png)
 
 # 📌 For project details
-## [devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
+## [Devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
 
 # 🏷️ 노션 문서
 ## [Notion](https://www.notion.so/11-Democracy-Devmap-35ccb0767a47426195f06ae78f368ca7)
 
 # 💻 배포 링크
-## [devmap site](http://devmap.ml/)
+## [Devmap Site](http://devmap.ml/)
