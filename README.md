@@ -26,10 +26,10 @@
 |[![GITHUB-jesussangho](https://img.shields.io/badge/GITHUB-jesussangho-blue?style=for-the-badge&logo=GitHub)](https://github.com/jesussangho)|👨 이상호|💻 Backend|
 |[![GITHUB-hyunhoh](https://img.shields.io/badge/GITHUB-hyunhoh-green?style=for-the-badge&logo=GitHub)](https://github.com/hyunhoh)|👨 한현호|💻 Backend|   
 
-# 🏷️ For project details
+# 📌 For project details
 ## [devmap Wiki](https://github.com/codestates/Devmap_client/wiki)
 
-# 📌 노션 문서
+# 🏷️ 노션 문서
 ## [Notion](https://www.notion.so/11-Democracy-Devmap-35ccb0767a47426195f06ae78f368ca7)
 
 # 💻 배포 링크
